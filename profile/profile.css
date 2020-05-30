@@ -19,6 +19,7 @@ body {
 button {
   border: 2px solid transparent;
   background-color: transparent;
+  opacity: 0.7;
   margin-left: 10px;
   margin-top: 30px;
 }
@@ -51,6 +52,7 @@ button.word_button:hover {
   border: 2px solid var(--pink);
   background-color: transparent;
   color: var(--pink);
+  opacity: 1;
 }
 
 button.word_button:focus {
@@ -58,14 +60,12 @@ button.word_button:focus {
 }
 
 div.header button.icon_button:hover {
+  opacity: 1;
   cursor: pointer;
   transform: scale(1.2);
 }
 
 div.header button.icon_button:focus {
-  border: 2px solid var(--pink);
-  background-color: var(--pink);
-  color: white;
   outline: none;
 }
 
@@ -92,7 +92,7 @@ div.profile_pages_buttons button.icon_button:focus {
 }
 
 div.profile_pages_buttons button img {
-  width: 40%;
+  width: 55%;
 }
 
 div.section_header {
