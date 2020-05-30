@@ -97,6 +97,7 @@ div.profile_pages_buttons button img {
 
 div.section_header {
   font-weight: bold;
+  text-align: left;
   color: white;
   font-size: 20px;
   padding: 5px 0px;
@@ -135,6 +136,8 @@ div#WELLNESS {
 
 div.profile_section {
   padding: 30px 60px;
+  text-align: center;
+  font-size: 15px;
 }
 
 .container .cups {
