@@ -1,27 +1,52 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap');
+
 :root {
   --background: rgb(232, 207, 193);
-  --salmon: 
+  --pink: rgb(204, 151, 153);
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans';
   background-color: var(--background);
 }
 
 /*HEADER_HEADER*/
 .header button {
-  border: none;
+  border: 2px solid white;
   background-color: none;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 .header button.icon_button {
   border-radius: 20px;
-  padding: 10px;
+  padding: 5px;
+  font-size: 22px;
+  transition: 0.3s;
+  background-color: white;
+  color: var(--pink);
+}
+
+.header button.word_button {
+  border-radius: 5px;
+  padding: 5px;
   font-size: 20px;
+  transition: 0.3s;
+  background-color: var(--pink);
+  color: white;
+  font-family: 'Open Sans';
+}
+
+.header button.word_button:hover {
+  cursor: pointer;
+  border: 2px solid var(--pink);
+  background-color: white;
+  color: var(--pink);
 }
 
 .header button.icon_button:hover {
-
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
 /*PROFILE_HEADER*/
