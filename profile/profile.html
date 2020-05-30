@@ -24,18 +24,21 @@
     </div>
 
     <div class="profile_pages_buttons">
-      <button class="icon_button" onclick="displayFeed()"><img src="assets/profile_pen.png"></img></button>
-      <button class="icon_button" onclick="displayWellness()"><img src="assets/profile_sun.png"></img></button>
+      <button id="feed_button" class="icon_button" onclick="displayFeed()"><img src="assets/profile_pen.png"></img></button>
+      <button id="wellness_button" class="icon_button" onclick="displayWellness()" style="margin-left: -30px;"><img src="assets/profile_sun.png"></img></button>
     </div>
 
 
-    <hr style="border: 1px solid rgb(196, 196, 196)">
+    <hr style="border: 1px solid var(--bluetransp); margin-top: -2px;">
 
-    <div id="FEED">
+    <div id="FEED" class="profile_section">
       This is the feed.
     </div>
 
-    <div id="WELLNESS">
+    <div id="WELLNESS" class="profile_section">
+      <div class="section_header"><span style="background-color: var(--yellow)">MOOD</span></div>
+      <div class="section_header"><span style="background-color: var(--pink)">HEALTH</span></div>
+      <p>How many cups of water have you drank today?</p>
       <div class="cups">
         <script>
           var onImg= "assets/health_cup_full.png";
@@ -50,6 +53,9 @@
         <input class="cup" type="image" src="assets/health_cup_empty.png" onclick="this.src = (this.src.endsWith(offImg)? onImg : offImg);"/>
         <input class="cup" type="image" src="assets/health_cup_empty.png" onclick="this.src = (this.src.endsWith(offImg)? onImg : offImg);"/>
       </div>
+      <br><br><br><br>
+      <div class="section_header"><span style="background-color: var(--blue)">NEWS</span></div>
+      <a class="twitter-timeline" data-lang="en" data-width="600" data-height="400" data-theme="white" href="https://twitter.com/goodnewsnetwork?ref_src=twsrc%5Etfw">Tweets by goodnewsnetwork</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
 
   </div>

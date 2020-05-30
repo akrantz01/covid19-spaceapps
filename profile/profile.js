@@ -1,22 +1,17 @@
 function displayFeed() {
     $("#FEED").show();
     $("#WELLNESS").hide();
+    $("#feed_button").css("opacity", 1);
+    $("#wellness_button").css("opacity", 0.3);
   }
 
 function displayWellness() {
     $("#WELLNESS").show();
+    $("#wellness_button").css("opacity", 1);
+    $("#feed_button").css("opacity", 0.3);
     $("#FEED").hide();
 }
 
 $(document).ready(function() {
-    document.getElementById('WELLNESS').style.display = 'none';
+    displayFeed();
 });
-
-
-function swap(elementid) {
-      document.getElementById(elementid).src = "assets/health_cup_full.png"; 
-}
-
-document.getElementById("cup1").addEventListener("click", function() {
-    swap("cup1");
-}, false);
