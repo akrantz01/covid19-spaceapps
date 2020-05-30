@@ -25,3 +25,9 @@ body {
   text-align: center;
   padding: 30px;
 }
+
+.container .profile_pages_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
