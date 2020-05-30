@@ -8,13 +8,20 @@ body {
   background-color: var(--background);
 }
 
+/*HEADER*/
+
 .container {
   position: relative;
   display: block;
-  max-width: 30em;
+  max-width: 40em;
   margin: 0 auto;
   margin-top: 50px;
   background-color: #ffffff;
   border-radius: .3em;
   box-shadow: 0 .1em 1em hsla(0, 0%, 0%, .2);
+}
+
+.container .profile_header {
+  text-align: center;
+  padding: 30px;
 }
