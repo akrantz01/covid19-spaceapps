@@ -12,6 +12,7 @@ $(document).ready(function() {
     document.getElementById('WELLNESS').style.display = 'none';
 });
 
+
 function swap(elementid) {
       document.getElementById(elementid).src = "assets/health_cup_full.png"; 
 }
