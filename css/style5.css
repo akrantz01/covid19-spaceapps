@@ -1,176 +1,234 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap');
+
 html, body
 {
-	overflow-x: hidden; 
-	margin: 0px; 
+	overflow-x: hidden;
+	margin: 0px;
 	min-width: 100%;
-	max-width: 100%; 
+	max-width: 100%;
 	min-height: 100%;
-	max-height: 100%; 
+	max-height: 100%;
+	background-color: var(--background);
+	font-family: 'Open Sans';
 }
+
+:root {
+  --background: rgb(232, 207, 193);
+  --yellow: rgb(233, 188, 164);
+  --pink: rgb(230, 153, 149);
+  --darkpink: rgb(204, 150, 152);
+  --purple: rgb(166, 143, 155);
+  --blue: rgb(135, 138, 149);
+  --bluetransp: rgba(135, 138, 149, 0.3);
+}
+
+/*HEADER_HEADER*/
+button {
+  border: 2px solid transparent;
+  background-color: transparent;
+  opacity: 0.7;
+  margin-left: 10px;
+  margin-top: 30px;
+}
+
+button.icon_button img {
+	width: 100px;
+	margin-left: 10px;
+}
+
+button.icon_button {
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 28px;
+  background-color: transparent;
+  color: var(--pink);
+}
+
+button.word_button {
+  border-radius: 5px;
+  border-color: var(--pink);
+  padding: 5px;
+  width: 80px;
+  font-size: 20px;
+  margin-left: 0px;
+  background-color: var(--pink);
+  color: white;
+  font-family: 'Open Sans';
+  font-weight: bold;
+}
+
+button.word_button:hover {
+  cursor: pointer;
+  border: 2px solid var(--pink);
+  background-color: transparent;
+	transition: 0.3s background-color;
+  color: var(--pink);
+  opacity: 1;
+}
+
+button.word_button:focus {
+  outline: none;
+}
+
+div.header button.icon_button:hover {
+  opacity: 1;
+  cursor: pointer;
+	transition: 0.3s transform;
+  transform: scale(1.1);
+}
+
+div.header button.icon_button:focus {
+  outline: none;
+}
+
+/*SCROLL*/
 
 ::-webkit-scrollbar-track
 {
-	//border: 5px solid black;
-	border: none; s
-	// border color does not support transparent on scrollbar
-	// border-color: transparent;
-	//background-color: #b2bec3;
-	background-color:  rgb(232, 207, 193);  
-	//background-color: transparent; 
+	border: none;
+	background-color: var(--background);
 }
 
 ::-webkit-scrollbar
 {
 	width: 15px;
-	//background-color: #dfe6e9;
-	background-color: white; 
+	background-color: white;
 }
 
 ::-webkit-scrollbar-thumb
 {
-	//background-color: #74b9ff;
 	background-color: white;
 	border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb:hover 
+::-webkit-scrollbar-thumb:hover
 {
   	background-color: mistyrose;
 }
 
-.main-container
-{ 
-	overflow-x: hidden; 
-  	min-width: 100%;
-	max-width: 100%;
-	max-height: 100%;
-	min-height: 100%;  
-	height: 1000px; 
-	overflow-y: scroll;  
-	position: relative; 
-	top: 0; 
-	left: 0;
-	//background-image: url("../Load_background/Forest.jpg"); 
-	background-color: rgb(232, 207, 193)
+.container
+{
+	position: relative;
+  display: block;
+  max-width: 40em;
+  margin: 0 auto;
+  margin-top: 50px;
+  background-color: #ffffff;
+  border-radius: .9em;
+  box-shadow: 10px 10px var(--blue);
+  height: auto;
+  min-height: 100% !important;
+}
+
+.container .main_header {
+  text-align: center;
+  padding: 30px;
 }
 
 h5
 {
-	color: black; 
-	font-family: 'Chelsea Market', cursive;
-	font-size: 30px; 
-	margin-bottom: 38px; 
-	float: left; 
-	margin-left: 3%; 
+	color: black;
+	font-size: 30px;
+	margin-bottom: 38px;
+	float: left;
+	margin-left: 3%;
 }
 
 textarea
 {
-	margin-top: -30px; 
-	margin-left: 3%; 
+	margin-top: -30px;
+	margin-left: 3%;
 	width: calc(93%);
-	margin-bottom: 10px; 
+	margin-bottom: 10px;
 }
 
+/*
 .btn5
 {
-	width: 70px; 
+	width: 70px;
 	height: 30px;
-	margin-left: 3%; 
+	margin-left: 3%;
 	background-color: black;
-	color: white; 
-	font-family: 'Chelsea Market', cursive;
+	color: white;
 	border: none;
-	outline: none; 
-	font-size: 15px; 
+	outline: none;
+	font-size: 15px;
 }
 
 .btn6
 {
-	width: 70px; 
+	width: 70px;
 	height: 30px;
-	float: right; 
-	margin-top: 1%; 
-	margin-right: 200%; 
+	float: right;
+	margin-top: 1%;
+	margin-right: 200%;
 	background-color: white;
-	color: black; 
-	font-family: 'Chelsea Market', cursive;
+	color: black;
 	border: none;
-	outline: none; 
-	font-size: 15px; 
+	outline: none;
+	font-size: 15px;
 }
 
 .btn6:hover
 {
-	background-color: black; 
-	color: white; 
-	cursor: crosshair; 
-}
+	background-color: black;
+	color: white;
+	cursor: pointer;
+} */
 
 h1
 {
-	margin-top: 20px; 
-	color: black; 
-	font-family: 'Chelsea Market', cursive;
-	font-size: 60px; 
-	margin-bottom: 0px; 
+	margin-top: 20px;
+	color: black;
+	font-size: 60px;
+	margin-bottom: 0px;
 }
 
 p
 {
-	color: black;  
-	font-family: 'Chelsea Market', cursive;
-	font-size: 20px; 
-	margin-bottom: -40px; 
+	color: black;
+	font-size: 20px;
+	margin-bottom: -40px;
 }
 
+/*
 .btn5:hover
-{ 
+{
 	color: black;
 	background-color: white;
-	cursor: crosshair; 
-}
+	cursor: pointer;
+}*/
 
-.Astronaut
+.ringBell, .ringBell:after
 {
-	position; relative; 
-	margin-left: 3%; 
-	margin-top: 2%;    
-	height: 80px; 
-	width: 80px; 
-	margin-bottom: 0px; 
-}
-
-.ringBell, .ringBell:after 
-{ 
-  float: right; 
-  left: 88%; 
+  float: right;
+  left: 88%;
   width: 30px;
   height: 30px;
 }
 
-.-count, .-count:before, .ringBell:after 
+.-count, .-count:before, .ringBell:after
 {
   position: absolute;
 }
 
 .-count, .-count:before
 {
-  float: right; 
-  left: 88%; 
+  float: right;
+  left: 88%;
   width: 20px;
   height: 20px;
   margin: 0px 0px;
   border-radius: 30%;
 }
 
-.ringBell 
+.ringBell
 {
   margin: 3% auto;
   cursor: pointer;
 }
 
-.ringBell:after 
+.ringBell:after
 {
   content: '';
   transform-origin: top;
@@ -178,12 +236,12 @@ p
   background-size: cover;
 }
 
-.ringBell:hover:after 
+.ringBell:hover:after
 {
   animation: ring .16s ease-in-out 5;
 }
 
-@keyframes ring 
+@keyframes ring
 {
   0% {
     transform: rotate(18deg);
@@ -196,7 +254,7 @@ p
   }
 }
 
-.-count 
+.-count
 {
   display: flex;
   flex-flow: row wrap;
@@ -212,21 +270,21 @@ p
   z-index: 90;
 }
 
-.-count:before 
+.-count:before
 {
   content: '';
   box-sizing: border-box;
   border: 1.5px solid red;
-  margin-left: -17px; 
-  margin-top: 0px; 
+  margin-left: -17px;
+  margin-top: 0px;
 }
 
-.ringBell:hover .-count:before 
+.ringBell:hover .-count:before
 {
   animation: pulse .6s ease-out;
 }
 
-@keyframes pulse 
+@keyframes pulse
 {
   from {
     opacity: 1;
@@ -238,48 +296,52 @@ p
   }
 }
 
-.toggle-switch input[type=checkbox] 
+.toggle-switch input[type=checkbox]
 {
 	display:none
 }
 
-.toggle-switch label 
+.toggle-switch label
 {
-	cursor:crosshair;
+	cursor: pointer;
 }
 
-.toggle-switch label .toggle-track 
+.toggle-switch label .toggle-track
 {
-	float: left; 
-  	display:block;
+	float: left;
+  display: block;
 	height:30px;
 	width:60px;
-	background:#eee;
+	background: var(--blue);
 	border-radius:20px;
-  	position:relative;
-  	margin-bottom:0px;
-	border:1px solid #ccc;
-	margin-left: 93%; 
-	margin-top: 3%; 
-	margin-bottom: -3%;  
+  position:relative;
+  margin-bottom:0px;
+	margin-left: 85%;
+	margin-top: 9%;
+	margin-bottom: -3%;
 }
 
 .toggle-switch .toggle-track:before
 {
-  	content:'';
-  	display:inline-block;
+  content:'';
+  display:inline-block;
 	height:30px;
 	width:30px;
-	background:red;
-  	border-radius:20px;
-  	position:absolute;
-  	top:0;
-  	right:0;
-  	transition:right .2s ease-in;
+	background: var(--yellow);
+  border-radius:20px;
+  position:absolute;
+  top:0;
+  right:0;
+  transition:right .2s ease-in;
 }
 
 .toggle-switch input[type="checkbox"]:checked + label .toggle-track:before
 {
-  	background:green;
-  	right:40px;
+  	background: var(--pink);
+  	right: 30px;
+}
+
+textarea {
+	border: 1px solid var(--darkpink);
+	resize: none;
 }
