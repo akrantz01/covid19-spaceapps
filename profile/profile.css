@@ -1,6 +1,6 @@
 :root {
   --background: rgb(232, 207, 193);
-  --
+  --salmon: 
 }
 
 body {
@@ -8,7 +8,23 @@ body {
   background-color: var(--background);
 }
 
-/*HEADER*/
+/*HEADER_HEADER*/
+.header button {
+  border: none;
+  background-color: none;
+}
+
+.header button.icon_button {
+  border-radius: 20px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.header button.icon_button:hover {
+
+}
+
+/*PROFILE_HEADER*/
 
 .container {
   position: relative;
