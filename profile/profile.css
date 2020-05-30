@@ -19,7 +19,7 @@ body {
 }
 
 .header button.icon_button {
-  border-radius: 20px;
+  border-radius: 5px;
   padding: 5px;
   font-size: 28px;
   transition: 0.3s;
@@ -48,9 +48,20 @@ body {
   color: var(--pink);
 }
 
+.header button.word_button:focus {
+  outline: none;
+}
+
 .header button.icon_button:hover {
   cursor: pointer;
   transform: scale(1.2);
+}
+
+.header button.icon_button:focus {
+  border: 2px solid var(--pink);
+  background-color: var(--pink);
+  color: white;
+  outline: none;
 }
 
 /*PROFILE_HEADER*/
