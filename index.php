@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <head>
 	<link rel="shortcut icon" href="Icons/Icons4.ico">
-	<title>UNWISE-LOGIN.com</title>
+	<title>CSSI</title>
 	<script src = "js/script.js"></script>
 	<link rel="stylesheet" href="css/style5.css">
 	<link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
