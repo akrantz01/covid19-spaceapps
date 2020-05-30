@@ -15,13 +15,13 @@ body {
   border: 2px solid white;
   background-color: none;
   margin-left: 10px;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 .header button.icon_button {
   border-radius: 20px;
   padding: 5px;
-  font-size: 22px;
+  font-size: 28px;
   transition: 0.3s;
   background-color: white;
   color: var(--pink);
@@ -30,7 +30,9 @@ body {
 .header button.word_button {
   border-radius: 5px;
   padding: 5px;
+  width: 80px;
   font-size: 20px;
+  margin-left: 0px;
   transition: 0.3s;
   background-color: var(--pink);
   color: white;
