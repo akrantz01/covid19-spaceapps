@@ -43,6 +43,7 @@ app.use(cors({ origin: true }))
             .catch(_ => res.status(401).json({ status: "error", reason: "unauthorized" }));
     })
     .use("/posts", require("./posts"))
+    .use("/comments", require("./comments"))
     .all("*", (_, res) => res.status(404).json({ status: "error", reason: "not found" }));
 
 exports.api = functions.https.onRequest(app);
