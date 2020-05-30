@@ -29,6 +29,7 @@ body {
 
 .header button.word_button {
   border-radius: 5px;
+  border-color: var(--pink);
   padding: 5px;
   width: 80px;
   font-size: 20px;
@@ -37,6 +38,7 @@ body {
   background-color: var(--pink);
   color: white;
   font-family: 'Open Sans';
+  font-weight: bold;
 }
 
 .header button.word_button:hover {
