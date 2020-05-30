@@ -1,13 +1,13 @@
 function displayFeed() {
-    document.getElementById("FEED").display = "block";
-    document.getElementById("WELLNESS").display = "none";
-  } 
+    $("#FEED").show();
+    $("#WELLNESS").hide();
+  }
 
 function displayWellness() {
-    document.getElementById("WELNESS").display = "block";
-    document.getElementById("FEED").display = "none";
-} 
+    $("#WELLNESS").show();
+    $("#FEED").hide();
+}
 
-window.onload = function() {
+$(document).ready(function() {
     document.getElementById('WELLNESS').style.display = 'none';
-};
+});
