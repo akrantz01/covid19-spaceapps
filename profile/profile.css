@@ -31,3 +31,9 @@ body {
   flex-direction: row;
   justify-content: space-around;
 }
+
+.container .cups {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
