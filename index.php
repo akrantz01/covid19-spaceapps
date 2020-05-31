@@ -14,7 +14,7 @@
  <body>
 <div class="container">
     <div class="modal-header">
-       <a href="index.html" class="btn btn-info btn-lg" style="float: right; height: 28px; width: 50px; padding-top: 5px; background-color: hotpink; border: none; outline: none;">
+       <a href="index.html" class="btn btn-info btn-lg" style="float: right; height: 28px; width: 40px; padding-top: 5px; background-color: pink; border: none; outline: none;">
           <span class="glyphicon glyphicon-remove"></span> 
         </a>
       <h2>Add a comment!</h2>
@@ -33,6 +33,15 @@
    </form>
    <span id="comment_message"></span>
    <br />
+    <div class="modal-header2">
+   	<h2>Chat Log</h2>
+        <div class="toggle-switch">
+		<input type="checkbox" id="chkTest" name="chkTest">
+		<label for="chkTest">
+		<span class="toggle-track"></span>
+	</label>
+	</div>
+  </div>
    <div id="display_comment"></div>
   </div>
 </div>
