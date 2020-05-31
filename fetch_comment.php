@@ -3,12 +3,11 @@
 //Table name is tbl_comment
 
 /*
-   There are 5 boxes in the table (used in both storing and fetching the user info)
-   1. comment_id      type: int          length/value: 11                                     extra: Auto_Increment (Remember to check the checkbox that says A.I)  
-   2. comment_id      type: int          length/value: 11                                     extra: 
-   3. comment_id      type: varchar      length/value: 200    collation: utf8_general_ci      extra:   
-   4. comment_id      type: varchar      length/value: 40     collation: utf8_general_ci      extra:   
-   5. comment_id      type: timestamp    length/value: N/A                                    extra: N/A  
+   1. comment_id             type: int          length/value: 11                                     extra: Auto_Increment (Remember to check the checkbox that says A.I)  
+   2. parent_comment_id      type: int          length/value: 11                                     extra: 
+   3. comment                type: varchar      length/value: 200    collation: utf8_general_ci      extra:   
+   4. comment_sender_name    type: varchar      length/value: 40     collation: utf8_general_ci      extra:   
+   5. date                   type: timestamp    length/value: N/A                                    extra: N/A  
 */
 
 <?php
