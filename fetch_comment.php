@@ -1,3 +1,7 @@
+<?php
+
+//fetch_comment.php
+
 //I used phpmyadmin for this. 
 //Databse name is testing. 
 //Table name is tbl_comment
@@ -9,10 +13,6 @@
    4. comment_sender_name    type: varchar      length/value: 40     collation: utf8_general_ci      extra:   
    5. date                   type: timestamp    length/value: N/A                                    extra: N/A  
 */
-
-<?php
-
-//fetch_comment.php
 
 $connect = new PDO('mysql:host=localhost;dbname=testing', 'root', ''); //Goes like this: 'database path, username, password' 
                                                                        //As default there is no password so leave it blank unless you create your phpmyadmim with a password. 
