@@ -65,21 +65,26 @@
       <img src="profile/assets/border.png" style="width: 120px; margin-top: -10px;"></img>
       <p style="font-size: 18px;">It is a long established fact that a reader will be distracted by the readable content...</p>
     </div>
-   <h2>Comments</h2>
-   <div class="toggle-switch">
+    <h2>Comments</h2>
+    <div class="toggle-switch">
   		<input type="checkbox" id="chkTest" name="chkTest">
   		<label for="chkTest">
     			<span class="toggle-track"></span>
   		</label>
 	</div>
-	<div class='rightPanel'>
-		<form name=my_form method=post>
-		<input type='hidden' name='uid' value='Anonymous'>
-		<input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'> 
-		<textarea onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); id="tweet" name=my_text></textarea><br>
-		<input size=1 value=285/285 name=text_num>
-		<button class='btn5' name='submit' type='submit'>Comment</button> 
-		</form>
+	<div class='commentBox'> 
+		<div class='leftPanel'>
+			<a href="#"><img src="image/Astronaut.png" class="Astronaut2"></a>
+		</div>
+		<div class='rightPanel'>
+			<form name=my_form method=post>
+			<input type='hidden' name='uid' value='Anonymous'>
+			<input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'> 
+			<textarea onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); id="tweet" name=my_text></textarea><br>
+			<input size=1 value=285/285 name=text_num>
+			<button class='btn5' name='submit' type='submit'>Comment</button> 
+			</form>
+		</div>
 	</div>
 </body>
 
