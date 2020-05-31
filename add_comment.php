@@ -15,7 +15,8 @@
 
 //add_comment.php
 
-$connect = new PDO('mysql:host=localhost;dbname=testing', 'root', ''); 
+$connect = new PDO('mysql:host=localhost;dbname=testing', 'root', ''); //Goes like this: 'database path, username, password' 
+                                                                       //As default there is no password so leave it blank unless you create your phpmyadmim with a password. 
 
 $error = '';
 $comment_name = '';
