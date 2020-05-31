@@ -245,6 +245,12 @@ textarea:focus
 	margin-bottom: 0%;
 }
 
+.switch {
+	position: absolute;
+	margin-top: -25px;
+	margin-left: 520px;
+}
+
 .toggle-switch input[type=checkbox]
 {
 	display:none
@@ -450,4 +456,33 @@ div.feed #word-count {
 
 div.feed #word-count:focus {
 	outline: none;
+}
+
+/*COMMENTS*/
+div.comments {
+	display: none;
+}
+
+/*POSTS*/
+div.posts {
+	margin-top: 10px;
+}
+
+div.post {
+	border-bottom: 1px solid var(--pink);
+	padding: 20px;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+div.post .post-header {
+	font-weight: bold;
+	font-size: 15px;
+	margin-left: -5px;
+}
+
+div.post:hover {
+	box-shadow: 0px 4px var(--pink);
+	-webkit-transform: translateY(-8px);
+	transform: translateY(-8px);
 }

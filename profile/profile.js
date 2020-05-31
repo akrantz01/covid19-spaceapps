@@ -69,10 +69,10 @@ function createNewFriendRequestNotif(text) {
   notif.appendChild(document.createTextNode(text + " sent you a friend request!"));
   let acceptButton = document.createElement("button");
   acceptButton.innerHTML = "Y";
-  acceptButton.setAttribute('onclick', respondToRequest(text, true, notif));
+  acceptButton.setAttribute('onclick', 'respondToRequest(text, true, notif)');
   let rejectButton = document.createElement("button");
   rejectButton.innerHTML = "N";
-  rejectButton.setAttribute('onclick', respondToRequest(text, false, notif));
+  rejectButton.setAttribute('onclick', 'respondToRequest(text, false, notif)');
   notif.appendChild(document.createElement("br"));
   notif.appendChild(acceptButton);
   notif.appendChild(rejectButton);

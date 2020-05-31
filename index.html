@@ -10,8 +10,8 @@
 <head>
   <title>CSSI</title>
   <link rel="stylesheet" href="css/style5.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script type="text/javascript" src="index.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="index.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Staatliches&display=swap" rel="stylesheet">
@@ -19,30 +19,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Crete+Round&display=swap" rel="stylesheet">
   <script language=JavaScript>
-  	<!--
-	function check_length(my_form)
-	{
-		maxLen = 285;
-		if (my_form.my_text.value.length >= maxLen)
-		{
-			var msg = "You have reached your maximum limit of characters allowed";
-			alert(msg);
-			my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
- 		}
-		else{
-			my_form.text_num.value = maxLen - my_form.my_text.value.length;
-		}
-	}
-	//-->
- </script>
+    <!--
+    function check_length(my_form) {
+      maxLen = 285;
+      if (my_form.my_text.value.length >= maxLen) {
+        var msg = "You have reached your maximum limit of characters allowed";
+        alert(msg);
+        my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
+      } else {
+        my_form.text_num.value = maxLen - my_form.my_text.value.length;
+      }
+    }
+    //-->
+  </script>
 </head>
 
 <body>
   <div class="container">
-	  <div class="ringBell">
-  		<a href="#"><span class="-count">!</span></a>
-	</div>
-	<div id="notif_parent_container"></div>
+    <div class="ringBell">
+      <a href="#"><span class="-count">!</span></a>
+    </div>
+    <div id="notif_parent_container"></div>
     <div class="header">
       <button class="icon_button" style="position: absolute;" onclick="goProfile()"><img src="profile/assets/picture.png"></img></button>
       <button class="word_button" id="post" onclick="goPost()">POST</button>
@@ -62,31 +59,45 @@
       <img src="profile/assets/border.png" style="width: 120px; margin-top: -10px;"></img>
       <p style="font-size: 18px;">It is a long established fact that a reader will be distracted by the readable content...</p>
     </div>
-		<div class="feed">
-    <h2>Comments</h2>
-    <div class="toggle-switch">
-  		<input type="checkbox" id="chkTest" name="chkTest">
-  		<label for="chkTest">
-    			<span class="toggle-track"></span>
-  		</label>
-	</div>
-	<div class='commentBox'>
-		<input type='hidden' name='uid' value='Anonymous'>
-		<input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
-		<div class='leftPanel'>
-			<a href="#"><img src="image/Astronaut.png" class="Astronaut2"></a>
-		</div>
-		<div class='rightPanel'>
-			<form name=my_form method=post>
-			<input type='hidden' name='uid' value='Anonymous'>
-			<input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
-			<textarea onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); id="tweet" name=my_text></textarea><br>
-			<input id="word-count" size=1 value=285 name=text_num readonly>
-			<button class='btn5' name='submit' type='submit'>Comment</button>
-			</form>
-		</div>
-	</div>
-	</div>
+
+    <div class="feed">
+			<div class="switch">
+				<div class="toggle-switch">
+					<input type="checkbox" id="chkTest" name="chkTest">
+					<label for="chkTest">
+						<span class="toggle-track"></span>
+					</label>
+				</div>
+			</div>
+			<div class="posts" id="post-parent">
+			</div>
+      <div class="comments">
+				<div class="posts">
+					<div class="post">
+						<div class="post-header"></div>
+						<br>
+						<p></p>
+					</div>
+				</div>
+        <h2>Comments</h2>
+        <div class='commentBox'>
+          <input type='hidden' name='uid' value='Anonymous'>
+          <input type='hidden' name='date' value='".date(' Y-m-d H:i:s')."'>
+          <div class='leftPanel'>
+            <a href="#"><img src="image/Astronaut.png" class="Astronaut2"></a>
+          </div>
+          <div class='rightPanel'>
+            <form name=my_form method=post>
+              <input type='hidden' name='uid' value='Anonymous'>
+              <input type='hidden' name='date' value='".date(' Y-m-d H:i:s')."'>
+              <textarea onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); id="tweet" name=my_text></textarea><br>
+              <input id="word-count" size=1 value=285 name=text_num readonly>
+              <button class='btn5' name='submit' type='submit'>Comment</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
 
 </html>

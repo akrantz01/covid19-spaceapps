@@ -5,13 +5,17 @@ function goProfile() {
 $(document).ready(function() {
   saveProfile(); //calls every time on profile? okay for preview?
   updateCount();
+  getPosts();
+
   $(".ringBell").click(function() {
     if (notif_container == null) Self.notifications('secure-testing-auth').then(readNotifs);
     else hideNotifs();
   });
+
   $('html').click(function(e) {
     if (e.target.id != 'notif_container' && notif_container != null) hideNotifs();
   });
+
 });
 
 function saveProfile() {
@@ -24,6 +28,43 @@ function saveProfile() {
   } else {
     $("#name").html("Hi " + localStorage.getItem('Name').toUpperCase() + "!");
   }
+}
+
+//POSTS//
+
+function getPosts(){
+  let postArray;
+  Posts.list('secure-testing-auth').then(function(e){
+    postArray = e.data;
+    for(let i=0;i < postArray.length; i++) {
+      generatePost(postArray[i].by, postArray[i].content, postArray[i].id);
+    }
+  });
+}
+
+function showPost(id){
+  $("div.comments").show();
+  //Posts.read(id, 'secure-testing-auth').then(console.log);
+  //$(".comments .post-header").html(user);
+  //$(".comments .post p").html(text);
+
+}
+
+function generatePost(user, text, id){
+  let post = document.createElement('div');
+  document.getElementById("post-parent").appendChild(post);
+  post.setAttribute("class", "post");
+
+  let postHeader = document.createElement('div');
+  post.appendChild(postHeader);
+  postHeader.setAttribute('class', 'post-header');
+  postHeader.appendChild(document.createTextNode(user));
+  post.appendChild(document.createElement("br"));
+  let postBody = document.createTextNode(text);
+  post.appendChild(postBody);
+
+  post.setAttribute('onclick', 'showPost(id);');
+  $("div.comments").hide();
 }
 
 //NOTIFICATIONS//
@@ -69,10 +110,10 @@ function createNewFriendRequestNotif(text) {
   notif.appendChild(document.createTextNode(text + " sent you a friend request!"));
   let acceptButton = document.createElement("button");
   acceptButton.innerHTML = "Y";
-  acceptButton.setAttribute('onclick', respondToRequest(text, true, notif));
+  acceptButton.setAttribute('onclick', 'respondToRequest(text, true, notif)');
   let rejectButton = document.createElement("button");
   rejectButton.innerHTML = "N";
-  rejectButton.setAttribute('onclick', respondToRequest(text, false, notif));
+  rejectButton.setAttribute('onclick', 'respondToRequest(text, false, notif)');
   notif.appendChild(document.createElement("br"));
   notif.appendChild(acceptButton);
   notif.appendChild(rejectButton);
@@ -136,4 +177,28 @@ class Self {
       accept: accept
     });
   }
+}
+
+// Interact with post data
+class Posts {
+    // List all posts ordered by the most recent post
+    static async list(token) {
+        return await sendRequest("GET", "/posts", token);
+    }
+
+    // Write a new post
+    static async create(content, token) {
+        return await sendRequest("POST", "/posts", token, { content: content });
+    }
+
+    // Get the finer details about a post
+    // This includes comments and any other data that is added in the future
+    static async read(post_id, token) {
+        return await sendRequest("GET", `/posts/${post_id}`, token);
+    }
+
+    // Make a comment on a post
+    static async comment(post_id, content, token) {
+        return await sendRequest("POST", `/comments/${post_id}`, token, { content: content });
+    }
 }
