@@ -13,10 +13,12 @@ function displayWellness() {
   $("#pol").hide();
 }
 
+var toggled = true;
 $(document).ready(function() {
   displayFeed();
   updateProfile();
   updateCount();
+  getPosts(toggled);
   $(".ringBell").click(function() {
     if (notif_container == null) Self.notifications('secure-testing-auth').then(readNotifs);
     else hideNotifs();
@@ -25,6 +27,127 @@ $(document).ready(function() {
     if (e.target.id != 'notif_container' && notif_container != null) hideNotifs();
   });
 });
+
+//POSTS//
+
+function toMainFeed(){
+  $("#post-parent").show();
+  $(".comments").hide();
+  $(".switch").show();
+}
+
+function getPosts(toggleOn){
+  document.getElementById("post-parent").querySelectorAll('*').forEach(n=>n.remove());
+  let postArray;
+  Posts.list('secure-testing-auth').then(function(e){
+    postArray = e.data;
+    if(toggleOn){
+      for(let i=0;i < postArray.length; i++) {
+        if (calcTonePositivity(postArray[i].tones) > 0.5 && postArray[i].by === 'user-id'){
+          generatePost(postArray[i].by, postArray[i].content, postArray[i].id, postArray[i].tones);
+        }
+      }
+    } else {
+      for(let i=0;i < postArray.length; i++) {
+        if (postArray[i].by === 'user-id') {
+          generatePost(postArray[i].by, postArray[i].content, postArray[i].id, postArray[i].tones);
+        }
+      }
+    }
+    $("#loading").hide();
+  });
+}
+
+function togglePos(){
+  console.log(toggled);
+  if (toggled === true)  toggled = false;
+  else  toggled = true;
+  getPosts(toggled);
+}
+
+let commentArray;
+
+function calcTonePositivity(arr) {
+  var total = 0;
+  var num = 0;
+  for (var i=0; i < arr.length; i++){
+    if (arr[i].tone_id === 'anger' || arr[i].tone_id === 'sadness' || arr[i].tone_id === 'fear') {
+      total -= arr[i].score;
+      num += 1;
+    } else if (arr[i].tone_id === 'joy' || arr[i].tone_id === 'confident'){
+      total += arr[i].score;
+      num += 1;
+    }
+  }
+  if (num > 0)  return ((total/num+1)/2);
+  return 0.5;
+}
+
+function lerpColor(a, b, amount) {
+
+  var ah = parseInt(a.replace(/#/g, ''), 16),
+      ar = ah >> 16, ag = ah >> 8 & 0xff, ab = ah & 0xff,
+      bh = parseInt(b.replace(/#/g, ''), 16),
+      br = bh >> 16, bg = bh >> 8 & 0xff, bb = bh & 0xff,
+      rr = ar + amount * (br - ar),
+      rg = ag + amount * (bg - ag),
+      rb = ab + amount * (bb - ab);
+
+  return '#' + ((1 << 24) + (rr << 16) + (rg << 8) + rb | 0).toString(16).slice(1);
+}
+
+function generatePost(user, text, id, arr){
+  let post = document.createElement('div');
+  document.getElementById("post-parent").appendChild(post);
+  post.setAttribute("class", "post");
+  let postHeader = document.createElement('div');
+  post.appendChild(postHeader);
+  postHeader.setAttribute('class', 'post-header');
+  postHeader.appendChild(document.createTextNode(user));
+  post.appendChild(document.createElement("br"));
+  let postBody = document.createTextNode(text);
+  post.appendChild(postBody);
+
+  var pos = calcTonePositivity(arr);
+  var color = lerpColor('#de5466', '#ebb859', pos);
+  post.style.color = color;
+  post.style.borderBottomColor = color;
+
+  post.addEventListener('click', function(){
+    Posts.read(id, 'secure-testing-auth').then(function(e){
+      $(".comments .post-header").html(user);
+      $(".comments .post p").html(text);
+      $(".comments .post").attr('id', id);
+      $(".comments .post p").css("color", color);
+
+      let parent = document.getElementById("comment-parent");
+
+      if(commentArray==undefined || commentArray==null){
+        commentArray = e.data.comments;
+        for(let i=0; i < commentArray.length; i++) createNewComment(parent, commentArray[i].by, commentArray[i].content);
+      } else if (commentArray != e.data.comments) {
+        parent.querySelectorAll('*').forEach(n=>n.remove());
+        commentArray = e.data.comments;
+        for(let i=0; i < commentArray.length; i++) createNewComment(parent, commentArray[i].by, commentArray[i].content);
+      }
+
+      $("#post-parent").hide();
+      $(".comments").show();
+      $(".switch").hide();
+    });
+  });
+  $("div.comments").hide();
+}
+
+function createNewComment(parent, user, text){
+  let comment = document.createElement('div');
+  parent.appendChild(comment);
+  comment.setAttribute("class", "comment");
+  let commentHeader = document.createElement('div');
+  comment.appendChild(commentHeader);
+  commentHeader.appendChild(document.createTextNode(user + " says: " + text));
+}
+
 
 //NOTIFICATIONS//
 let notif_container = null;
@@ -193,5 +316,29 @@ class Self {
       friend: user_id,
       accept: accept
     });
+  }
+}
+
+// Interact with post data
+class Posts {
+  // List all posts ordered by the most recent post
+  static async list(token) {
+      return await sendRequest("GET", "/posts", token);
+  }
+
+  // Write a new post
+  static async create(content, token) {
+      return await sendRequest("POST", "/posts", token, { content: content });
+  }
+
+  // Get the finer details about a post
+  // This includes comments and any other data that is added in the future
+  static async read(post_id, token) {
+      return await sendRequest("GET", `/posts/${post_id}`, token);
+  }
+
+  // Make a comment on a post
+  static async comment(post_id, content, token) {
+      return await sendRequest("POST", `/comments/${post_id}`, token, { content: content });
   }
 }
