@@ -41,9 +41,10 @@ function toMainFeed(){
 function getPosts(){
   let postArray;
   Posts.list('secure-testing-auth').then(function(e){
+    console.log(e);
     postArray = e.data;
     for(let i=0;i < postArray.length; i++) {
-      generatePost(postArray[i].by, postArray[i].content, postArray[i].id);
+      generatePost(postArray[i].by, postArray[i].content, postArray[i].id, postArray[i].tones);
     }
     $("#loading").hide();
   });
@@ -51,7 +52,36 @@ function getPosts(){
 
 let commentArray;
 
-function generatePost(user, text, id){
+function calcTonePositivity(arr) {
+  var total = 0;
+  var num = 0;
+  for (var i=0; i < arr.length; i++){
+    if (arr[i].tone_id === 'anger' || arr[i].tone_id === 'sadness' || arr[i].tone_id === 'fear') {
+      total -= arr[i].score;
+      num += 1;
+    } else if (arr[i].tone_id === 'joy' || arr[i].tone_id === 'confident'){
+      total += arr[i].score;
+      num += 1;
+    }
+  }
+  if (num > 0)  return ((total/num+1)/2);
+  return 0.5;
+}
+
+function lerpColor(a, b, amount) { 
+
+  var ah = parseInt(a.replace(/#/g, ''), 16),
+      ar = ah >> 16, ag = ah >> 8 & 0xff, ab = ah & 0xff,
+      bh = parseInt(b.replace(/#/g, ''), 16),
+      br = bh >> 16, bg = bh >> 8 & 0xff, bb = bh & 0xff,
+      rr = ar + amount * (br - ar),
+      rg = ag + amount * (bg - ag),
+      rb = ab + amount * (bb - ab);
+
+  return '#' + ((1 << 24) + (rr << 16) + (rg << 8) + rb | 0).toString(16).slice(1);
+}
+
+function generatePost(user, text, id, arr){
   let post = document.createElement('div');
   document.getElementById("post-parent").appendChild(post);
   post.setAttribute("class", "post");
@@ -62,9 +92,15 @@ function generatePost(user, text, id){
   post.appendChild(document.createElement("br"));
   let postBody = document.createTextNode(text);
   post.appendChild(postBody);
+  
+  var pos = calcTonePositivity(arr);
+  var color = lerpColor('#F06B43', '#F1A075', pos);
+  post.style.backgroundColor = color;
+
 
   post.addEventListener('click', function(){
     Posts.read(id, 'secure-testing-auth').then(function(e){
+      console.log(e);
       $(".comments .post-header").html(user);
       $(".comments .post p").html(text);
 
@@ -95,6 +131,7 @@ function createNewComment(parent, user, text){
   comment.appendChild(commentHeader);
   commentHeader.appendChild(document.createTextNode(user + " says: " + text));
 }
+
 
 //NOTIFICATIONS//
 let notif_container = null;
