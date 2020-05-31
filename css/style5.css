@@ -535,7 +535,7 @@ div#post-parent .post:hover {
 
 #profile-description {
 	width: 100%;
-  margin-top: 50px;
+  margin-top: 10px;
   position: relative;
 }
 
@@ -545,8 +545,8 @@ div#post-parent .post:hover {
   margin-bottom: 5px;
   color: #777;
   padding: 0 15px;
-  font-family: Arial;
-  font-size: 14px;
+  font-family: 'Open Sans';
+  font-size: 12px;
   display: block;
 }
 
