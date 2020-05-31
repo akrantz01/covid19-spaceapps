@@ -535,5 +535,6 @@ div#post-parent .post:hover {
 
 #profile-description .show-more-height {
   height: 30px;
+  margin-top: -10px;
   overflow: hidden;
 }
