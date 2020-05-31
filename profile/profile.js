@@ -10,6 +10,7 @@ function displayWellness() {
     $("#wellness_button").css("opacity", 1);
     $("#feed_button").css("opacity", 0.3);
     $("#FEED").hide();
+    $("#pol").hide();
 }
 
 $(document).ready(function() {
@@ -18,15 +19,17 @@ $(document).ready(function() {
 
 //backend people: change the following function for pollution detection!
 function chngimg() {
-    var tree = document.getElementById('tree').src;
-    var house = document.getElementById('house').src;
-    if (true) { //In particular, change this!!!
-        document.getElementById('tree').src  = 'assets/health_tree.png';
-        document.getElementById('house').src  = 'assets/health_home.png';
+    if (true) { //In particular, change this!!! if pollution low.
+        $("#tree").css("opacity", 1);
+        $("#house").css("opacity", 0.3);
+        $("#pol").hide();
+        $("#nopol").show();
     }
      else {
-        document.getElementById('tree').src  = 'assets/health_tree.png';
-        document.getElementById('house').src  = 'assets/health_home.png';
+        $("#tree").css("opacity", 0.3);
+        $("#house").css("opacity", 1);
+        $("#pol").show();
+        $("#nopol").hide();
     }
 
 }
