@@ -66,17 +66,18 @@
 				<div class="show-more">(Show More)</div>
 				<p>(Astronomy Picture of the Day. Source: <a href="https://apod.nasa.gov/apod/astropix.html" id="source"></a>)</p>
       </div>
+			<div class="switch">
+				<div class="toggle-switch">
+					<input type="checkbox" id="chkTest" name="chkTest" onclick="togglePos()">
+					<label for="chkTest">
+						<span class="toggle-track"></span>
+					</label>
+				</div>
+			</div>
     </div>
 
     <div class="feed">
-      <div class="switch">
-        <div class="toggle-switch">
-          <input type="checkbox" id="chkTest" name="chkTest" onclick="togglePos()">
-          <label for="chkTest">
-            <span class="toggle-track"></span>
-          </label>
-        </div>
-      </div><br><br>
+			<br><br>
       <div class="posts" id="post-parent">
         <p id="loading" style="font-size: 20px; margin-top: -20px;">loading...</p>
       </div>
@@ -106,7 +107,6 @@
         </div>
       </div>
     </div>
-    <div class="footer" style="padding: 20px;">.</div>
 </body>
 
 </html>
