@@ -14,6 +14,7 @@
 body {
   font-family: 'Open Sans';
   background-color: var(--background);
+  padding-bottom: 50px;
 }
 
 /*SCROLL*/
@@ -250,22 +251,14 @@ h2
 
 .commentBox
 {
-	position: relative;
 	overflow: hidden;
 	padding-top: 3%;
 	padding-bottom: 3%;
-	margin-top: 10%;
 	margin-right: 0%;
 	left: -5%;
 	margin-left: 0%;
-	pading-right: 10%;
-	pading-left: 10%;
 	min-width: 460px;
 	min-height: 50px;
-	border-top-style: solid;
-	border-bottom-style: solid;
-	border-size: thin;
-	border-color: var(--pink);
 }
 
 textarea
@@ -587,6 +580,7 @@ div.feed #word-count:focus {
 /*COMMENTS*/
 div.comments {
 	display: none;
+  margin: 20px 40px;
 }
 
 /*POSTS*/

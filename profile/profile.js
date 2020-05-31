@@ -26,6 +26,11 @@ $(document).ready(function() {
   $('html').click(function(e) {
     if (e.target.id != 'notif_container' && notif_container != null) hideNotifs();
   });
+  $('#comment-button').click(function(){
+    let id = $(".comments .post").attr('id');
+    let content = $("#tweet").val();
+    Posts.comment(id, content, 'secure-testing-auth').then(function(){location.reload();});
+  });
 });
 
 //POSTS//
@@ -37,24 +42,26 @@ function toMainFeed(){
 }
 
 function getPosts(toggleOn){
-  document.getElementById("post-parent").querySelectorAll('*').forEach(n=>n.remove());
   let postArray;
   Posts.list('secure-testing-auth').then(function(e){
+    document.getElementById("post-parent").querySelectorAll('*').forEach(n=>n.remove());
     postArray = e.data;
     if(toggleOn){
+      $("#feed-name").html("Positivity Feed");
       for(let i=0;i < postArray.length; i++) {
         if (calcTonePositivity(postArray[i].tones) > 0.5 && postArray[i].by === 'user-id'){
           generatePost(postArray[i].by, postArray[i].content, postArray[i].id, postArray[i].tones);
         }
       }
     } else {
+      $("#feed-name").html("All Feed");
       for(let i=0;i < postArray.length; i++) {
         if (postArray[i].by === 'user-id') {
           generatePost(postArray[i].by, postArray[i].content, postArray[i].id, postArray[i].tones);
         }
       }
     }
-    $("#loading").hide();
+
   });
 }
 
