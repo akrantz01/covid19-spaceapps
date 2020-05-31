@@ -66,22 +66,24 @@ function toMainFeed(){
 }
 
 function getPosts(toggleOn){
-  document.getElementById("post-parent").querySelectorAll('*').forEach(n=>n.remove());
   let postArray;
   Posts.list('secure-testing-auth').then(function(e){
+    document.getElementById("post-parent").querySelectorAll('*').forEach(n=>n.remove());
     postArray = e.data;
     if(toggleOn){
+      $("#feed-name").html("Positivity Feed");
       for(let i=0;i < postArray.length; i++) {
         if (calcTonePositivity(postArray[i].tones) > 0.5){
           generatePost(postArray[i].by, postArray[i].content, postArray[i].id, postArray[i].tones);
         }
       }
     } else {
+      $("#feed-name").html("All Feed");
       for(let i=0;i < postArray.length; i++) {
         generatePost(postArray[i].by, postArray[i].content, postArray[i].id, postArray[i].tones);
       }
     }
-    $("#loading").hide();
+
   });
 }
 
