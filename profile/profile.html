@@ -25,7 +25,9 @@
       <img src="assets/border.png" style="width: 120px; margin-top: -10px;"></img>
       <br>
       <div class="profile_header_location">
-        <button class="icon_button" id="location" onclick="getLocation()"><i class="fa fa-location-arrow" aria-hidden="true"></i><p>click to input location</p></button>
+        <button class="icon_button" id="location" onclick="getLocation()"><i class="fa fa-location-arrow" aria-hidden="true"></i>
+          <p>click to input location</p>
+        </button>
       </div>
     </div>
 
@@ -45,44 +47,21 @@
       <canvas id="myChart" width="400" height="400"></canvas>
       <script>
         var ctx = document.getElementById('myChart').getContext('2d');
-        var myChart = new Chart(ctx, {
-          type: 'bar',
+        var myLineChart = new Chart(ctx, {
+          type: 'line',
           data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: [26, 27, 28, 29, 30, 31],
             datasets: [{
-              label: '# of Votes',
-              data: [12, 19, 3, 5, 2, 3],
-              backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-              ],
-              borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-              ],
-              borderWidth: 1
+              label: 'Positivity (%) Every Day of May',
+              backgroundColor: 'rgba(233, 188, 164, 0)',
+              borderColor: 'rgb(233, 188, 164)',
+              data: [0, 10, 5, -30, -20, 45]
             }]
-          },
-          options: {
-            scales: {
-              yAxes: [{
-                ticks: {
-                  beginAtZero: true
-                }
-              }]
-            }
           }
         });
       </script>
-      <br><hr style="border: 1px solid var(--bluetransp); width: 124%; margin-left: -60px;"><br>
+      <br>
+      <hr style="border: 1px solid var(--bluetransp); width: 124%; margin-left: -60px;"><br>
       <div class="section_header"><img src="assets/header_health.png"></img></div>
       <br><br><br><br><br><br>
       <div class="cups">
@@ -102,8 +81,8 @@
       <p>How many <b>cups of water</b> have you drank today?</p>
       <br><br><br>
       <div class="pollution">
-        <img id="tree" alt="" src="assets/health_tree.png" onload="chngimg()"   />
-        <img id="house" alt="" src="assets/health_home.png" onload="chngimg()"   />
+        <img id="tree" alt="" src="assets/health_tree.png" onload="chngimg()" />
+        <img id="house" alt="" src="assets/health_home.png" onload="chngimg()" />
       </div> <br>
       <div class="poltext" style="width: 200px; text-align: center; margin-left: 160px;">
         <div id="nopol">
