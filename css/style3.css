@@ -1,0 +1,94 @@
+* 
+{
+	box-sizing: border-box;
+}
+
+.container .form-group .form-control::placeholder 
+{
+    color: pink;
+}
+
+/* Modal Content/Box */
+.container 
+{
+	font-family: 'Crete Round', serif;
+	font-weight: bold; 
+  	font-size: 15px;
+	line-height:1.5;
+  	background-color: white;
+  	margin: 3% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  	border: 1px solid pink;
+	padding-top: 3%; 
+  	max-width: 40%; /* Could be more or less, depending on screen size */
+  	-webkit-animation-name: animatetop;
+  	-webkit-animation-duration: 0.4s;
+  	animation-name: animatetop;
+  	animation-duration: 3s;
+	padding-bottom: 3%; 
+        box-shadow: 0 0 10px pink;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop 
+{
+  	from {top:-300px; opacity:0} 
+  	to {top:0; opacity:1}
+}
+
+@keyframes animatetop 
+{
+  	from {top:-300px; opacity:0}
+  	to {top:0; opacity:1}
+}
+
+.modal-header 
+{
+  	margin-top: -10%; 
+  	padding: 2px 20px;
+  	margin-right: 0px; 
+  	background-color: pink;
+  	color: white;
+  	margin-bottom: 20px; 
+}
+
+#submit
+{
+	background-color: pink;
+	border: none; 
+	color: white; 
+	font-size: 16px; 
+ 	font-weight: bold; 
+	outline: none; 
+}
+
+#submit:hover
+{
+    	box-shadow: 0 0 10px pink;
+}
+
+#comment_content
+{
+	border-color: pink;
+	resize: none; 
+	color: pink; 
+}
+
+#comment_content:focus 
+{ 
+    	outline: none !important;
+    	border-color: pink;
+    	box-shadow: 0 0 10px pink;
+}
+
+#comment_name
+{
+	border-color: pink;
+	color: pink; 
+}
+
+#comment_name:focus
+{
+    	outline: none !important;
+    	border-color: pink;
+    	box-shadow: 0 0 10px pink;
+}
