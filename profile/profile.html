@@ -10,6 +10,23 @@
   <link href="profile.css" rel="stylesheet" type="text/css">
   <script type="text/javascript" src="profile.js"></script>
   <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+  <script language=JavaScript>
+  	<!--
+	function check_length(my_form)
+	{
+		maxLen = 285; 
+		if (my_form.my_text.value.length >= maxLen) 
+		{
+			var msg = "You have reached your maximum limit of characters allowed";
+			alert(msg);
+			my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
+ 		}
+		else{ 
+			my_form.text_num.value = maxLen - my_form.my_text.value.length;
+		}
+	}
+	//-->
+  </script>
 </head>
 
 <body>
@@ -42,21 +59,25 @@
     <hr style="border: 1px solid var(--bluetransp); margin-top: -2px;">
 
     <div id="FEED" class="profile_section">
+      <h2>Feed</h2>
       <div class="toggle-switch">
   		    <input type="checkbox" id="chkTest" name="chkTest">
   		      <label for="chkTest">
     			<span class="toggle-track"></span>
   		</label>
 	    </div>
-	    <div class='commentBox'>
-		    <input type='hidden' name='uid' value='Anonymous'>
-		    <input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
+	    <div class='commentBox'> 
 		    <div class='leftPanel'>
 		      	<a href="#"><img src="assets/picture.png" class="Astronaut2"></a>
 		    </div>
 		    <div class='rightPanel'>
-			       <textarea name='message'></textarea><br>
-			      <button class='btn5' name='submit' type='submit'>Submit</button>
+                              <form name=my_form method=post>
+                              	<input type='hidden' name='uid' value='Anonymous'>
+		              	<input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'> 
+			      	<textarea onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); id="tweet" name=my_text></textarea><br>
+			      	<input size=1 value=285/285 name=text_num>
+			      	<button class='btn5' name='submit' type='submit'>Comment</button> 
+			      </form>
 		    </div>
 	     </div>
     </div>
