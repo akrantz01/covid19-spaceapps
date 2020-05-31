@@ -264,17 +264,16 @@ textarea:focus
 .toggle-switch label .toggle-track
 {
 	float: right;
-  	display:block;
+  display:block;
 	height:30px;
 	width:60px;
-	//background:#eee;
 	background-color: var(--pink);
 	border-radius: 20px;
-  	position:relative;
-  	margin-bottom: 0px;
+  position:relative;
+  margin-bottom: 0px;
 	border:1px solid var(--pink);
 	margin-right: 8%;
-	margin-top: 10%;
+	margin-top: -80%;
 	margin-bottom: -10%;
 }
 
@@ -467,7 +466,7 @@ div.comments {
 
 /*POSTS*/
 div.posts {
-	margin-top: 20px;
+	margin-top: -60px;
 }
 
 div.post {
