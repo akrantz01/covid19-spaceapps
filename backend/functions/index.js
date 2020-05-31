@@ -16,7 +16,7 @@ if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
 } else admin.initializeApp();
 
 const app = express();
-app.use(cors({ origin: true }))
+app.use(cors({ origin: "*" }))
     .use(bodyParser.json())
     .use(bodyParser.urlencoded({ extended: false }))
     .use(httpContext.middleware)
@@ -42,7 +42,7 @@ app.use(cors({ origin: true }))
         admin.auth().verifyIdToken(req.get("Authorization"))
             .then(decoded => {
                 httpContext.set("uid", decoded.uid);
-                next();
+                return next();
             })
             .catch(_ => res.status(401).json({ status: "error", reason: "unauthorized" }));
     })
