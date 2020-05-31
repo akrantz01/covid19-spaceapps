@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap');
 
-html, body
-{
-	overflow-x: hidden;
-	margin: 0px;
-	min-width: 100%;
-	max-width: 100%;
-	min-height: 100%;
-	max-height: 100%;
-	background-color: var(--background);
-	font-family: 'Open Sans';
+html, body {
+  overflow-x: hidden;
+  margin: 0px;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  background-color: var(--background);
+  font-family: 'Open Sans';
+	padding-bottom: 50px;
 }
 
 :root {
@@ -32,8 +32,8 @@ button {
 }
 
 button.icon_button img {
-	width: 100px;
-	margin-left: 10px;
+  width: 100px;
+  margin-left: 10px;
 }
 
 button.icon_button {
@@ -61,7 +61,7 @@ button.word_button:hover {
   cursor: pointer;
   border: 2px solid var(--pink);
   background-color: transparent;
-	transition: 0.3s background-color;
+  transition: 0.3s background-color;
   color: var(--pink);
   opacity: 1;
 }
@@ -73,7 +73,7 @@ button.word_button:focus {
 div.header button.icon_button:hover {
   opacity: 1;
   cursor: pointer;
-	transition: 0.3s transform;
+  transition: 0.3s transform;
   transform: scale(1.1);
 }
 
@@ -82,33 +82,27 @@ div.header button.icon_button:focus {
 }
 
 /*SCROLL*/
-
-::-webkit-scrollbar-track
-{
-	border: none;
-	background-color: var(--background);
+::-webkit-scrollbar-track {
+  border: none;
+  background-color: var(--background);
 }
 
-::-webkit-scrollbar
-{
-	width: 15px;
-	background-color: white;
+::-webkit-scrollbar {
+  width: 15px;
+  background-color: white;
 }
 
-::-webkit-scrollbar-thumb
-{
-	background-color: white;
-	border-radius: 10px;
+::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 10px;
 }
 
-::-webkit-scrollbar-thumb:hover
-{
-  	background-color: mistyrose;
+::-webkit-scrollbar-thumb:hover {
+  background-color: mistyrose;
 }
 
-.container
-{
-	position: relative;
+.container {
+  position: relative;
   display: block;
   max-width: 40em;
   margin: 0 auto;
@@ -120,8 +114,7 @@ div.header button.icon_button:focus {
   min-height: 100% !important;
 }
 
-.container .main_header
-{
+.container .main_header {
   text-align: center;
   padding: 30px;
   padding-right: 20px;
@@ -130,180 +123,161 @@ div.header button.icon_button:focus {
   border-color: var(--pink);
 }
 
-h5
-{
-	color: black;
-	font-size: 30px;
-	margin-bottom: 38px;
-	float: left;
-	margin-left: 3%;
+h5 {
+  color: black;
+  font-size: 30px;
+  margin-bottom: 38px;
+  float: left;
+  margin-left: 3%;
 }
 
-h1
-{
-	margin-top: 20px;
-	color: black;
-	font-size: 60px;
-	margin-bottom: 0px;
+h1 {
+  margin-top: 20px;
+  color: black;
+  font-size: 60px;
+  margin-bottom: 0px;
 }
 
-p
-{
-	color: black;
-	font-size: 20px;
-	margin-bottom: -40px;
+p {
+  color: black;
+  font-size: 20px;
+  margin-bottom: -40px;
 }
 
 .commentBox {
   margin-top: -90px;
-	overflow: auto;
+  overflow: auto;
   padding-bottom: 60px;
 }
 
-textarea
-{
-	border-color: var(--pink);
-	color: var(--pink);
-	margin-top: 0px;
-	margin-left: 20%;
-	width: calc(85%);
+textarea {
+  border-color: var(--pink);
+  color: var(--pink);
+  margin-top: 0px;
+  margin-left: 20%;
+  width: calc(85%);
   height: 90px;
-	margin-bottom: 0%;
-	padding: 0px;
-	font-family: 'Open Sans';
-	resize: none;
+  margin-bottom: 0%;
+  padding: 0px;
+  font-family: 'Open Sans';
+  resize: none;
 }
 
-textarea:focus
-{
+textarea:focus {
   outline: none !important;
   border-color: var(--pink);
   box-shadow: 0 0 10px var(--pink);
 }
 
-.btn5
-{
-  	border-color: var(--pink);
-  	font-size: 20px;
-	font-weight: bold;
-	float: left;
-  	transition: 0.3s;
-  	background-color: var(--pink);
-  	color: white;
-	width: 90px;
-	height: 30px;
-	margin-top: -1%;
-	margin-left: 20%;
-	color: white;
-	outline: none;
-	font-size: 15px;
+.btn5 {
+  border-color: var(--pink);
+  font-size: 20px;
+  font-weight: bold;
+  float: left;
+  transition: 0.3s;
+  background-color: var(--pink);
+  color: white;
+  width: 90px;
+  height: 30px;
+  margin-top: -1%;
+  margin-left: 20%;
+  color: white;
+  outline: none;
+  font-size: 15px;
 }
 
-.leftPanel
-{
-	margin-top: 100px;
-	width: 10%;
-	float: left;
+.leftPanel {
+  margin-top: 100px;
+  width: 10%;
+  float: left;
 }
 
-.leftPanel .Astronaut2
-{
-	position; relative;
-	margin-left: 80%;
-	margin-top: 0%;
-	height: 80px;
-	width: 80px;
-	margin-bottom: 0px;
+.leftPanel .Astronaut2 {
+  position;
+  relative;
+  margin-left: 80%;
+  margin-top: 0%;
+  height: 80px;
+  width: 80px;
+  margin-bottom: 0px;
 }
 
-.rightPanel
-{
-	margin-top: -16%;
-	width: 85%;
-	float: left;
-	margin-left: 10%;
+.rightPanel {
+  margin-top: -16%;
+  width: 85%;
+  float: left;
+  margin-left: 10%;
 }
 
-
-.btn5:hover
-{
-	border: 2px solid var(--pink);
-  	background-color: transparent;
-  	color: var(--pink);
-  	opacity: 1;
-	cursor: pointer;
+.btn5:hover {
+  border: 2px solid var(--pink);
+  background-color: transparent;
+  color: var(--pink);
+  opacity: 1;
+  cursor: pointer;
 }
 
-.Astronaut2
-{
-	position; relative;
-	margin-left: 50%;
-	//margin-top: -100%;
-	top: -20%
-	height: 20px;
-	width: 20px;
-	margin-bottom: 0%;
+.Astronaut2 {
+  position;
+  relative;
+  margin-left: 50%;
+  //margin-top: -100%;
+  top: -20% height: 20px;
+  width: 20px;
+  margin-bottom: 0%;
 }
 
 .switch {
-	position: absolute;
-	margin-top: -25px;
-	margin-left: 520px;
+  position: absolute;
+  margin-top: 65px;
+  margin-left: 520px;
 }
 
-.toggle-switch input[type=checkbox]
-{
-	display:none
+.toggle-switch input[type=checkbox] {
+  display: none
 }
 
-.toggle-switch label
-{
-	cursor: pointer;
+.toggle-switch label {
+  cursor: pointer;
 }
 
-.toggle-switch label .toggle-track
-{
-	float: right;
-  	display:block;
-	height:30px;
-	width:60px;
-	//background:#eee;
-	background-color: var(--pink);
-	border-radius: 20px;
-  	position:relative;
-  	margin-bottom: 0px;
-	border:1px solid var(--pink);
-	margin-right: 8%;
-	margin-top: 20%;
-	margin-bottom: 20%;
+.toggle-switch label .toggle-track {
+  float: right;
+  display: block;
+  height: 30px;
+  width: 60px;
+  background-color: var(--pink);
+  border-radius: 20px;
+	border: 4px solid white;
+  position: relative;
+  margin-bottom: 0px;
+  margin-right: 8%;
+  margin-top: -80%;
+  margin-bottom: -10%;
+  margin-bottom: 20%;
 }
 
-.toggle-switch .toggle-track:before
-{
-  	content:'';
-  	display:inline-block;
-	height:30px;
-	width:30px;
-	//background:olivedrab;
-	background-image: url("../image/SmileyFace2.png");
-        background-size: cover;
-  	border-radius:20px;
-  	position:absolute;
-  	top:0;
-  	right:0;
-  	transition:right .2s ease-in;
+.toggle-switch .toggle-track:before {
+  content: '';
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  background-image: url("../image/SmileyFace2.png");
+  background-size: cover;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: right .2s ease-in;
 }
 
-.toggle-switch input[type="checkbox"]:checked + label .toggle-track:before
-{
-  	//background: var(--pink);
-	background-image: url("../image/FrowningFace2.png");
-        background-size: cover;
-  	right: 30px;
+.toggle-switch input[type="checkbox"]:checked+label .toggle-track:before {
+  background-image: url("../image/FrowningFace2.png");
+  background-size: cover;
+  right: 30px;
 }
 
-.ringBell, .ringBell:after
-{
+.ringBell, .ringBell:after {
   z-index: 3000;
   float: right;
   left: 88%;
@@ -312,13 +286,11 @@ textarea:focus
   height: 35px;
 }
 
-.-count, .-count:before, .ringBell:after
-{
+.-count, .-count:before, .ringBell:after {
   position: absolute;
 }
 
-.-count, .-count:before
-{
+.-count, .-count:before {
   margin-top: 10px;
   float: right;
   left: 88%;
@@ -333,8 +305,7 @@ textarea:focus
   cursor: pointer;
 }
 
-.ringBell:after
-{
+.ringBell:after {
   z-index: 3000;
   content: '';
   transform-origin: top;
@@ -343,33 +314,33 @@ textarea:focus
   background-size: cover;
 }
 
-.ringBell:hover:after
-{
+.ringBell:hover:after {
   animation: ring .16s ease-in-out 5;
 }
 
-@keyframes ring
-{
+@keyframes ring {
   0% {
     transform: rotate(18deg);
   }
+
   50% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(-18deg);
   }
 }
 
-.-count
-{
+.-count {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   width: 20px;
   height: 20px;
-  background-color: var(--pink); ;
+  background-color: var(--pink);
+  ;
   margin: -6px 0 0 26px;
   font-family: monospace;
   font-size: 20px;
@@ -378,8 +349,7 @@ textarea:focus
   color: white;
 }
 
-.-count:before
-{
+.-count:before {
   color: var(--pink);
   content: '';
   box-sizing: border-box;
@@ -388,17 +358,16 @@ textarea:focus
   margin-top: -30px;
 }
 
-.ringBell:hover .-count:before
-{
+.ringBell:hover .-count:before {
   animation: pulse .6s ease-out;
 }
 
-@keyframes pulse
-{
+@keyframes pulse {
   from {
     opacity: 1;
     transform: scale(.8);
   }
+
   to {
     opacity: 0;
     transform: scale(2);
@@ -416,7 +385,6 @@ textarea:focus
   padding: 8px;
   border-radius: 20px;
   border: 1px solid var(--pink);
-
 }
 
 .notif_object {
@@ -425,14 +393,12 @@ textarea:focus
   padding: 5px 0px;
   text-align: center;
   border-bottom: 1px solid var(--pink);
-
 }
 
 .notif_object button {
   font-size: 14px;
   margin-top: 0px;
   transition: 0.3s;
-
 }
 
 .notif_object button:hover {
@@ -445,76 +411,76 @@ textarea:focus
 }
 
 div.feed {
-	padding: 30px;
+  padding: 30px;
 }
 
 div.feed #word-count {
-	margin-left: 200px;
-	margin-top: 4px;
-	position: absolute;
-	color: var(--pink);
-	border: none;
+  margin-left: 200px;
+  margin-top: 4px;
+  position: absolute;
+  color: var(--pink);
+  border: none;
 }
 
 div.feed #word-count:focus {
-	outline: none;
+  outline: none;
 }
 
 /*COMMENTS*/
 div.comments {
-	display: none;
+  display: none;
 }
 
 /*POSTS*/
 div.posts {
-	margin-top: 20px;
+  margin-top: 80px;
 }
 
 div.post {
-	border-bottom: 1px solid;
-	border-bottom-color: var(--pink);
-	padding: 20px;
-	transition: 0.3s;
-	cursor: pointer;
+  border-bottom: 1px solid;
+  border-bottom-color: var(--pink);
+  padding: 20px;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 div.comments .post {
-	cursor: default;
-	padding: 100px;
+  cursor: default;
+  padding: 100px;
 }
 
 div.comments button#back {
-	position: absolute;
-	font-size: 35px;
-	color: var(--pink);
+  position: absolute;
+  font-size: 35px;
+  color: var(--pink);
 }
 
 h2 {
-	font-size: 20px;
+  font-size: 20px;
 }
 
 div.comments button.icon_button:hover {
   opacity: 1;
   cursor: pointer;
-	transition: 0.3s transform;
+  transition: 0.3s transform;
   transform: scale(1.1);
 }
 
 div#comment-parent {
-	margin-top: 100px;
+  margin-top: 100px;
 }
 
 div.comments .comment {
-	border-bottom: 1px solid var(--pink);
-	padding: 22px;
-	transition: 0.3s;
-	cursor: pointer;
+  border-bottom: 1px solid var(--pink);
+  padding: 22px;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 div.comments .comment:hover {
-	box-shadow: 0px 4px var(--pink);
-	-webkit-transform: translateY(-8px);
-	transform: translateY(-8px);
+  box-shadow: 0px 4px var(--pink);
+  -webkit-transform: translateY(-8px);
+  transform: translateY(-8px);
 }
 
 div.comments button.icon_button:focus {
@@ -522,29 +488,28 @@ div.comments button.icon_button:focus {
 }
 
 div#post-parent .post:hover {
-	box-shadow: 0px 4px;
-	-webkit-transform: translateY(-8px);
-	transform: translateY(-8px);
+  box-shadow: 0px 4px;
+  -webkit-transform: translateY(-8px);
+  transform: translateY(-8px);
 }
 
 #astropix {
-	width: 108.5%;
-	margin-left: -30px;
-	height: 290px;
-	object-fit: cover;
-	opacity: 0.9;
-	margin-top: 50px;
+  width: 108.5%;
+  margin-left: -30px;
+  height: 290px;
+  object-fit: cover;
+  opacity: 0.9;
+  margin-top: 50px;
 }
 
 #profile-description {
-	width: 100%;
+  width: 100%;
   margin-top: 10px;
   position: relative;
 }
 
 #profile-description p {
-/*   width: 660px;  */
-
+  /*   width: 660px;  */
   margin-bottom: 5px;
   color: #777;
   padding: 0 15px;
@@ -554,9 +519,9 @@ div#post-parent .post:hover {
 }
 
 #profile-description .show-more {
-/*   width: 690px;  */
+  /*   width: 690px;  */
   color: white;
-	font-weight: bold;
+  font-weight: bold;
   font-size: 12px;
   padding-top: 5px;
   text-align: center;
@@ -565,7 +530,7 @@ div#post-parent .post:hover {
 }
 
 #profile-description .show-more:hover {
-    color: var(--blue);
+  color: var(--blue);
 }
 
 #profile-description .show-more-height {
