@@ -26,9 +26,8 @@ $(document).ready(function() {
   $('#comment-button').click(function(){
     let id = $(".comments .post").attr('id');
     let content = $("#tweet").val();
-    Posts.comment(id, content, 'secure-testing-auth');
+    Posts.comment(id, content, 'secure-testing-auth').then(function(){location.reload();});
   });
-
 });
 
 function saveProfile() {
@@ -94,7 +93,7 @@ function calcTonePositivity(arr) {
   return 0.5;
 }
 
-function lerpColor(a, b, amount) { 
+function lerpColor(a, b, amount) {
 
   var ah = parseInt(a.replace(/#/g, ''), 16),
       ar = ah >> 16, ag = ah >> 8 & 0xff, ab = ah & 0xff,
@@ -118,11 +117,11 @@ function generatePost(user, text, id, arr){
   post.appendChild(document.createElement("br"));
   let postBody = document.createTextNode(text);
   post.appendChild(postBody);
-  
-  var pos = calcTonePositivity(arr);
-  var color = lerpColor('#F06B43', '#F1A075', pos);
-  post.style.backgroundColor = color;
 
+  var pos = calcTonePositivity(arr);
+  var color = lerpColor('#de5466', '#ebb859', pos);
+  post.style.color = color;
+  post.style.borderBottomColor = color;
 
   post.addEventListener('click', function(){
     Posts.read(id, 'secure-testing-auth').then(function(e){
@@ -130,6 +129,7 @@ function generatePost(user, text, id, arr){
       $(".comments .post-header").html(user);
       $(".comments .post p").html(text);
       $(".comments .post").attr('id', id);
+      $(".comments .post p").css("color", color);
 
       let parent = document.getElementById("comment-parent");
 
