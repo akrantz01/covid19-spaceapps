@@ -154,10 +154,21 @@ p
 	margin-bottom: -40px;
 }
 
+h2
+{
+	color: black;
+	font-size: 30px;
+	margin-bottom: 38px;
+	float: left;
+	margin-left: 9%;
+}
+
 .commentBox
 {
 	overflow: auto;
-        padding-bottom: 60px; 
+	padding-bottom: 10%; 
+	min-width: 650px; 
+	min-height: 300px; 
 }
 
 textarea
@@ -165,11 +176,12 @@ textarea
 	border-color: var(--pink);
 	color: var(--pink); 
 	margin-top: 0px; 
-	margin-left: 20%; 
-	width: calc(85%);
+	margin-left: 20%;  
+	width: 320px; 
         height: 90px;
 	margin-bottom: 0%; 
 	padding: 0px; 
+	resize: none; 
 }
 
 textarea:focus 
@@ -193,25 +205,25 @@ textarea:focus
 	margin-top: -1%; 
 	margin-left: 20%; 
 	color: white; 
-	font-family: 'Chelsea Market', cursive;
+	font-family: 'Open Sans';
 	outline: none; 
 	font-size: 15px; 
 }
 
 .leftPanel
 {
-	margin-top: 100px; 
+	margin-top: 80px; 
 	width: 10%;
 	float: left; 
 }
 
 .leftPanel .Astronaut2
 {
-	position; relative; 
+	position: relative; 
 	margin-left: 80%; 
-	margin-top: 0%;    
-	height: 80px; 
-	width: 80px; 
+	margin-top: -125%;    
+	max-height: 100px; 
+	max-width: 100px; 
 	margin-bottom: 0px; 
 }
 
@@ -233,17 +245,6 @@ textarea:focus
 	cursor: crosshair; 
 }
 
-.Astronaut2
-{
-	position; relative; 
-	margin-left: 50%; 
-	//margin-top: -100%;    
-	top: -20%
-	height: 20px; 
-	width: 20px; 
-	margin-bottom: 0%; 
-}
-
 .toggle-switch input[type=checkbox] 
 {
 	display:none
@@ -256,6 +257,7 @@ textarea:focus
 
 .toggle-switch label .toggle-track 
 {
+	position: absolute; 
 	float: right; 
   	display:block;
 	height:30px;
@@ -263,11 +265,11 @@ textarea:focus
 	//background:#eee;
 	background-color: var(--pink);
 	border-radius: 20px;
-  	position:relative;
   	margin-bottom: 0px;
 	border:1px solid var(--pink);
-	margin-right: 8%; 
-	margin-top: 10%; 
+	//margin-right: 20%; 
+	right: 5%; 
+	margin-top: 5%; 
 	margin-bottom: -10%;  
 }
 
@@ -362,7 +364,7 @@ textarea:focus
   align-items: center;
   width: 20px;
   height: 20px;
-  background-color: var(--pink); ;
+  background-color: var(--pink);
   margin: -6px 0 0 26px;
   font-family: monospace;
   font-size: 20px;
@@ -396,4 +398,16 @@ textarea:focus
     opacity: 0;
     transform: scale(2);
   }
+}
+
+input 
+{
+     position: relative;
+     top: 0%; 
+     left: 37%; 
+     font-family:  'Open Sans'; 
+     font-size: 20x;
+     color: var(--pink);
+     border: none; 
+     outline: none;
 }
