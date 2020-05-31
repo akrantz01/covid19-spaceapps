@@ -28,8 +28,8 @@ async function sendRequest(method, path, token, body= null) {
     }
 
     // Add options for POST/PUT requests
-    if ((path === "POST" || path === "PUT") && body !== null) options.headers["Content-Type"] = "application/json";
-    if (body !== null) options.body = body;
+    if ((method === "POST" || method === "PUT") && body !== null) options.headers["Content-Type"] = "application/json";
+    if (body !== null) options.body = JSON.stringify(body);
 
     // Send & parse requests
     let response = await fetch(`${url}${path}`, options);
