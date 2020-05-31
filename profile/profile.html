@@ -36,7 +36,7 @@
     </div>
 
     <div id="WELLNESS" class="profile_section">
-      <div class="section_header"><span style="background-color: var(--yellow)">MOOD</span></div>
+      <div class="section_header"><img src="assets/header_mood.png"></img></div>
       <canvas id="myChart" width="400" height="400"></canvas>
       <script>
         var ctx = document.getElementById('myChart').getContext('2d');
@@ -77,8 +77,8 @@
           }
         });
       </script>
-      <div class="section_header"><span style="background-color: var(--pink)">HEALTH</span></div>
-      <p>How many cups of water have you drank today?</p>
+      <div class="section_header"><img src="assets/header_health.png"></img></div>
+      <br><br><br><br><br><br>
       <div class="cups">
         <script>
           var onImg = "assets/health_cup_full.png";
@@ -93,8 +93,13 @@
         <input class="cup" type="image" src="assets/health_cup_empty.png" onclick="this.src = (this.src.endsWith(offImg)? onImg : offImg);" />
         <input class="cup" type="image" src="assets/health_cup_empty.png" onclick="this.src = (this.src.endsWith(offImg)? onImg : offImg);" />
       </div>
+      <p>How many cups of water have you drank today?</p>
       <br><br><br>
-      <div class="poltext">
+      <div class="pollution">
+        <img id="tree" alt="" src="assets/health_tree.png" onload="chngimg()"   />
+        <img id="house" alt="" src="assets/health_home.png" onload="chngimg()"   />
+      </div> <br>
+      <div class="poltext" style="width: 200px; text-align: center; margin-left: 160px;">
         <div id="nopol">
           The air pollution level is low! Go outside, get some fresh air, and do some exercises!
         </div>
@@ -102,12 +107,8 @@
           The air pollution level is high and unhealthy! Stay inside, but don't forget to get some exercise!
         </div>
       </div>
-      <div class="pollution">
-        <img id="tree" alt="" src="assets/health_tree.png" onload="chngimg()"   />
-        <img id="house" alt="" src="assets/health_home.png" onload="chngimg()"   />
-      </div>
       <br><br><br><br>
-      <div class="section_header"><span style="background-color: var(--blue)">NEWS</span></div>
+      <div class="section_header"><img src="assets/header_news.png"></img></div>
       <a class="twitter-timeline" data-lang="en" data-width="600" data-height="400" data-theme="white" href="https://twitter.com/goodnewsnetwork?ref_src=twsrc%5Etfw">Tweets by goodnewsnetwork</a>
       <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
