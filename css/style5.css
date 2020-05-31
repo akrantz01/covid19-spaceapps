@@ -276,7 +276,9 @@ textarea:focus
   	display:inline-block;
 	height:30px;
 	width:30px;
-	background:olivedrab;
+	//background:olivedrab;
+	background-image: url("../image/SmileyFace.png");
+        background-size: cover; 
   	border-radius:20px;
   	position:absolute;
   	top:0;
@@ -286,7 +288,9 @@ textarea:focus
 
 .toggle-switch input[type="checkbox"]:checked + label .toggle-track:before
 {
-  	background: var(--pink);
+  	//background: var(--pink);
+	background-image: url("../image/FrowningFace.png");
+        background-size: cover; 
   	right: 30px;
 }
 
