@@ -163,6 +163,7 @@ div.section_header {
   cursor: pointer;
   transition: 0.3s;
   opacity: 0.5;
+  margin-left: -10px;
 }
 
 .container .profile_header .profile_header_location button:hover {
@@ -241,17 +242,17 @@ div.profile_section {
 textarea
 {
 	border-color: var(--pink);
-	color: var(--pink); 
-	margin-top: 30px; 
-	margin-left: 0%; 
+	color: var(--pink);
+	margin-top: 30px;
+	margin-left: 0%;
 	width: calc(80%);
         height: 90px;
-	margin-bottom: 0%; 
-	padding: 0px; 
+	margin-bottom: 0%;
+	padding: 0px;
 }
 
-textarea:focus 
-{ 
+textarea:focus
+{
     	outline: none !important;
     	border-color: var(--pink);
     	box-shadow: 0 0 10px var(--pink);
@@ -261,35 +262,35 @@ textarea:focus
 {
   	border-color: var(--pink);
   	font-size: 20px;
-	font-weight: bold; 
-	float: left; 
+	font-weight: bold;
+	float: left;
   	transition: 0.3s;
   	background-color: var(--pink);
   	color: white;
-	width: 70px; 
+	width: 70px;
 	height: 30px;
-	margin-top: 0%; 
-	margin-left: 10%; 
-	color: white; 
+	margin-top: 0%;
+	margin-left: 10%;
+	color: white;
 	font-family: 'Chelsea Market', cursive;
-	outline: none; 
-	font-size: 15px; 
+	outline: none;
+	font-size: 15px;
 }
 
 .leftPanel
 {
 	width: 10%;
-	float: left; 
+	float: left;
 }
 
 .leftPanel .Astronaut2
 {
-	position; relative; 
-	margin-left: 0%; 
-	margin-top: 60%;    
-	height: 80px; 
-	width: 80px; 
-	margin-bottom: 0px; 
+	position; relative;
+	margin-left: 0%;
+	margin-top: 60%;
+	height: 80px;
+	width: 80px;
+	margin-bottom: 0px;
 }
 
 .rightPanel
@@ -301,38 +302,38 @@ textarea:focus
 
 
 .btn5:hover
-{ 
+{
 	border: 2px solid var(--pink);
   	background-color: transparent;
   	color: var(--pink);
   	opacity: 1;
-	cursor: crosshair; 
+	cursor: crosshair;
 }
 
 .Astronaut2
 {
-	position; relative; 
-	margin-left: 50%; 
-	//margin-top: -100%;    
+	position; relative;
+	margin-left: 50%;
+	//margin-top: -100%;
 	top: -20%
-	height: 20px; 
-	width: 20px; 
-	margin-bottom: 0%; 
+	height: 20px;
+	width: 20px;
+	margin-bottom: 0%;
 }
 
-.toggle-switch input[type=checkbox] 
+.toggle-switch input[type=checkbox]
 {
 	display:none
 }
 
-.toggle-switch label 
+.toggle-switch label
 {
 	cursor:crosshair;
 }
 
-.toggle-switch label .toggle-track 
+.toggle-switch label .toggle-track
 {
-	float: right; 
+	float: right;
   	display:block;
 	height:30px;
 	width:60px;
@@ -341,9 +342,9 @@ textarea:focus
   	position:relative;
   	margin-bottom: 0px;
 	border:1px solid var(--pink);
-	margin-right: 8%; 
-	margin-top: -3%; 
-	margin-bottom: -10%;  
+	margin-right: 8%;
+	margin-top: -3%;
+	margin-bottom: -10%;
 }
 
 .toggle-switch .toggle-track:before
@@ -353,7 +354,7 @@ textarea:focus
 	height:30px;
 	width:30px;
 	background-image: url("SmileyFace2.png");
-        background-size: cover; 
+        background-size: cover;
 	//background:olivedrab;
   	border-radius:20px;
   	position:absolute;
@@ -367,30 +368,30 @@ textarea:focus
   	//background: var(--pink);
   	right: 30px;
 	background-image: url("FrowningFace2.png");
-        background-size: cover; 
+        background-size: cover;
 }
 
-.ringBell, .ringBell:after 
-{  
-  z-index: 3000; 
-  float: right; 
-  left: 88%; 
-  margin-top: 15px; 
+.ringBell, .ringBell:after
+{
+  z-index: 3000;
+  float: right;
+  left: 88%;
+  margin-top: 15px;
   width: 35px;
   height: 35px;
 }
 
-.-count, .-count:before, .ringBell:after 
+.-count, .-count:before, .ringBell:after
 {
   position: absolute;
 }
 
 .-count, .-count:before
 {
-  margin-top: 10px; 
-  float: right; 
+  margin-top: 10px;
+  float: right;
   left: 88%;
-  top: 30px;  
+  top: 30px;
   width: 20px;
   height: 20px;
   border-radius: 30%;
@@ -401,7 +402,7 @@ textarea:focus
   cursor: pointer;
 }
 
-.ringBell:after 
+.ringBell:after
 {
   z-index: 3000;
   content: '';
@@ -411,12 +412,12 @@ textarea:focus
   background-size: cover;
 }
 
-.ringBell:hover:after 
+.ringBell:hover:after
 {
   animation: ring .16s ease-in-out 5;
 }
 
-@keyframes ring 
+@keyframes ring
 {
   0% {
     transform: rotate(18deg);
@@ -429,7 +430,7 @@ textarea:focus
   }
 }
 
-.-count 
+.-count
 {
   display: flex;
   flex-flow: row wrap;
@@ -443,25 +444,25 @@ textarea:focus
   font-size: 20px;
   font-weight: bold;
   z-index: 90;
-  color: white; 
+  color: white;
 }
 
-.-count:before 
+.-count:before
 {
-  color: var(--pink); 
+  color: var(--pink);
   content: '';
   box-sizing: border-box;
   border: 1.5px solid var(--pink);
-  margin-left: -18px; 
-  margin-top: -30px; 
+  margin-left: -18px;
+  margin-top: -30px;
 }
 
-.ringBell:hover .-count:before 
+.ringBell:hover .-count:before
 {
   animation: pulse .6s ease-out;
 }
 
-@keyframes pulse 
+@keyframes pulse
 {
   from {
     opacity: 1;
