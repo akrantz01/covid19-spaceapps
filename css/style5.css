@@ -125,7 +125,7 @@ div.header button.icon_button:focus {
   text-align: center;
   padding: 30px;
   padding-right: 20px;
-  padding-bottom: 80px;
+  padding-bottom: 30px;
   border-bottom: 2px solid var(--blue);
   border-color: var(--pink);
 }
@@ -274,8 +274,8 @@ textarea:focus
   	margin-bottom: 0px;
 	border:1px solid var(--pink);
 	margin-right: 8%;
-	margin-top: 10%;
-	margin-bottom: -10%;
+	margin-top: 20%;
+	margin-bottom: 20%;
 }
 
 .toggle-switch .toggle-track:before
