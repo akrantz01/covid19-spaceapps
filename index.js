@@ -2,10 +2,12 @@ function goProfile() {
   window.location.href = "profile/profile.html";
 }
 
+var toggled = true;
+
 $(document).ready(function() {
   saveProfile(); //calls every time on profile? okay for preview?
   updateCount();
-  getPosts();
+  getPosts(toggled);
   getPicture();
 
   $(".ringBell").click(function() {
@@ -63,16 +65,31 @@ function toMainFeed(){
   $(".switch").show();
 }
 
-function getPosts(){
+function getPosts(toggleOn){
+  document.getElementById("post-parent").querySelectorAll('*').forEach(n=>n.remove());
   let postArray;
   Posts.list('secure-testing-auth').then(function(e){
-    console.log(e);
     postArray = e.data;
-    for(let i=0;i < postArray.length; i++) {
-      generatePost(postArray[i].by, postArray[i].content, postArray[i].id, postArray[i].tones);
+    if(toggleOn){
+      for(let i=0;i < postArray.length; i++) {
+        if (calcTonePositivity(postArray[i].tones) > 0.5){
+          generatePost(postArray[i].by, postArray[i].content, postArray[i].id, postArray[i].tones);
+        }
+      }
+    } else {
+      for(let i=0;i < postArray.length; i++) {
+        generatePost(postArray[i].by, postArray[i].content, postArray[i].id, postArray[i].tones);
+      }
     }
     $("#loading").hide();
   });
+}
+
+function togglePos(){
+  console.log(toggled);
+  if (toggled === true)  toggled = false;
+  else  toggled = true;
+  getPosts(toggled);
 }
 
 let commentArray;
@@ -125,7 +142,6 @@ function generatePost(user, text, id, arr){
 
   post.addEventListener('click', function(){
     Posts.read(id, 'secure-testing-auth').then(function(e){
-      console.log(e);
       $(".comments .post-header").html(user);
       $(".comments .post p").html(text);
       $(".comments .post").attr('id', id);
