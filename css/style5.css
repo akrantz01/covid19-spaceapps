@@ -449,7 +449,9 @@ div.feed {
 }
 
 div.feed #word-count {
-	margin-left: 10px;
+	margin-left: 200px;
+	margin-top: 4px;
+	position: absolute;
 	color: var(--pink);
 	border: none;
 }

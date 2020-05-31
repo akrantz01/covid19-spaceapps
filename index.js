@@ -23,6 +23,12 @@ $(document).ready(function() {
       $(".text").toggleClass("show-more-height");
   });
 
+  $('#comment-button').click(function(){
+    let id = $(".comments .post").attr('id');
+    let content = $("#tweet").val();
+    Posts.comment(id, content, 'secure-testing-auth');
+  });
+
 });
 
 function saveProfile() {
@@ -87,6 +93,7 @@ function generatePost(user, text, id){
     Posts.read(id, 'secure-testing-auth').then(function(e){
       $(".comments .post-header").html(user);
       $(".comments .post p").html(text);
+      $(".comments .post").attr('id', id);
 
       let parent = document.getElementById("comment-parent");
 
