@@ -32,6 +32,10 @@ app.use(cors({ origin: true }))
             httpContext.set("uid", "user-id");
             next();
             return;
+        } else if (req.get("Authorization") === "other-secure-testing-auth") {
+            httpContext.set("uid", "another-id");
+            next();
+            return;
         }
 
         // Validate token
@@ -44,6 +48,7 @@ app.use(cors({ origin: true }))
     })
     .use("/posts", require("./posts"))
     .use("/comments", require("./comments"))
+    .use("/users", require("./users"))
     .all("*", (_, res) => res.status(404).json({ status: "error", reason: "not found" }));
 
 exports.api = functions.https.onRequest(app);
