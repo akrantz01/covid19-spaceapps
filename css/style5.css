@@ -225,6 +225,17 @@ textarea:focus
 	max-height: 100px; 
 	max-width: 100px; 
 	margin-bottom: 0px; 
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.leftPanel .Astronaut2:hover
+{
+	cursor: crosshair; 
+	-webkit-filter: grayscale(0);
+	filter: grayscale(0);
 }
 
 .rightPanel
