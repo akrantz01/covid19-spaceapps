@@ -8,15 +8,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <head>
-  <link rel="shortcut icon" href="Icons/Icons4.ico">
   <title>CSSI</title>
-  <script src="js/script.js"></script>
   <link rel="stylesheet" href="css/style5.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type="text/javascript" src="index.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
-  <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
-  <link href="/your-path-to-fontawesome/css/brands.css" rel="stylesheet">
-  <link href="/your-path-to-fontawesome/css/solid.css" rel="stylesheet">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Staatliches&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
@@ -44,7 +40,7 @@
     <br><br>
 
     <div class="main_header">
-      <h1>Hi ANONYMOUS!</h1>
+      <h1 id="name">Hi ANONYMOUS!</h1>
       <img src="profile/assets/border.png" style="width: 120px; margin-top: -10px;"></img>
       <p style="font-size: 18px;">It is a long established fact that a reader will be distracted by the readable content...</p>
     </div>
@@ -54,15 +50,15 @@
     			<span class="toggle-track"></span>
   		</label>
 	</div>
-	<div class='commentBox'> 
+	<div class='commentBox'>
 		<input type='hidden' name='uid' value='Anonymous'>
-		<input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'> 
+		<input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
 		<div class='leftPanel'>
 			<a href="#"><img src="image/Astronaut.png" class="Astronaut2"></a>
 		</div>
 		<div class='rightPanel'>
 			<textarea name='message'></textarea><br>
-			<button class='btn5' name='submit' type='submit'>Comment</button> 
+			<button class='btn5' name='submit' type='submit'>Comment</button>
 		</div>
 	</div>
 </body>
