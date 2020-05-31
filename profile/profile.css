@@ -336,7 +336,7 @@ textarea:focus
   	display:block;
 	height:30px;
 	width:60px;
-	background:#eee;
+	background: var(--pink);
 	border-radius: 20px;
   	position:relative;
   	margin-bottom: 0px;
@@ -352,7 +352,9 @@ textarea:focus
   	display:inline-block;
 	height:30px;
 	width:30px;
-	background:olivedrab;
+	background-image: url("../assets/SmileyFace2.png");
+        background-size: cover; 
+	//background:olivedrab;
   	border-radius:20px;
   	position:absolute;
   	top:0;
@@ -362,8 +364,10 @@ textarea:focus
 
 .toggle-switch input[type="checkbox"]:checked + label .toggle-track:before
 {
-  	background: var(--pink);
+  	//background: var(--pink);
   	right: 30px;
+	background-image: url("../assets/FrowningFace2.png");
+        background-size: cover; 
 }
 
 .ringBell, .ringBell:after 
