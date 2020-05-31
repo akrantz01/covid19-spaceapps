@@ -1,3 +1,5 @@
+<?php
+
 //I used phpmyadmin for this. 
 //Databse name is testing. 
 //Table name is tbl_comment
@@ -10,8 +12,6 @@
    4. comment_sender_name    type: varchar      length/value: 40     collation: utf8_general_ci      extra:   
    5. date                   type: timestamp    length/value: N/A                                    extra: N/A  
 */
-
-<?php
 
 //add_comment.php
 
