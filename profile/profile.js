@@ -69,10 +69,18 @@ function createNewFriendRequestNotif(text) {
   notif.appendChild(document.createTextNode(text + " sent you a friend request!"));
   let acceptButton = document.createElement("button");
   acceptButton.innerHTML = "Y";
-  acceptButton.setAttribute('onclick', 'respondToRequest(text, true, notif)');
+  acceptButton.addEventListener('click', function(){
+    Self.friend_request(text, true, 'secure-testing-auth').then(function() {
+      hideNotifs();
+    });
+  });
   let rejectButton = document.createElement("button");
   rejectButton.innerHTML = "N";
-  rejectButton.setAttribute('onclick', 'respondToRequest(text, false, notif)');
+  rejectButton.addEventListener('click', function(){
+    Self.friend_request(text, false, 'secure-testing-auth').then(function() {
+      hideNotifs();
+    });
+  });
   notif.appendChild(document.createElement("br"));
   notif.appendChild(acceptButton);
   notif.appendChild(rejectButton);

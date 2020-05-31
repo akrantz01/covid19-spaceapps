@@ -32,6 +32,11 @@ function saveProfile() {
 
 //POSTS//
 
+function toMainFeed(){
+  $("#post-parent").show();
+  $(".comments").hide();
+}
+
 function getPosts(){
   let postArray;
   Posts.list('secure-testing-auth').then(function(e){
@@ -42,19 +47,10 @@ function getPosts(){
   });
 }
 
-function showPost(id){
-  $("div.comments").show();
-  //Posts.read(id, 'secure-testing-auth').then(console.log);
-  //$(".comments .post-header").html(user);
-  //$(".comments .post p").html(text);
-
-}
-
 function generatePost(user, text, id){
   let post = document.createElement('div');
   document.getElementById("post-parent").appendChild(post);
   post.setAttribute("class", "post");
-
   let postHeader = document.createElement('div');
   post.appendChild(postHeader);
   postHeader.setAttribute('class', 'post-header');
@@ -63,7 +59,14 @@ function generatePost(user, text, id){
   let postBody = document.createTextNode(text);
   post.appendChild(postBody);
 
-  post.setAttribute('onclick', 'showPost(id);');
+  post.addEventListener('click', function(){
+    Posts.read(id, 'secure-testing-auth').then(function(e){
+      $(".comments .post-header").html(user);
+      $(".comments .post p").html(text);
+      $("#post-parent").hide();
+      $(".comments").show();
+    });
+  });
   $("div.comments").hide();
 }
 
@@ -110,10 +113,18 @@ function createNewFriendRequestNotif(text) {
   notif.appendChild(document.createTextNode(text + " sent you a friend request!"));
   let acceptButton = document.createElement("button");
   acceptButton.innerHTML = "Y";
-  acceptButton.setAttribute('onclick', 'respondToRequest(text, true, notif)');
+  acceptButton.addEventListener('click', function(){
+    Self.friend_request(text, true, 'secure-testing-auth').then(function() {
+      hideNotifs();
+    });
+  });
   let rejectButton = document.createElement("button");
   rejectButton.innerHTML = "N";
-  rejectButton.setAttribute('onclick', 'respondToRequest(text, false, notif)');
+  rejectButton.addEventListener('click', function(){
+    Self.friend_request(text, false, 'secure-testing-auth').then(function() {
+      hideNotifs();
+    });
+  });
   notif.appendChild(document.createElement("br"));
   notif.appendChild(acceptButton);
   notif.appendChild(rejectButton);

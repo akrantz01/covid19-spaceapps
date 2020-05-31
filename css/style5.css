@@ -475,13 +475,30 @@ div.post {
 	cursor: pointer;
 }
 
-div.post .post-header {
-	font-weight: bold;
-	font-size: 15px;
-	margin-left: -5px;
+div.comments .post {
+	cursor: default;
+	padding: 100px;
 }
 
-div.post:hover {
+div.comments button#back {
+	position: absolute;
+	font-size: 35px;
+	color: var(--pink);
+}
+
+
+div.comments button.icon_button:hover {
+  opacity: 1;
+  cursor: pointer;
+	transition: 0.3s transform;
+  transform: scale(1.1);
+}
+
+div.comments button.icon_button:focus {
+  outline: none;
+}
+
+div#post-parent .post:hover {
 	box-shadow: 0px 4px var(--pink);
 	-webkit-transform: translateY(-8px);
 	transform: translateY(-8px);
