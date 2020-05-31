@@ -16,10 +16,37 @@ function displayWellness() {
 $(document).ready(function() {
   displayFeed();
   $(".ringBell").click(function(){
-    Self.notifications('secure-testing-auth').then(console.log);
+    Self.notifications('secure-testing-auth').then(readNotifs);
     //reateNewNotif();
   });
 });
+
+//NOTIFICATIONS//
+
+function readNotifs(n){
+  for(let i=0; i < n.data.comments.length; i++) createNewCommentNotif(n.data.comments[i]);
+  for(let i=0; i < n.data.friend_requests.length; i++) createNewFriendRequestNotif(n.data.friend_requests[i]);
+}
+
+function createNewCommentNotif(text){
+  let notif = document.createElement('div');
+  document.getElementById('notif_container').appendChild(notif);
+  notif.appendChild(document.createTextNode("Someone commented: " + text));
+  notif.setAttribute("class", "notif_object");
+}
+
+function createNewFriendRequestNotif(text){
+  let notif = document.createElement('div');
+  document.getElementById('notif_container').appendChild(notif);
+  notif.appendChild(document.createTextNode(text + " sent you a friend request!"));
+  let acceptButton = document.createElement("button");
+  acceptButton.innerHTML = "Y";
+  let rejectButton = document.createElement("button");
+  rejectButton.innerHTML = "N";
+  notif.appendChild(acceptButton);
+  notif.appendChild(rejectButton);
+  notif.setAttribute("class", "notif_object");
+}
 
 //backend people: change the following function for pollution detection!
 function chngimg() {
@@ -69,14 +96,6 @@ function showError(error) {
       console.log("An unknown error occurred.");
       break;
   }
-}
-
-//NOTIFICATIONS//
-function createNewNotif(text){
-  var notif = document.createElement('div');
-  document.getElementById('notif_container').appendChild(notif);
-  notif.appendChild(document.createTextNode(text));
-  notif.setAttribute("class", "notif_object");
 }
 
 //BACK END//
