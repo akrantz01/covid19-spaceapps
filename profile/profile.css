@@ -352,7 +352,7 @@ textarea:focus
   	display:inline-block;
 	height:30px;
 	width:30px;
-	background-image: url("../assets/SmileyFace2.png");
+	background-image: url("SmileyFace2.png");
         background-size: cover; 
 	//background:olivedrab;
   	border-radius:20px;
@@ -366,7 +366,7 @@ textarea:focus
 {
   	//background: var(--pink);
   	right: 30px;
-	background-image: url("../assets/FrowningFace2.png");
+	background-image: url("FrowningFace2.png");
         background-size: cover; 
 }
 
