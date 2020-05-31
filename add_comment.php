@@ -1,3 +1,16 @@
+//I used phpmyadmin for this. 
+//Databse name is testing. 
+//Table name is tbl_comment
+
+/*
+   There are 5 boxes in the table (used in both storing and fetching the user info)
+   1. comment_id      type: int          length/value: 11                                     extra: Auto_Increment (Remember to check the checkbox that says A.I)  
+   2. comment_id      type: int          length/value: 11                                     extra: 
+   3. comment_id      type: varchar      length/value: 200    collation: utf8_general_ci      extra:   
+   4. comment_id      type: varchar      length/value: 40     collation: utf8_general_ci      extra:   
+   5. comment_id      type: timestamp    length/value: N/A                                    extra: N/A  
+*/
+
 <?php
 
 //add_comment.php
