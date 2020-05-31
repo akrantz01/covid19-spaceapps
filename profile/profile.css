@@ -234,25 +234,56 @@ div.profile_section {
   width: 90px;
 }
 
+h2
+{
+	position: relative; 
+	color: black;
+	font-size: 30px;
+	margin-bottom: 38px;
+	float: left;
+	left: -5%; 
+	//margin-left: -5%;
+	margin-top: -1%; 
+	
+}
+
 .commentBox
 {
-	overflow: auto;
+	position: relative; 
+	overflow: hidden;
+	padding-top: 3%; 
+	padding-bottom: 3%;
+	margin-top: 10%;
+	margin-right: 0%;
+	left: -5%; 
+	margin-left: 0%;
+	pading-right: 10%;     
+	pading-left: 10%;
+	min-width: 460px; 
+	min-height: 50px; 
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-size: thin; 
+	border-color: var(--pink);
 }
 
 textarea
 {
+	position: relative; 
 	border-color: var(--pink);
-	color: var(--pink);
-	margin-top: 30px;
-	margin-left: 0%;
-	width: calc(80%);
+	color: var(--pink); 
+	margin-top: -4%;
+	left: 0%; 
+	//margin-left: 20%;  
+	width: 280px; 
         height: 90px;
-	margin-bottom: 0%;
-	padding: 0px;
+	margin-bottom: 0%; 
+	padding: 0px; 
+	resize: none; 
 }
 
-textarea:focus
-{
+textarea:focus 
+{ 
     	outline: none !important;
     	border-color: var(--pink);
     	box-shadow: 0 0 10px var(--pink);
@@ -260,90 +291,95 @@ textarea:focus
 
 .btn5
 {
+	position: relative; 
   	border-color: var(--pink);
-  	font-size: 20px;
-	font-weight: bold;
-	float: left;
+  	font-size: 15px;
+	font-weight: bold; 
+	float: left; 
   	transition: 0.3s;
   	background-color: var(--pink);
   	color: white;
-	width: 70px;
+	width: 90px; 
 	height: 30px;
 	margin-top: 0%;
-	margin-left: 10%;
-	color: white;
-	font-family: 'Chelsea Market', cursive;
-	outline: none;
-	font-size: 15px;
+	left: 16%; 
+	//margin-left: 23%; 
+	color: white; 
+	font-family: 'Open Sans';
+	outline: none; 
 }
 
 .leftPanel
 {
+	margin-top: 80px; 
 	width: 10%;
-	float: left;
+	float: left; 
 }
 
 .leftPanel .Astronaut2
 {
-	position; relative;
-	margin-left: 0%;
-	margin-top: 60%;
-	height: 80px;
-	width: 80px;
-	margin-bottom: 0px;
+	position: relative; 
+	margin-left: 0%; 
+	margin-top: -125%;    
+	max-height: 100px; 
+	max-width: 100px; 
+	margin-bottom: 0px; 
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+
+.leftPanel .Astronaut2:hover
+{
+	cursor: crosshair; 
+	-webkit-filter: grayscale(0);
+	filter: grayscale(0);
 }
 
 .rightPanel
 {
+	margin-top: -16%; 
 	width: 85%;
 	float: left;
-	margin-left: 5%;
+	margin-left: 10%;
 }
 
 .btn5:hover
-{
+{ 
 	border: 2px solid var(--pink);
   	background-color: transparent;
   	color: var(--pink);
   	opacity: 1;
-	cursor: crosshair;
+	cursor: crosshair; 
 }
 
-.Astronaut2
-{
-	position; relative;
-	margin-left: 50%;
-	//margin-top: -100%;
-	top: -20%
-	height: 20px;
-	width: 20px;
-	margin-bottom: 0%;
-}
 
-.toggle-switch input[type=checkbox]
+.toggle-switch input[type=checkbox] 
 {
 	display:none
 }
 
-.toggle-switch label
+.toggle-switch label 
 {
 	cursor:crosshair;
 }
 
-.toggle-switch label .toggle-track
+.toggle-switch label .toggle-track 
 {
-	float: right;
+	position: absolute; 
+	float: right; 
   	display:block;
 	height:30px;
 	width:60px;
-	background: var(--pink);
+	//background:#eee;
+	background-color: var(--pink);
 	border-radius: 20px;
-  	position:relative;
-  	margin-bottom: 0px;
 	border:1px solid var(--pink);
-	margin-right: 8%;
-	margin-top: -3%;
-	margin-bottom: -10%;
+	//margin-right: 20%; 
+	right: 3%; 
+	margin-top: 0%; 
+	margin-bottom: 0%;  
 }
 
 .toggle-switch .toggle-track:before
@@ -352,8 +388,9 @@ textarea:focus
   	display:inline-block;
 	height:30px;
 	width:30px;
-	background-image: url("SmileyFace2.png");
-        background-size: cover;
+	//background:olivedrab;
+	background-image: url("../image/SmileyFace2.png");
+        background-size: cover; 
   	border-radius:20px;
   	position:absolute;
   	top:0;
@@ -363,35 +400,35 @@ textarea:focus
 
 .toggle-switch input[type="checkbox"]:checked + label .toggle-track:before
 {
+  	//background: var(--pink);
+	background-image: url("../image/FrowningFace2.png");
+        background-size: cover; 
   	right: 30px;
-	background-image: url("FrowningFace2.png");
-        background-size: cover;
 }
-
-.ringBell, .ringBell:after
-{
-  z-index: 3000;
-  float: right;
-  left: 88%;
-  margin-top: 15px;
+.ringBell, .ringBell:after 
+{  
+  z-index: 3000; 
+  float: right; 
+  left: 88%; 
+  margin-top: 15px; 
   width: 35px;
   height: 35px;
 }
 
-.-count, .-count:before, .ringBell:after
+.-count, .-count:before, .ringBell:after 
 {
   position: absolute;
 }
 
 .-count, .-count:before
 {
-  margin-top: 10px;
-  float: right;
+  margin-top: 10px; 
+  float: right; 
   left: 88%;
-  top: 30px;
+  top: 30px;  
   width: 20px;
   height: 20px;
-  border-radius: 80%;
+  border-radius: 30%;
 }
 
 .ringBell {
@@ -399,7 +436,7 @@ textarea:focus
   cursor: pointer;
 }
 
-.ringBell:after
+.ringBell:after 
 {
   z-index: 3000;
   content: '';
@@ -409,12 +446,12 @@ textarea:focus
   background-size: cover;
 }
 
-.ringBell:hover:after
+.ringBell:hover:after 
 {
   animation: ring .16s ease-in-out 5;
 }
 
-@keyframes ring
+@keyframes ring 
 {
   0% {
     transform: rotate(18deg);
@@ -427,7 +464,7 @@ textarea:focus
   }
 }
 
-.-count
+.-count 
 {
   display: flex;
   flex-flow: row wrap;
@@ -441,25 +478,25 @@ textarea:focus
   font-size: 20px;
   font-weight: bold;
   z-index: 90;
-  color: white;
+  color: white; 
 }
 
-.-count:before
+.-count:before 
 {
-  color: var(--pink);
+  color: var(--pink); 
   content: '';
   box-sizing: border-box;
   border: 1.5px solid var(--pink);
-  margin-left: -18px;
-  margin-top: -30px;
+  margin-left: -18px; 
+  margin-top: -30px; 
 }
 
-.ringBell:hover .-count:before
+.ringBell:hover .-count:before 
 {
   animation: pulse .6s ease-out;
 }
 
-@keyframes pulse
+@keyframes pulse 
 {
   from {
     opacity: 1;
@@ -471,41 +508,24 @@ textarea:focus
   }
 }
 
-#notif_container {
-  position: absolute;
-  margin-left: 420px;
-  margin-top: 65px;
-  width: 150px;
-  max-width: 150px;
-  background-color: white;
-  z-index: 1;
-  padding: 8px;
-  border-radius: 20px;
-  border: 1px solid var(--pink);
-
+input 
+{
+     position: relative;
+     margin-top: 1%; 
+     left: 17%; 
+     font-family:  'Open Sans'; 
+     font-size: 20x;
+     color: var(--pink);
+     border: none; 
+     outline: none;
 }
 
-.notif_object {
-  display: block;
-  font-size: 13px;
-  padding: 5px 0px;
-  text-align: center;
-  border-bottom: 1px solid var(--pink);
-
+#notif_container 
+{
+     position: absolute;
 }
 
-.notif_object button {
-  font-size: 14px;
-  margin-top: 0px;
-  transition: 0.3s;
-
-}
-
-.notif_object button:hover {
-  transform: scale(1.2);
-  cursor: pointer;
-}
-
-.notif_object button:focus {
-  outline: none;
+.notif_object 
+{
+     display: block;
 }
