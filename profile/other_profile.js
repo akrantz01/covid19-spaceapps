@@ -4,7 +4,7 @@ function displayFeed() {
     $("#feed_button").css("opacity", 1);
     $("#wellness_button").css("opacity", 0.3);
   }
-  
+
   function displayWellness() {
     $("#WELLNESS").show();
     $("#wellness_button").css("opacity", 1);
@@ -12,7 +12,7 @@ function displayFeed() {
     $("#FEED").hide();
     $("#pol").hide();
   }
-  
+
   $(document).ready(function() {
     displayFeed();
     updateProfile();
@@ -26,15 +26,15 @@ function displayFeed() {
       if (e.target.id != 'notif_container' && notif_container != null) hideNotifs();
     });
   });
-  
+
   //NOTIFICATIONS//
   let notif_container = null;
-  
+
   function updateProfile() {
     $("#name").html(localStorage.getItem('Name'));
     $("#bio").html(localStorage.getItem('Bio'));
   }
-  
+
   function updateCount() {
     let count = 0;
     Self.notifications('secure-testing-auth').then(function(e) {
@@ -42,13 +42,13 @@ function displayFeed() {
       else $("span.-count").hide();
     });
   }
-  
+
   function hideNotifs() {
     if(notif_container) notif_container.remove();
     notif_container = null;
     updateCount();
   }
-  
+
   function readNotifs(n) {
     notif_container = document.createElement('div');
     notif_container.setAttribute('id', 'notif_container');
@@ -56,14 +56,14 @@ function displayFeed() {
     for (let i = 0; i < n.data.comments.length; i++) createNewCommentNotif(n.data.comments[i]);
     for (let i = 0; i < n.data.friend_requests.length; i++) createNewFriendRequestNotif(n.data.friend_requests[i]);
   }
-  
+
   function createNewCommentNotif(text) {
     let notif = document.createElement('div');
     notif_container.appendChild(notif);
     notif.appendChild(document.createTextNode("Someone commented: " + text));
     notif.setAttribute("class", "notif_object");
   }
-  
+
   function createNewFriendRequestNotif(text) {
     let notif = document.createElement('div');
     notif_container.appendChild(notif);
@@ -79,7 +79,7 @@ function displayFeed() {
     notif.appendChild(rejectButton);
     notif.setAttribute("class", "notif_object");
   }
-  
+
   function respondToRequest(user, bool, obj) {
     Self.friend_request(user, bool, 'secure-testing-auth').then(function() {
       hideNotifs();
@@ -120,11 +120,11 @@ function displayFeed() {
   }
 
   function sendFrReq() {
-         Users.request_friend('other-secure-testing-auth','secure-testing-auth');
+        Users.request_friend('other-secure-testing-auth','secure-testing-auth');
         $('#addfr').hide()
         $('#alreadysent').show()
   }
-  
+
   //backend people: change the following function for pollution detection!
   function chngimg() {
     if (true) { //In particular, change this!!! if pollution low.
@@ -139,17 +139,17 @@ function displayFeed() {
       $("#nopol").hide();
     }
   }
-  
+
   function goHome() {
     window.location.href = "../index.html";
   }
-  
+
   //LOCATION SCRIPTS//
   function getLocation() {
     if (navigator.geolocation) navigator.geolocation.getCurrentPosition(showPosition, showError);
     else alert("Geolocation is not supported by this browser.");
   }
-  
+
   function showPosition(position) { //change later
     localStorage.setItem('pos', position.coords);
     $("#location").css("opacity", 1);
@@ -157,7 +157,7 @@ function displayFeed() {
       "," + Math.round(position.coords.longitude) + ")";
     $("#location p").html(posString);
   }
-  
+
   function showError(error) {
     switch (error.code) {
       case error.PERMISSION_DENIED:
@@ -174,10 +174,10 @@ function displayFeed() {
         break;
     }
   }
-  
+
   //BACK END//
   const url = "https://us-central1-covid19-spaceapps.cloudfunctions.net/api";
-  
+
   // Helper function
   async function sendRequest(method, path, token, body = null) {
     // Build request
@@ -187,15 +187,15 @@ function displayFeed() {
         Authorization: token,
       }
     }
-  
+
     // Add options for POST/PUT requests
     if ((method === "POST" || method === "PUT") && body !== null) options.headers["Content-Type"] = "application/json";
     if (body !== null) options.body = JSON.stringify(body);
-  
+
     // Send & parse requests
     let response = await fetch(`${url}${path}`, options);
     let json = await response.json();
-  
+
     // Generate return data
     let base = {
       code: response.status,
@@ -203,22 +203,22 @@ function displayFeed() {
     }
     if (response.ok) base.data = json.data;
     else base.reason = json.reason;
-  
+
     return base;
   }
-  
+
   class Self {
     // Get the current user's basic information
     static async read(token) {
       return await sendRequest("GET", "/users/self", token);
     }
-  
+
     // Get the current user's notifications
     // This includes comments and friend requests
     static async notifications(token) {
       return await sendRequest("GET", "/users/self/notifications", token);
     }
-  
+
     // Send a friend request
     static async friend_request(user_id, accept, token) {
       return await sendRequest("PUT", "/users/self/friends", token, {
@@ -240,4 +240,3 @@ class Users {
         return await sendRequest("POST", `/users/${user_id}/friend`, token);
     }
 }
-  
