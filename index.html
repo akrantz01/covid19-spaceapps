@@ -46,22 +46,23 @@
       <img src="profile/assets/border.png" style="width: 120px; margin-top: -10px;"></img>
       <p style="font-size: 18px;">It is a long established fact that a reader will be distracted by the readable content...</p>
     </div>
-    <div class="toggle-switch">
-      <input type="checkbox" id="chkTest" name="chkTest">
-      <label for="chkTest">
-        <span class="toggle-track"></span>
-      </label>
-    </div>
-    <?php
-			echo "<form>
-				<h5 style="font-size: 20px;">Comments</h5>
-				<input type='hidden' name='uid' value='Anonymous'>
-				<input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
-				<textarea name='message'></textarea><br>
-				<button class='word_button' name='submit' type='submit' style="margin: 20px;">Submit</button>
-			</form>";
-		?>
-  </div>
+   <div class="toggle-switch">
+  		<input type="checkbox" id="chkTest" name="chkTest">
+  		<label for="chkTest">
+    			<span class="toggle-track"></span>
+  		</label>
+	</div>
+	<div class='commentBox'> 
+		<input type='hidden' name='uid' value='Anonymous'>
+		<input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'> 
+		<div class='leftPanel'>
+			<a href="#"><img src="image/Astronaut.png" class="Astronaut2"></a>
+		</div>
+		<div class='rightPanel'>
+			<textarea name='message'></textarea><br>
+			<button class='btn5' name='submit' type='submit'>Submit</button> 
+		</div>
+	</div>
 </body>
 
 </html>
