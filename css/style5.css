@@ -384,7 +384,7 @@ textarea:focus
   content: '';
   box-sizing: border-box;
   border: 1.5px solid var(--pink);
-  margin-center: -18px;
+  margin-left: -18px;
   margin-top: -30px;
 }
 
