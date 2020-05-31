@@ -260,7 +260,8 @@ textarea:focus
   	display:block;
 	height:30px;
 	width:60px;
-	background:#eee;
+	//background:#eee;
+	background: var(--pink);
 	border-radius: 20px;
   	position:relative;
   	margin-bottom: 0px;
