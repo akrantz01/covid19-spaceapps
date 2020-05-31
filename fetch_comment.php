@@ -1,3 +1,4 @@
+//I used phpmyadmin for this. 
 //Databse name is testing. 
 //Table name is tbl_comment
 
