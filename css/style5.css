@@ -167,16 +167,18 @@ textarea
 	margin-top: 0px;
 	margin-left: 20%;
 	width: calc(85%);
-        height: 90px;
+  height: 90px;
 	margin-bottom: 0%;
 	padding: 0px;
+	font-family: 'Open Sans';
+	resize: none;
 }
 
 textarea:focus
 {
-    	outline: none !important;
-    	border-color: var(--pink);
-    	box-shadow: 0 0 10px var(--pink);
+  outline: none !important;
+  border-color: var(--pink);
+  box-shadow: 0 0 10px var(--pink);
 }
 
 .btn5
@@ -438,10 +440,6 @@ textarea:focus
 
 div.feed {
 	padding: 30px;
-}
-
-textarea {
-	font-family: 'Open Sans';
 }
 
 div.feed #word-count {
