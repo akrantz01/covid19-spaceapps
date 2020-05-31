@@ -50,7 +50,7 @@ button.word_button {
   padding: 5px;
   width: 80px;
   font-size: 20px;
-  margin-left: 0px;
+  margin-left: 74%;
   background-color: var(--pink);
   color: white;
   font-family: 'Open Sans';
@@ -120,9 +120,14 @@ div.header button.icon_button:focus {
   min-height: 100% !important;
 }
 
-.container .main_header {
+.container .main_header 
+{
   text-align: center;
   padding: 30px;
+  padding-right: 20px; 
+  padding-bottom: 80px; 
+  border-bottom-style: dotted;   
+  border-color: var(--pink); 
 }
 
 h5
@@ -133,40 +138,6 @@ h5
 	float: left;
 	margin-left: 3%;
 }
-
-/*
-.btn5
-{
-	width: 70px;
-	height: 30px;
-	margin-left: 3%;
-	background-color: black;
-	color: white;
-	border: none;
-	outline: none;
-	font-size: 15px;
-}
-
-.btn6
-{
-	width: 70px;
-	height: 30px;
-	float: right;
-	margin-top: 1%;
-	margin-right: 200%;
-	background-color: white;
-	color: black;
-	border: none;
-	outline: none;
-	font-size: 15px;
-}
-
-.btn6:hover
-{
-	background-color: black;
-	color: white;
-	cursor: pointer;
-} */
 
 h1
 {
@@ -183,25 +154,18 @@ p
 	margin-bottom: -40px;
 }
 
-/*
-.btn5:hover
-{
-	color: black;
-	background-color: white;
-	cursor: pointer;
-}*/
-
 .commentBox
 {
 	overflow: auto;
+        padding-bottom: 60px; 
 }
 
 textarea
 {
 	border-color: var(--pink);
 	color: var(--pink); 
-	margin-top: 30px; 
-	margin-left: 0%; 
+	margin-top: 0px; 
+	margin-left: 20%; 
 	width: calc(80%);
         height: 90px;
 	margin-bottom: 0%; 
@@ -227,7 +191,7 @@ textarea:focus
 	width: 70px; 
 	height: 30px;
 	margin-top: 0%; 
-	margin-left: 10%; 
+	margin-left: 20%; 
 	color: white; 
 	font-family: 'Chelsea Market', cursive;
 	outline: none; 
@@ -236,6 +200,7 @@ textarea:focus
 
 .leftPanel
 {
+	margin-top: 100px; 
 	width: 10%;
 	float: left; 
 }
@@ -243,8 +208,8 @@ textarea:focus
 .leftPanel .Astronaut2
 {
 	position; relative; 
-	margin-left: 0%; 
-	margin-top: 60%;    
+	margin-left: 80%; 
+	margin-top: 0%;    
 	height: 80px; 
 	width: 80px; 
 	margin-bottom: 0px; 
@@ -252,9 +217,10 @@ textarea:focus
 
 .rightPanel
 {
+	margin-top: -16%; 
 	width: 85%;
 	float: left;
-	margin-left: 5%;
+	margin-left: 10%;
 }
 
 
@@ -300,7 +266,7 @@ textarea:focus
   	margin-bottom: 0px;
 	border:1px solid var(--pink);
 	margin-right: 8%; 
-	margin-top: -3%; 
+	margin-top: 10%; 
 	margin-bottom: -10%;  
 }
 
@@ -361,7 +327,7 @@ textarea:focus
   content: '';
   transform-origin: top;
   //background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgNDczLjczMyA0NzMuNzMzIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0NzMuNzMzIDQ3My43MzM7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPjxnPjxwYXRoIGQ9Ik0yMi42NDgsMzk4LjY1YzIuNTUsNi4yMzMsOC43ODMsMTAuNDgzLDE1LjU4MywxMC40ODNoMTIzLjUzM2M1LjM4MywzNi41NSwzNy4xMTcsNjQuNiw3NC44LDY0LjZzNjkuNDE3LTI4LjA1LDc0LjgtNjQuNiAgICBoMTIzLjgxN2wwLDBjMC44NSwwLDEuNywwLDIuNTUtMC4yODNjNi4yMzMtMC44NSwxMS4zMzMtNS4xLDEzLjYtMTAuNzY3YzIuMjY3LTYuNTE3LDAuNTY3LTEzLjMxNy00LjI1LTE3Ljg1ICAgIGMtMC4yODMtMC4yODMtMC41NjctMC41NjctMC44NS0wLjg1Yy0xLjctMS43LTguNS05LjM1LTE1LjAxNy0yNS41Yy03LjA4My0xNy4yODMtMTUuODY3LTQ4LjE2Ny0xNS44NjctOTYuMDUgICAgYzAtOTQuNjMzLTM1LjctMTQ0LjUtNjUuNDUtMTY5LjcxN2MtMTkuODMzLTE2LjcxNy0zOS42NjctMjQuOTMzLTUyLjctMjguOWMtMC41NjctMTEuNjE3LTMuNC0yNy40ODMtMTQuMTY3LTQwLjIzMyAgICBDMjc1LjY2NSwxMC4yLDI2MS43ODIsMCwyMzcuMTMyLDBjLTI0LjM2NywwLTM4LjI1LDEwLjQ4My00NS42MTcsMTguOTgzYy0xMS4wNSwxMy4wMzMtMTQuMTY3LDI5LjE4My0xNC40NSw0MS4wODMgICAgYy0xMy4zMTcsMy45NjctMzMuMTUsMTIuMTgzLTUyLjcsMjguMzMzYy01NC42ODMsNDQuNzY3LTY2LjAxNywxMTYuNzMzLTY2LjAxNywxNjguODY3YzAsNDYuNDY3LTguNzgzLDc3LjM1LTE2LjE1LDk1LjIgICAgYy03LjkzMywxOC45ODMtMTUuNTgzLDI3LjQ4My0xNS41ODMsMjcuNDgzbDAsMEMyMS41MTUsMzg0Ljc2NywyMC4wOTgsMzkyLjEzMywyMi42NDgsMzk4LjY1eiBNMjM2Ljg0OCw0MzkuNzMzICAgIGMtMTguOTgzLDAtMzUuMTMzLTEzLjAzMy00MC4yMzMtMzAuNmg4MC40NjdDMjcxLjk4Miw0MjYuNywyNTUuODMyLDQzOS43MzMsMjM2Ljg0OCw0MzkuNzMzeiBNOTIuMzQ4LDI1Ny4yNjcgICAgYzAtMTUyLjQzMyw5OS43MzMtMTY2Ljg4MywxMDMuNy0xNjcuNDVjNC41MzMtMC41NjcsOC43ODMtMi44MzMsMTEuNjE3LTYuNTE3YzIuODMzLTMuNjgzLDMuOTY3LTguMjE3LDMuNC0xMy4wMzMgICAgYy0wLjg1LTUuMzgzLTEuNDE3LTIxLjI1LDYuMjMzLTMwLjAzM2MxLjQxNy0xLjcsNS45NS03LjA4MywxOS44MzMtNy4wODNzMTguNDE3LDUuMzgzLDIwLjExNyw3LjA4MyAgICBjNy4wODMsOC4yMTcsNi44LDIzLjgsNS45NSwyOC45Yy0wLjg1LDQuNTMzLDAuMjgzLDkuMzUsMy4xMTcsMTMuMDMzYzIuODMzLDMuNjgzLDYuOCw2LjIzMywxMS42MTcsNi44ICAgIGMwLjI4MywwLDI1LjUsMy42ODMsNTAuNzE3LDI0LjkzM2MzNS40MTcsMjkuNzUsNTMuMjY3LDc4LjIsNTMuMjY3LDE0My45MzNjMCw1Ny44LDExLjA1LDk0LjkxNywyMi4xLDExNy41ODNINjkuNjgyICAgIEM4MC40NDgsMzUxLjksOTIuMzQ4LDMxMy45MzMsOTIuMzQ4LDI1Ny4yNjd6IiBmaWxsPSIjRkZGRkZGIi8+PC9nPjwvc3ZnPg==);
-  background-image: url("header_notif_off.png");
+  background-image: url("../profile/assets/header_notif_off.png");
   background-size: cover;
 }
 
