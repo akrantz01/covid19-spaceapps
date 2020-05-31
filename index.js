@@ -35,6 +35,7 @@ function saveProfile() {
 function toMainFeed(){
   $("#post-parent").show();
   $(".comments").hide();
+  $(".switch").show();
 }
 
 function getPosts(){
@@ -44,8 +45,11 @@ function getPosts(){
     for(let i=0;i < postArray.length; i++) {
       generatePost(postArray[i].by, postArray[i].content, postArray[i].id);
     }
+    $("#loading").hide();
   });
 }
+
+let commentArray;
 
 function generatePost(user, text, id){
   let post = document.createElement('div');
@@ -63,11 +67,33 @@ function generatePost(user, text, id){
     Posts.read(id, 'secure-testing-auth').then(function(e){
       $(".comments .post-header").html(user);
       $(".comments .post p").html(text);
+
+      let parent = document.getElementById("comment-parent");
+
+      if(commentArray==undefined || commentArray==null){
+        commentArray = e.data.comments;
+        for(let i=0; i < commentArray.length; i++) createNewComment(parent, commentArray[i].by, commentArray[i].content);
+      } else if (commentArray != e.data.comments) {
+        parent.querySelectorAll('*').forEach(n=>n.remove());
+        commentArray = e.data.comments;
+        for(let i=0; i < commentArray.length; i++) createNewComment(parent, commentArray[i].by, commentArray[i].content);
+      }
+
       $("#post-parent").hide();
       $(".comments").show();
+      $(".switch").hide();
     });
   });
   $("div.comments").hide();
+}
+
+function createNewComment(parent, user, text){
+  let comment = document.createElement('div');
+  parent.appendChild(comment);
+  comment.setAttribute("class", "comment");
+  let commentHeader = document.createElement('div');
+  comment.appendChild(commentHeader);
+  commentHeader.appendChild(document.createTextNode(user + " says: " + text));
 }
 
 //NOTIFICATIONS//

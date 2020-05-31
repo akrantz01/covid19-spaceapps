@@ -154,10 +154,10 @@ p
 	margin-bottom: -40px;
 }
 
-.commentBox
-{
+.commentBox {
+  margin-top: -90px;
 	overflow: auto;
-        padding-bottom: 60px;
+  padding-bottom: 60px;
 }
 
 textarea
@@ -486,12 +486,32 @@ div.comments button#back {
 	color: var(--pink);
 }
 
+h2 {
+	font-size: 20px;
+}
 
 div.comments button.icon_button:hover {
   opacity: 1;
   cursor: pointer;
 	transition: 0.3s transform;
   transform: scale(1.1);
+}
+
+div#comment-parent {
+	margin-top: 100px;
+}
+
+div.comments .comment {
+	border-bottom: 1px solid var(--pink);
+	padding: 22px;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+div.comments .comment:hover {
+	box-shadow: 0px 4px var(--pink);
+	-webkit-transform: translateY(-8px);
+	transform: translateY(-8px);
 }
 
 div.comments button.icon_button:focus {

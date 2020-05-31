@@ -70,9 +70,10 @@
 				</div>
 			</div>
 			<div class="posts" id="post-parent">
+				<p id="loading" style="font-size: 20px; margin-top: -20px;">loading...</p>
 			</div>
       <div class="comments">
-				<div class="posts">
+				<div class="posts" style="margin-top: -30px;">
 					<button id="back" class="icon_button" onclick="toMainFeed()"><i class="fa fa-caret-left" aria-hidden="true"></i></button>
 					<div class="post">
 						<div class="post-header"></div>
@@ -81,6 +82,7 @@
 				</div>
         <h2>Comments</h2>
         <div class='commentBox'>
+					<div class='comments' id="comment-parent"></div>
           <input type='hidden' name='uid' value='Anonymous'>
           <input type='hidden' name='date' value='".date(' Y-m-d H:i:s')."'>
           <div class='leftPanel'>
