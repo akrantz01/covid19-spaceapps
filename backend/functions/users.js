@@ -45,8 +45,8 @@ router.put("/self/friends", async (req, res) => {
 // Get another user's details
 router.get("/:user", (req, res) => firestore.collection("users").doc(req.params.user).get()
     .then(snapshot => {
-        if (!snapshot.exists) res.status(404).json({ status: "error", reason: "user does not exist"});
-        else res.status(200).json({ status: "success", data: Object.assign(snapshot.data(), { id: snapshot.id })})
+        if (!snapshot.exists) return res.status(404).json({ status: "error", reason: "user does not exist"});
+        else return res.status(200).json({ status: "success", data: Object.assign(snapshot.data(), { id: snapshot.id })})
     }).catch(common.internalError(res, "get-user")));
 
 // Send a friend request
