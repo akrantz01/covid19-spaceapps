@@ -1,3 +1,4 @@
+const axios = require("axios");
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -67,4 +68,29 @@ exports.userSetup = functions.auth.user().onCreate(async (user) => {
         friend_requests: [],
         comments: []
     })
+});
+
+// Analyze the tone of all new posts
+exports.analyzeTone = functions.firestore.document("posts/{postId}").onCreate(async (snapshot, context) => {
+    // Retrieve configuration data
+    const config = functions.config()["tone-analysis"];
+
+    // Send request
+    let response = await axios.get(`${config.url}/v3/tone`, {
+        params: {
+            version: "2017-09-21",
+            text: snapshot.data().content
+        },
+        auth: {
+            username: "apikey",
+            password: config.apikey
+        },
+        responseType: "json"
+    });
+
+    // Set no tones if not successful
+    if (response.status !== 200) return snapshot.ref.set({ tones: [] }, { merge: true });
+
+    // Modify post
+    return snapshot.ref.set({ tones: response.data.document_tone.tones }, { merge: true })
 });
