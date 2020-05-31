@@ -57,32 +57,39 @@
     <div class="main_header">
       <h1 id="name">Hi ANONYMOUS!</h1>
       <img src="profile/assets/border.png" style="width: 120px; margin-top: -10px;"></img>
-      <p style="font-size: 18px;">It is a long established fact that a reader will be distracted by the readable content...</p>
+      <img id="astropix" src=""></img>
+      <div id="profile-description">
+				<div class="text show-more-height">
+          <p id="astropix-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+				</div>
+				<div class="show-more">(Show More)</div>
+				<p>(Astronomy Picture of the Day. Source: <a href="https://apod.nasa.gov/apod/astropix.html" id="source"></a>)</p>
+      </div>
     </div>
 
     <div class="feed">
-			<div class="switch">
-				<div class="toggle-switch">
-					<input type="checkbox" id="chkTest" name="chkTest">
-					<label for="chkTest">
-						<span class="toggle-track"></span>
-					</label>
-				</div>
-			</div>
-			<div class="posts" id="post-parent">
-				<p id="loading" style="font-size: 20px; margin-top: -20px;">loading...</p>
-			</div>
+      <div class="switch">
+        <div class="toggle-switch">
+          <input type="checkbox" id="chkTest" name="chkTest">
+          <label for="chkTest">
+            <span class="toggle-track"></span>
+          </label>
+        </div>
+      </div>
+      <div class="posts" id="post-parent">
+        <p id="loading" style="font-size: 20px; margin-top: -20px;">loading...</p>
+      </div>
       <div class="comments">
-				<div class="posts" style="margin-top: -30px;">
-					<button id="back" class="icon_button" onclick="toMainFeed()"><i class="fa fa-caret-left" aria-hidden="true"></i></button>
-					<div class="post">
-						<div class="post-header"></div>
-						<p></p>
-					</div>
-				</div>
+        <div class="posts" style="margin-top: -30px;">
+          <button id="back" class="icon_button" onclick="toMainFeed()"><i class="fa fa-caret-left" aria-hidden="true"></i></button>
+          <div class="post">
+            <div class="post-header"></div>
+            <p></p>
+          </div>
+        </div>
         <h2>Comments</h2>
         <div class='commentBox'>
-					<div class='comments' id="comment-parent"></div>
+          <div class='comments' id="comment-parent"></div>
           <input type='hidden' name='uid' value='Anonymous'>
           <input type='hidden' name='date' value='".date(' Y-m-d H:i:s')."'>
           <div class='leftPanel'>
@@ -100,6 +107,7 @@
         </div>
       </div>
     </div>
+    <div class="footer" style="padding: 20px;">.</div>
 </body>
 
 </html>

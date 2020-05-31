@@ -6,6 +6,7 @@ $(document).ready(function() {
   saveProfile(); //calls every time on profile? okay for preview?
   updateCount();
   getPosts();
+  getPicture();
 
   $(".ringBell").click(function() {
     if (notif_container == null) Self.notifications('secure-testing-auth').then(readNotifs);
@@ -14,6 +15,12 @@ $(document).ready(function() {
 
   $('html').click(function(e) {
     if (e.target.id != 'notif_container' && notif_container != null) hideNotifs();
+  });
+
+  $(".show-more").click(function () {
+      if($(".text").hasClass("show-more-height")) $(this).text("(Show Less)");
+      else $(this).text("(Show More)");
+      $(".text").toggleClass("show-more-height");
   });
 
 });
@@ -28,6 +35,19 @@ function saveProfile() {
   } else {
     $("#name").html("Hi " + localStorage.getItem('Name').toUpperCase() + "!");
   }
+}
+
+//ASTROPIX//
+function getPicture(){
+  fetch("https://api.nasa.gov/planetary/apod?api_key=GAbtYQKA3ehOsoGrOrE4mHyFbsT8v4sVnovrBqoj").then(function(e){
+    return e.json();
+  }).then(function(myJson){
+    document.querySelector("#astropix").setAttribute('src', myJson.hdurl);
+    document.querySelector("#astropix-description").innerHTML = myJson.explanation;
+    document.querySelector("#source").innerHTML = myJson.copyright;
+  }).catch(function(error){
+    console.log("Error: " + error);
+  });
 }
 
 //POSTS//
