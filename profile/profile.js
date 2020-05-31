@@ -15,6 +15,9 @@ function displayWellness() {
 
 $(document).ready(function() {
   displayFeed();
+  $(".ringBell").click(function(){
+    createNewNotif();
+  });
 });
 
 //backend people: change the following function for pollution detection!
@@ -65,4 +68,12 @@ function showError(error) {
       console.log("An unknown error occurred.");
       break;
   }
+}
+
+//NOTIFICATIONS//
+function createNewNotif(text){
+  var notif = document.createElement('div');
+  document.getElementById('notif_container').appendChild(notif);
+  notif.appendChild(document.createTextNode('notif1'));
+  notif.setAttribute("class", "notif_object");
 }

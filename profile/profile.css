@@ -300,7 +300,6 @@ textarea:focus
 	margin-left: 5%;
 }
 
-
 .btn5:hover
 {
 	border: 2px solid var(--pink);
@@ -355,7 +354,6 @@ textarea:focus
 	width:30px;
 	background-image: url("SmileyFace2.png");
         background-size: cover;
-	//background:olivedrab;
   	border-radius:20px;
   	position:absolute;
   	top:0;
@@ -365,7 +363,6 @@ textarea:focus
 
 .toggle-switch input[type="checkbox"]:checked + label .toggle-track:before
 {
-  	//background: var(--pink);
   	right: 30px;
 	background-image: url("FrowningFace2.png");
         background-size: cover;
@@ -472,4 +469,12 @@ textarea:focus
     opacity: 0;
     transform: scale(2);
   }
+}
+
+#notif_container {
+  position: absolute;
+}
+
+.notif_object {
+  display: block;
 }
