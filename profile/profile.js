@@ -28,5 +28,8 @@ function chngimg() {
         document.getElementById('tree').src  = 'assets/health_tree.png';
         document.getElementById('house').src  = 'assets/health_home.png';
     }
+}
 
+function goHome() {
+  window.location.href = "../index.html";
 }
