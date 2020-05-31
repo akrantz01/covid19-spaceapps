@@ -188,7 +188,7 @@ textarea:focus
   	transition: 0.3s;
   	background-color: var(--pink);
   	color: white;
-	width: 70px; 
+	width: 90px; 
 	height: 30px;
 	margin-top: -1%; 
 	margin-left: 20%; 
