@@ -228,7 +228,6 @@ textarea:focus {
 }
 
 .switch {
-<<<<<<< HEAD
   position: absolute;
   margin-top: 65px;
   margin-left: 520px;
@@ -279,66 +278,6 @@ textarea:focus {
 }
 
 .ringBell, .ringBell:after {
-=======
-	position: absolute;
-	margin-top: -25px;
-	margin-left: 520px;
-}
-
-.toggle-switch input[type=checkbox]
-{
-	display:none
-}
-
-.toggle-switch label
-{
-	cursor: pointer;
-}
-
-.toggle-switch label .toggle-track
-{
-	float: right;
-  	display:block;
-	height:30px;
-	width:60px;
-	//background:#eee;
-	background-color: var(--pink);
-	border-radius: 20px;
-  	position:relative;
-  	margin-bottom: 0px;
-	border:1px solid var(--pink);
-	margin-right: 8%;
-	margin-top: 20%;
-	margin-bottom: 20%;
-}
-
-.toggle-switch .toggle-track:before
-{
-  	content:'';
-  	display:inline-block;
-	height:30px;
-	width:30px;
-	//background:olivedrab;
-	background-image: url("../image/SmileyFace2.png");
-        background-size: cover;
-  	border-radius:20px;
-  	position:absolute;
-  	top:0;
-  	right:0;
-  	transition:right .2s ease-in;
-}
-
-.toggle-switch input[type="checkbox"]:checked + label .toggle-track:before
-{
-  	//background: var(--pink);
-	background-image: url("../image/FrowningFace2.png");
-        background-size: cover;
-  	right: 30px;
-}
-
-.ringBell, .ringBell:after
-{
->>>>>>> 9890d379685bb7494f125a0ebf03147652e0abc1
   z-index: 3000;
   float: right;
   left: 88%;
