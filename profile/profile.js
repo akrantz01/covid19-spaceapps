@@ -43,7 +43,7 @@ function updateCount() {
 }
 
 function hideNotifs() {
-  notif_container.remove();
+  if(notif_container) notif_container.remove();
   notif_container = null;
   updateCount();
 }

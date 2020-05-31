@@ -120,14 +120,14 @@ div.header button.icon_button:focus {
   min-height: 100% !important;
 }
 
-.container .main_header 
+.container .main_header
 {
   text-align: center;
   padding: 30px;
-  padding-right: 20px; 
-  padding-bottom: 80px; 
-  border-bottom-style: dotted;   
-  border-color: var(--pink); 
+  padding-right: 20px;
+  padding-bottom: 80px;
+  border-bottom: 2px solid var(--blue);
+  border-color: var(--pink);
 }
 
 h5
@@ -157,23 +157,23 @@ p
 .commentBox
 {
 	overflow: auto;
-        padding-bottom: 60px; 
+        padding-bottom: 60px;
 }
 
 textarea
 {
 	border-color: var(--pink);
-	color: var(--pink); 
-	margin-top: 0px; 
-	margin-left: 20%; 
+	color: var(--pink);
+	margin-top: 0px;
+	margin-left: 20%;
 	width: calc(85%);
         height: 90px;
-	margin-bottom: 0%; 
-	padding: 0px; 
+	margin-bottom: 0%;
+	padding: 0px;
 }
 
-textarea:focus 
-{ 
+textarea:focus
+{
     	outline: none !important;
     	border-color: var(--pink);
     	box-shadow: 0 0 10px var(--pink);
@@ -183,41 +183,40 @@ textarea:focus
 {
   	border-color: var(--pink);
   	font-size: 20px;
-	font-weight: bold; 
-	float: left; 
+	font-weight: bold;
+	float: left;
   	transition: 0.3s;
   	background-color: var(--pink);
   	color: white;
-	width: 90px; 
+	width: 90px;
 	height: 30px;
-	margin-top: -1%; 
-	margin-left: 20%; 
-	color: white; 
-	font-family: 'Chelsea Market', cursive;
-	outline: none; 
-	font-size: 15px; 
+	margin-top: -1%;
+	margin-left: 20%;
+	color: white;
+	outline: none;
+	font-size: 15px;
 }
 
 .leftPanel
 {
-	margin-top: 100px; 
+	margin-top: 100px;
 	width: 10%;
-	float: left; 
+	float: left;
 }
 
 .leftPanel .Astronaut2
 {
-	position; relative; 
-	margin-left: 80%; 
-	margin-top: 0%;    
-	height: 80px; 
-	width: 80px; 
-	margin-bottom: 0px; 
+	position; relative;
+	margin-left: 80%;
+	margin-top: 0%;
+	height: 80px;
+	width: 80px;
+	margin-bottom: 0px;
 }
 
 .rightPanel
 {
-	margin-top: -16%; 
+	margin-top: -16%;
 	width: 85%;
 	float: left;
 	margin-left: 10%;
@@ -225,38 +224,38 @@ textarea:focus
 
 
 .btn5:hover
-{ 
+{
 	border: 2px solid var(--pink);
   	background-color: transparent;
   	color: var(--pink);
   	opacity: 1;
-	cursor: crosshair; 
+	cursor: pointer;
 }
 
 .Astronaut2
 {
-	position; relative; 
-	margin-left: 50%; 
-	//margin-top: -100%;    
+	position; relative;
+	margin-left: 50%;
+	//margin-top: -100%;
 	top: -20%
-	height: 20px; 
-	width: 20px; 
-	margin-bottom: 0%; 
+	height: 20px;
+	width: 20px;
+	margin-bottom: 0%;
 }
 
-.toggle-switch input[type=checkbox] 
+.toggle-switch input[type=checkbox]
 {
 	display:none
 }
 
-.toggle-switch label 
+.toggle-switch label
 {
-	cursor:crosshair;
+	cursor: pointer;
 }
 
-.toggle-switch label .toggle-track 
+.toggle-switch label .toggle-track
 {
-	float: right; 
+	float: right;
   	display:block;
 	height:30px;
 	width:60px;
@@ -266,9 +265,9 @@ textarea:focus
   	position:relative;
   	margin-bottom: 0px;
 	border:1px solid var(--pink);
-	margin-right: 8%; 
-	margin-top: 10%; 
-	margin-bottom: -10%;  
+	margin-right: 8%;
+	margin-top: 10%;
+	margin-bottom: -10%;
 }
 
 .toggle-switch .toggle-track:before
@@ -279,7 +278,7 @@ textarea:focus
 	width:30px;
 	//background:olivedrab;
 	background-image: url("../image/SmileyFace2.png");
-        background-size: cover; 
+        background-size: cover;
   	border-radius:20px;
   	position:absolute;
   	top:0;
@@ -291,34 +290,34 @@ textarea:focus
 {
   	//background: var(--pink);
 	background-image: url("../image/FrowningFace2.png");
-        background-size: cover; 
+        background-size: cover;
   	right: 30px;
 }
 
-.ringBell, .ringBell:after 
-{  
-  z-index: 3000; 
-  float: right; 
-  left: 88%; 
-  margin-top: 15px; 
+.ringBell, .ringBell:after
+{
+  z-index: 3000;
+  float: right;
+  left: 88%;
+  margin-top: 15px;
   width: 35px;
   height: 35px;
 }
 
-.-count, .-count:before, .ringBell:after 
+.-count, .-count:before, .ringBell:after
 {
   position: absolute;
 }
 
 .-count, .-count:before
 {
-  margin-top: 10px; 
-  float: right; 
+  margin-top: 10px;
+  float: right;
   left: 88%;
-  top: 30px;  
+  top: 30px;
   width: 20px;
   height: 20px;
-  border-radius: 30%;
+  border-radius: 80%;
 }
 
 .ringBell {
@@ -326,7 +325,7 @@ textarea:focus
   cursor: pointer;
 }
 
-.ringBell:after 
+.ringBell:after
 {
   z-index: 3000;
   content: '';
@@ -336,12 +335,12 @@ textarea:focus
   background-size: cover;
 }
 
-.ringBell:hover:after 
+.ringBell:hover:after
 {
   animation: ring .16s ease-in-out 5;
 }
 
-@keyframes ring 
+@keyframes ring
 {
   0% {
     transform: rotate(18deg);
@@ -354,7 +353,7 @@ textarea:focus
   }
 }
 
-.-count 
+.-count
 {
   display: flex;
   flex-flow: row wrap;
@@ -368,25 +367,25 @@ textarea:focus
   font-size: 20px;
   font-weight: bold;
   z-index: 90;
-  color: white; 
+  color: white;
 }
 
-.-count:before 
+.-count:before
 {
-  color: var(--pink); 
+  color: var(--pink);
   content: '';
   box-sizing: border-box;
   border: 1.5px solid var(--pink);
-  margin-left: -18px; 
-  margin-top: -30px; 
+  margin-left: -18px;
+  margin-top: -30px;
 }
 
-.ringBell:hover .-count:before 
+.ringBell:hover .-count:before
 {
   animation: pulse .6s ease-out;
 }
 
-@keyframes pulse 
+@keyframes pulse
 {
   from {
     opacity: 1;
@@ -396,4 +395,61 @@ textarea:focus
     opacity: 0;
     transform: scale(2);
   }
+}
+
+#notif_container {
+  position: absolute;
+  margin-left: 420px;
+  margin-top: 65px;
+  width: 150px;
+  max-width: 150px;
+  background-color: white;
+  z-index: 1;
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid var(--pink);
+
+}
+
+.notif_object {
+  display: block;
+  font-size: 13px;
+  padding: 5px 0px;
+  text-align: center;
+  border-bottom: 1px solid var(--pink);
+
+}
+
+.notif_object button {
+  font-size: 14px;
+  margin-top: 0px;
+  transition: 0.3s;
+
+}
+
+.notif_object button:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.notif_object button:focus {
+  outline: none;
+}
+
+div.feed {
+	padding: 30px;
+}
+
+textarea {
+	font-family: 'Open Sans';
+}
+
+div.feed #word-count {
+	margin-left: 10px;
+	color: var(--pink);
+	border: none;
+}
+
+div.feed #word-count:focus {
+	outline: none;
 }

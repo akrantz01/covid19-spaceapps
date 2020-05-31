@@ -4,6 +4,14 @@ function goProfile() {
 
 $(document).ready(function() {
   saveProfile(); //calls every time on profile? okay for preview?
+  updateCount();
+  $(".ringBell").click(function() {
+    if (notif_container == null) Self.notifications('secure-testing-auth').then(readNotifs);
+    else hideNotifs();
+  });
+  $('html').click(function(e) {
+    if (e.target.id != 'notif_container' && notif_container != null) hideNotifs();
+  });
 });
 
 function saveProfile() {
@@ -16,6 +24,65 @@ function saveProfile() {
   } else {
     $("#name").html("Hi " + localStorage.getItem('Name').toUpperCase() + "!");
   }
+}
+
+//NOTIFICATIONS//
+let notif_container = null;
+
+function updateProfile() {
+  $("#name").html(localStorage.getItem('Name'));
+  $("#bio").html(localStorage.getItem('Bio'));
+}
+
+function updateCount() {
+  let count = 0;
+  Self.notifications('secure-testing-auth').then(function(e) {
+    if(e.data.comments.length + e.data.friend_requests.length > 0) $("span.-count").html('!');
+    else $("span.-count").hide();
+  });
+}
+
+function hideNotifs() {
+  if(notif_container) notif_container.remove();
+  notif_container = null;
+  updateCount();
+}
+
+function readNotifs(n) {
+  notif_container = document.createElement('div');
+  notif_container.setAttribute('id', 'notif_container');
+  document.getElementById('notif_parent_container').appendChild(notif_container);
+  for (let i = 0; i < n.data.comments.length; i++) createNewCommentNotif(n.data.comments[i]);
+  for (let i = 0; i < n.data.friend_requests.length; i++) createNewFriendRequestNotif(n.data.friend_requests[i]);
+}
+
+function createNewCommentNotif(text) {
+  let notif = document.createElement('div');
+  notif_container.appendChild(notif);
+  notif.appendChild(document.createTextNode("Someone commented: " + text));
+  notif.setAttribute("class", "notif_object");
+}
+
+function createNewFriendRequestNotif(text) {
+  let notif = document.createElement('div');
+  notif_container.appendChild(notif);
+  notif.appendChild(document.createTextNode(text + " sent you a friend request!"));
+  let acceptButton = document.createElement("button");
+  acceptButton.innerHTML = "Y";
+  acceptButton.setAttribute('onclick', respondToRequest(text, true, notif));
+  let rejectButton = document.createElement("button");
+  rejectButton.innerHTML = "N";
+  rejectButton.setAttribute('onclick', respondToRequest(text, false, notif));
+  notif.appendChild(document.createElement("br"));
+  notif.appendChild(acceptButton);
+  notif.appendChild(rejectButton);
+  notif.setAttribute("class", "notif_object");
+}
+
+function respondToRequest(user, bool, obj) {
+  Self.friend_request(user, bool, 'secure-testing-auth').then(function() {
+    hideNotifs();
+  });
 }
 
 //BACK END//
