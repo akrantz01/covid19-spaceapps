@@ -154,7 +154,36 @@ div.section_header {
 
 .container .profile_header {
   text-align: center;
-  padding: 30px;
+}
+
+.container .profile_header .profile_header_location button {
+  margin-top: 0px;
+  width: 200px;
+  height: 40px;
+  cursor: pointer;
+  transition: 0.3s;
+  opacity: 0.5;
+}
+
+.container .profile_header .profile_header_location button:hover {
+  transform: scale(1.1);
+}
+
+.container .profile_header .profile_header_location button:focus {
+  outline: none;
+}
+
+.container .profile_header .profile_header_location p {
+  display: inline-block;
+  font-size: 15px;
+  margin-left: 10px;
+  color: var(--blue);
+}
+
+.container .profile_header .profile_header_location button {
+  color: var(--blue);
+  font-size: 20px;
+  display: inline-block;
 }
 
 .container .profile_pages_buttons {
