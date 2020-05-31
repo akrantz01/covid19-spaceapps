@@ -52,3 +52,19 @@ app.use(cors({ origin: true }))
     .all("*", (_, res) => res.status(404).json({ status: "error", reason: "not found" }));
 
 exports.api = functions.https.onRequest(app);
+
+// Setup user data on registration
+exports.userSetup = functions.auth.user().onCreate(async (user) => {
+    // Create user data
+    await firebase.firestore().collection("users").doc(user.uid).set({
+        bio: "",
+        friends: [],
+        name: user.displayName
+    });
+
+    // Create user notifications
+    await firebase.firestore().collection("notifications").doc(user.uid).set({
+        friend_requests: [],
+        comments: []
+    })
+});
