@@ -94,7 +94,7 @@ function displayFeed() {
     Self.read('secure-testing-auth').then(function(a) {
         var friends = false;
         for (var i=0; i < a.data.friends.length; i++){
-            if (a.data.friends[i] === 'other-secure-testing-auth'){
+            if (a.data.friends[i] === 'another-id'){
                 friends = true;
             }
         }
@@ -105,7 +105,7 @@ function displayFeed() {
             Self.notifications('other-secure-testing-auth').then(function(b) {
                 console.log(b.data.friend_requests);
                 for (let i = 0; i < b.data.friend_requests.length; i++) {
-                    if (b.data.friend_requests[i] === 'secure-testing-auth'){
+                    if (b.data.friend_requests[i] === 'user-id'){
                         sent = true;
                     }
                 };
