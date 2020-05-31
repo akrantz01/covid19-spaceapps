@@ -16,7 +16,8 @@ function displayWellness() {
 $(document).ready(function() {
   displayFeed();
   $(".ringBell").click(function(){
-    createNewNotif();
+    Self.notifications('secure-testing-auth').then(console.log);
+    //reateNewNotif();
   });
 });
 
@@ -74,6 +75,52 @@ function showError(error) {
 function createNewNotif(text){
   var notif = document.createElement('div');
   document.getElementById('notif_container').appendChild(notif);
-  notif.appendChild(document.createTextNode('notif1'));
+  notif.appendChild(document.createTextNode(text));
   notif.setAttribute("class", "notif_object");
+}
+
+//BACK END//
+const url = "https://us-central1-covid19-spaceapps.cloudfunctions.net/api";
+
+async function sendRequest(method, path, token, body= null) {
+    // Build request
+    let options = {
+        method: method,
+        headers: {
+            Authorization: token,
+        }
+    }
+
+    // Add options for POST/PUT requests
+    if ((path === "POST" || path === "PUT") && body !== null) options.headers["Content-Type"] = "application/json";
+    if (body !== null) options.body = body;
+
+    // Send & parse requests
+    let response = await fetch(`${url}${path}`, options);
+    let json = await response.json();
+
+    // Generate return data
+    let base = { code: response.status, success: response.ok }
+    if (response.ok) base.data = json.data;
+    else base.reason = json.reason;
+
+    return base;
+}
+
+class Self {
+    // Get the current user's basic information
+    static async read(token) {
+        return await sendRequest("GET", "/users/self", token);
+    }
+
+    // Get the current user's notifications
+    // This includes comments and friend requests
+    static async notifications(token) {
+        return await sendRequest("GET", "/users/self/notifications", token);
+    }
+
+    // Send a friend request
+    static async friend_request(user_id, accept, token) {
+        return await sendRequest("PUT", "/users/self/friends", token, { friend: user_id, accept: accept });
+    }
 }
