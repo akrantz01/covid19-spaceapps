@@ -15,6 +15,30 @@ body {
   background-color: var(--background);
 }
 
+/*SCROLL*/
+::-webkit-scrollbar-track
+{
+	border: none;
+	background-color: var(--background);
+}
+
+::-webkit-scrollbar
+{
+	width: 15px;
+	background-color: white;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: white;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover
+{
+  	background-color: mistyrose;
+}
+
 /*HEADER_HEADER*/
 button {
   border: 2px solid transparent;
@@ -22,6 +46,15 @@ button {
   opacity: 0.7;
   margin-left: 10px;
   margin-top: 30px;
+}
+
+button.icon_button {
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 28px;
+  transition: 0.3s;
+  background-color: transparent;
+  color: var(--pink);
 }
 
 button.icon_button {
