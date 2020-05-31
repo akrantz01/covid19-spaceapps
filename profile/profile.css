@@ -158,3 +158,9 @@ div.profile_section {
 .container .cup:focus {
   outline: none;
 }
+
+.container .pollution {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
