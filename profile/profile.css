@@ -529,3 +529,57 @@ input
 {
      display: block;
 }
+
+#notif_container {
+  position: absolute;
+  margin-left: 420px;
+  margin-top: 65px;
+  width: 150px;
+  max-width: 150px;
+  background-color: white;
+  z-index: 1;
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid var(--pink);
+
+}
+
+.notif_object {
+  display: block;
+  font-size: 13px;
+  padding: 5px 0px;
+  text-align: center;
+  border-bottom: 1px solid var(--pink);
+
+}
+
+.notif_object button {
+  font-size: 14px;
+  margin-top: 0px;
+  transition: 0.3s;
+
+}
+
+.notif_object button:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.notif_object button:focus {
+  outline: none;
+}
+
+div.feed {
+	padding: 30px;
+}
+
+div.feed #word-count {
+	margin-left: 10px;
+	color: var(--pink);
+	border: none;
+}
+
+div.feed #word-count:focus {
+	outline: none;
+}
+
