@@ -68,9 +68,9 @@
           </label>
         </div>
       </div><br><br>
-      <p id="feed-name" style="text-align: center; margin-top: -40px;">Positivity Feed</p>
+      <p id="feed-name" style="text-align: center; margin-top: -40px; font-size: 25px; font-weight: bold;">Positivity Feed</p>
       <div class="posts" id="post-parent">
-        <p id="loading" style="font-size: 20px; margin-top: -20px;">loading...</p>
+        <p id="loading" style="font-size: 25px; font-weight: bold; margin-top: -20px;">loading...</p>
       </div>
       <div class="comments">
         <div class="posts" style="margin-top: -30px;">
@@ -102,21 +102,7 @@
     <div id="WELLNESS" class="profile_section">
       <div class="section_header"><img src="assets/header_mood.png"></img></div>
       <canvas id="myChart" width="400" height="400"></canvas>
-      <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var myLineChart = new Chart(ctx, {
-          type: 'line',
-          data: {
-            labels: [26, 27, 28, 29, 30, 31],
-            datasets: [{
-              label: 'Positivity (%) Every Day of May',
-              backgroundColor: 'rgba(233, 188, 164, 0)',
-              borderColor: 'rgb(233, 188, 164)',
-              data: [0, 10, 5, -30, -20, 45]
-            }]
-          }
-        });
-      </script>
+
       <br>
       <hr style="border: 1px solid var(--bluetransp); width: 124%; margin-left: -60px;"><br>
       <div class="section_header"><img src="assets/header_health.png"></img></div>

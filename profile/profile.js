@@ -18,6 +18,7 @@ $(document).ready(function() {
   displayFeed();
   updateProfile();
   updateCount();
+  loadGraph();
   getPosts(toggled);
   $(".ringBell").click(function() {
     if (notif_container == null) Self.notifications('secure-testing-auth').then(readNotifs);
@@ -271,6 +272,69 @@ function showError(error) {
       console.log("An unknown error occurred.");
       break;
   }
+}
+
+//MOOD//
+function calcTonePositivity(arr) {
+  var total = 0;
+  var num = 0;
+  for (var i=0; i < arr.length; i++){
+    if (arr[i].tone_id === 'anger' || arr[i].tone_id === 'sadness' || arr[i].tone_id === 'fear') {
+      total -= arr[i].score;
+      num += 1;
+    } else if (arr[i].tone_id === 'joy' || arr[i].tone_id === 'confident'){
+      total += arr[i].score;
+      num += 1;
+    }
+  }
+  if (num > 0)  return ((total/num+1)/2);
+  return 0.5;
+}
+
+function avePositivity() {
+  let postArray;
+  var t = 0;
+  var ret = 0;
+  Posts.list('secure-testing-auth').then(function(e){
+    postArray = e.data;
+    for (var i = 0; i < postArray.length; i++){
+      if (postArray[i].by === "user-id")  t += calcTonePositivity(postArray[i].tones);
+    }
+    var n = postArray.length;
+    ret = ((t/n)*100);
+
+    console.log(ret);
+    return ret;
+  });
+}
+
+function loadGraph() {
+  let postArray;
+  var t = 0;
+  var ave = 0;
+  Posts.list('secure-testing-auth').then(function(e){
+    postArray = e.data;
+    for (var i = 0; i < postArray.length; i++){
+      if (postArray[i].by === "user-id")  t += calcTonePositivity(postArray[i].tones);
+    }
+    var n = postArray.length;
+    ave = ((t/n)*100);
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    console.log(ave);
+    var myLineChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [26, 27, 28, 29, 30, 31],
+        datasets: [{
+          label: 'Positivity (%) Every Day of May',
+          backgroundColor: 'rgba(233, 188, 164, 0)',
+          borderColor: 'rgb(233, 188, 164)',
+          data: [50, 20, 80, 30, 45, ave]
+        }]
+      }
+    });
+  });
 }
 
 //BACK END//
