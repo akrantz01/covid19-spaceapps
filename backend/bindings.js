@@ -98,3 +98,21 @@ class Posts {
         return await sendRequest("POST", `/comments/${post_id}`, token, { content: content });
     }
 }
+
+// Get air quality index
+async function air_quality_index(lat, long, token) {
+    let response = await fetch(`${url}/aqi?lat=${lat}&long=${long}`, {
+        method: "GET",
+        headers: {
+            Authorization: token,
+        }
+    });
+    let json = await response.json();
+
+    // Generate response data
+    let base = { code: response.status, success: response.ok };
+    if (response.ok) base.data = json.data;
+    else base.reason = json.reason;
+
+    return base;
+}

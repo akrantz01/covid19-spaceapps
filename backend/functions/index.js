@@ -50,6 +50,30 @@ app.use(cors({ origin: "*" }))
     .use("/posts", require("./posts"))
     .use("/comments", require("./comments"))
     .use("/users", require("./users"))
+    .get("/aqi", async (req, res) => {
+        const token = functions.config().waqi.token;
+
+        // Validate request
+        if (!req.query.hasOwnProperty("lat") || !req.query.hasOwnProperty("long")) return res.status(400).json({ status: "error", reason: "invalid request parameters" });
+
+        // Send request
+        let response = await axios.get("https://api.waqi.info/feed/geo:10.3;20.7/", {
+            params: {
+                token: token,
+                lat: req.query.lat,
+                lng: req.query.long
+            },
+            responseType: "json"
+        });
+        if (response.status !== 200) return res.status(500).json({ status: "error", reason: "failed to retrieve air quality data" });
+        let data = response.data.data;
+
+        return res.status(200).json({
+            quality: data.aqi,
+            dominant_pollutant: data.dominentpol,
+            iaqi: data.iaqi
+        });
+    })
     .all("*", (_, res) => res.status(404).json({ status: "error", reason: "not found" }));
 
 exports.api = functions.https.onRequest(app);
