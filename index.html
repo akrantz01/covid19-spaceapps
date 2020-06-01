@@ -18,7 +18,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Crete+Round&display=swap" rel="stylesheet">
-  <script language=JavaScript>
+  <script type="text/javascript">
+    if (localStorage.getItem("token") === null)
+        window.location.pathname = window.location.pathname.split("/").reverse().slice(1).reverse().join("/") + "/login.html";
+  </script>
+  <script type="text/javascript">
     <!--
     function check_length(my_form) {
       maxLen = 285;
