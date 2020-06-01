@@ -677,3 +677,13 @@ figure.snip0023.hover .curl {
   width: 90px;
   height: 90px;
 }
+
+div.post-details {
+  font-size: 14px;
+  margin: 70px 290px;
+  position: absolute;
+  text-align: right;
+  width: 190px;
+  font-style: italic;
+  color: var(--blue);
+}

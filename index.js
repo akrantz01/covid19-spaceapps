@@ -155,6 +155,8 @@ function generatePost(user, text, id, arr){
       $(".comments .post p").html(text);
       $(".comments .post").attr('id', id);
       $(".comments .post p").css("color", color);
+      console.log(arr);
+      $(".comments .post-details").html("Mood: " + getDominantMood(arr));
 
       let parent = document.getElementById("comment-parent");
 
@@ -176,6 +178,35 @@ function generatePost(user, text, id, arr){
   $("div.comments").hide();
 }
 
+function getDominantMood(arr){
+  if(arr.length===0) return "None";
+  else if (arr.length===1) return arr[0].tone_name;
+  else if (arr.length===2) return arr[0].tone_name + "/" + arr[1].tone_name;
+  else {
+    let newArr = [];
+    for(let i=0; i < arr.length; i++) newArr.push(arr[i].score);
+    newArr = newArr.sort();
+    let firstMax = newArr[newArr.length-1];
+    firstMax = newArr.indexOf(firstMax);
+    let secondMax = newArr[newArr.length-2];
+    secondMax = newArr.indexOf(secondMax);
+    return arr[firstMax].tone_name + "/" + arr[secondMax].tone_name;
+  }
+
+
+
+  let largest = arr[0].score || null;
+  let n = null;
+  for (let i = 0; i < arr.length; i++) {
+    if(arr[i].score > largest) {
+      largest = arr[i].score;
+      n = i;
+    }
+  }
+  let string = arr[n].tone_name;
+  return string;
+}
+
 function createNewComment(parent, user, text){
   let comment = document.createElement('div');
   parent.appendChild(comment);
@@ -184,7 +215,6 @@ function createNewComment(parent, user, text){
   comment.appendChild(commentHeader);
   commentHeader.appendChild(document.createTextNode(user + " says: " + text));
 }
-
 
 //NOTIFICATIONS//
 let notif_container = null;
