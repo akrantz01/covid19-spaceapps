@@ -6,7 +6,7 @@ $(document).ready(() => {
 
         firebase.auth().signInWithPopup(provider)
             .then(res => {
-                localStorage.setItem("token", res.credential.idToken);
+                // Set display name
                 localStorage.setItem("name", res.user.displayName);
 
                 // Generate user id
@@ -19,6 +19,8 @@ $(document).ready(() => {
                 }
                 localStorage.setItem("user-id", uid);
             })
+            .then(() => firebase.auth().currentUser.getIdToken(true))
+            .then(token => localStorage.setItem("token", token))
             .then(() => window.location.pathname = window.location.pathname.split("/").reverse().slice(1).reverse().join("/") + "/index.html")
             .catch(err => console.log(err));
     });
