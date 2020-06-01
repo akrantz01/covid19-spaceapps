@@ -234,7 +234,7 @@ function chngimg() {
     $("#nodat").show();
   } else {
     var aqi = air_quality_index(latitude, longitude, 'secure-testing-auth');
-  if (aqi <= 100) { 
+  if (aqi <= 100) {
     $("#tree").css("opacity", 1);
     $("#house").css("opacity", 0.3);
     $("#pol").hide();
@@ -446,4 +446,9 @@ async function air_quality_index(lat, long, token) {
   else base.reason = json.reason;
 
   return base;
+}
+
+function logout() {
+  localStorage.removeItem("token");
+  window.location.pathname = window.location.pathname.split("/").reverse().slice(2).reverse().join("/") + "/login.html";
 }
