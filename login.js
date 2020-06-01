@@ -22,6 +22,6 @@ $(document).ready(() => {
             .then(() => firebase.auth().currentUser.getIdToken(true))
             .then(token => localStorage.setItem("token", token))
             .then(() => window.location.pathname = window.location.pathname.split("/").reverse().slice(1).reverse().join("/") + "/index.html")
-            .catch(err => console.log(err));
+            .catch(err => console.error(err));
     });
 });

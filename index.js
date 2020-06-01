@@ -79,7 +79,7 @@ function getPicture(){
     document.querySelector("#astropix-description").innerHTML = myJson.explanation;
     document.querySelector("#source").innerHTML = myJson.copyright;
   }).catch(function(error){
-    console.log("Error: " + error);
+    console.error("Error: " + error);
   });
 }
 
@@ -115,7 +115,6 @@ function getPosts(toggleOn){
 }
 
 function togglePos(){
-  console.log(toggled);
   if (toggled === true)  toggled = false;
   else  toggled = true;
   getPosts(toggled);
@@ -176,7 +175,6 @@ function generatePost(user, text, id, arr){
       $(".comments .post p").html(text);
       $(".comments .post").attr('id', id);
       $(".comments .post p").css("color", color);
-      console.log(arr);
       $(".comments .post-details").html("Mood: " + getDominantMood(arr));
 
       let parent = document.getElementById("comment-parent");

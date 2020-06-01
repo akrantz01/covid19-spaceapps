@@ -69,7 +69,6 @@ function getPosts(toggleOn){
 }
 
 function togglePos(){
-  console.log(toggled);
   if (toggled === true)  toggled = false;
   else  toggled = true;
   getPosts(toggled);
@@ -130,7 +129,6 @@ function generatePost(user, text, id, arr){
       $(".comments .post p").html(text);
       $(".comments .post").attr('id', id);
       $(".comments .post p").css("color", color);
-      console.log(arr);
       $(".comments .post-details").html("Mood: " + getDominantMood(arr));
 
       let parent = document.getElementById("comment-parent");
@@ -309,16 +307,16 @@ function showPosition(position) { //change later
 function showError(error) {
   switch (error.code) {
     case error.PERMISSION_DENIED:
-      console.log("User denied the request for Geolocation.");
+      console.error("User denied the request for Geolocation.");
       break;
     case error.POSITION_UNAVAILABLE:
-      console.log("Location information is unavailable.");
+      console.error("Location information is unavailable.");
       break;
     case error.TIMEOUT:
-      console.log("The request to get user location timed out.");
+      console.error("The request to get user location timed out.");
       break;
     case error.UNKNOWN_ERROR:
-      console.log("An unknown error occurred.");
+      console.error(`An unknown error occurred: ${error}`);
       break;
   }
 }
@@ -347,9 +345,7 @@ function loadGraph() {
   var n = 0;
   Posts.list(localStorage.getItem("token")).then(function(e){
     postArray = e.data;
-    console.log(postArray);
     for (var i = 0; i < postArray.length; i++){
-      console.log(postArray[i].tones);
       if (postArray[i].by === "user-id" && postArray[i].tones !== undefined) {
         t += calcTonePositivity(postArray[i].tones);
         n += 1;
@@ -357,9 +353,7 @@ function loadGraph() {
     }
     if (n>0)  ave = ((t/n)*100);
     else  ave = 0.5;
-    console.log(n);
     var ctx = document.getElementById('myChart').getContext('2d');
-    console.log(ave);
     var myLineChart = new Chart(ctx, {
       type: 'line',
       data: {
