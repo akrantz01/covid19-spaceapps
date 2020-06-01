@@ -225,37 +225,39 @@ function respondToRequest(user, bool, obj) {
   });
 }
 
-function chngimg() {
-  if (latitude === 300 && longitude === 300){
+function chngimg(latitude, longitude) {
+  if(latitude===undefined){
     $("#tree").css("opacity", 1);
     $("#house").css("opacity", 1);
-    $("#pol").hide();
-    $("#nopol").hide();
     $("#nodat").show();
-  } else {
-    var aqi = air_quality_index(latitude, longitude, 'secure-testing-auth');
-  if (aqi <= 100) { 
-    $("#tree").css("opacity", 1);
-    $("#house").css("opacity", 0.3);
     $("#pol").hide();
-    $("#nopol").show();
-    $("#nodat").hide();
-  } else {
-    $("#tree").css("opacity", 0.3);
-    $("#house").css("opacity", 1);
-    $("#pol").show();
     $("#nopol").hide();
-    $("#nodat").hide();
+  } else{
+    var aqi = air_quality_index(latitude, longitude, 'secure-testing-auth');
+
+    if (aqi <= 100) {
+      $("#tree").css("opacity", 1);
+      $("#house").css("opacity", 0.3);
+      $("#pol").hide();
+      $("#nopol").show();
+      $("#nodat").hide();
+    } else {
+      $("#tree").css("opacity", 0.3);
+      $("#house").css("opacity", 1);
+      $("#pol").show();
+      $("#nopol").hide();
+      $("#nodat").hide();
+    }
   }
-  }
+
 }
 
 function goHome() {
   window.location.href = "../index.html";
 }
 
-var latitude = 300;
-var longitude = 300;
+//var latitude = 300;
+//var longitude = 300;
 
 //LOCATION SCRIPTS//
 function getLocation() {
@@ -271,6 +273,7 @@ function showPosition(position) { //change later
   $("#location p").html(posString);
   latitude = position.coords.latitude;
   longitude = position.coords.longitude;
+  chngimg(latitude, longitude);
 }
 
 function showError(error) {
