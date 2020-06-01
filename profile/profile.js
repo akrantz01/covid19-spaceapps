@@ -266,6 +266,35 @@ function showError(error) {
   }
 }
 
+//MOOD//
+function calcTonePositivity(arr) {
+  var total = 0;
+  var num = 0;
+  for (var i=0; i < arr.length; i++){
+    if (arr[i].tone_id === 'anger' || arr[i].tone_id === 'sadness' || arr[i].tone_id === 'fear') {
+      total -= arr[i].score;
+      num += 1;
+    } else if (arr[i].tone_id === 'joy' || arr[i].tone_id === 'confident'){
+      total += arr[i].score;
+      num += 1;
+    }
+  }
+  if (num > 0)  return ((total/num+1)/2);
+  return 0.5;
+}
+
+function avePositivity() {
+  let postArray;
+  var t = 0;
+  Posts.list('secure-testing-auth').then(function(e){
+    postArray = e.data;
+    for (var i = 0; i < postArray.length; i++){
+      total += calcTonePositivity(postArray[i].tones);
+    }
+  });
+  return (total/postArray.length);
+}
+
 //BACK END//
 const url = "https://us-central1-covid19-spaceapps.cloudfunctions.net/api";
 
