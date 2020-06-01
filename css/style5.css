@@ -544,6 +544,7 @@ div#post-parent .post:hover {
   cursor: pointer;
   text-align: center;
   letter-spacing: 1px;
+  padding-bottom: 8px; 
 }
 
 #profile-description .show-more:hover {
