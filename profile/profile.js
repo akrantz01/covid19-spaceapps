@@ -20,6 +20,7 @@ $(document).ready(function() {
   updateCount();
   loadGraph();
   getPosts(toggled);
+  chngimg();
   $(".ringBell").click(function() {
     if (notif_container == null) Self.notifications('secure-testing-auth').then(readNotifs);
     else hideNotifs();
@@ -225,17 +226,27 @@ function respondToRequest(user, bool, obj) {
 }
 
 function chngimg() {
-  var aqi = air_quality_index(latitude, longitude, 'secure-testing-auth');
-  if (aqi >= 100) { 
+  if (latitude === 300 && longitude === 300){
+    $("#tree").css("opacity", 1);
+    $("#house").css("opacity", 1);
+    $("#pol").hide();
+    $("#nopol").hide();
+    $("#nodat").show();
+  } else {
+    var aqi = air_quality_index(latitude, longitude, 'secure-testing-auth');
+  if (aqi <= 100) { 
     $("#tree").css("opacity", 1);
     $("#house").css("opacity", 0.3);
     $("#pol").hide();
     $("#nopol").show();
+    $("#nodat").hide();
   } else {
     $("#tree").css("opacity", 0.3);
     $("#house").css("opacity", 1);
     $("#pol").show();
     $("#nopol").hide();
+    $("#nodat").hide();
+  }
   }
 }
 
@@ -243,8 +254,8 @@ function goHome() {
   window.location.href = "../index.html";
 }
 
-var latitude = 0;
-var longitude = 0;
+var latitude = 300;
+var longitude = 300;
 
 //LOCATION SCRIPTS//
 function getLocation() {
