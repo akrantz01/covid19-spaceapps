@@ -45,6 +45,12 @@ function saveProfile() {
 }
 
 //ASTROPIX//
+
+function postSomething(){
+  let content = $("#post-content").val();
+  Posts.create(content, 'secure-testing-auth').then(function(){location.reload();});
+}
+
 function getPicture(){
   fetch("https://api.nasa.gov/planetary/apod?api_key=GAbtYQKA3ehOsoGrOrE4mHyFbsT8v4sVnovrBqoj").then(function(e){
     return e.json();

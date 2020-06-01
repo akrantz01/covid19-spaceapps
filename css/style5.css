@@ -518,7 +518,6 @@ div#post-parent .post:hover {
   font-size: 12px;
   display: block;
   text-align: justify;
-  letter-spacing: 1px;
 }
 
 #profile-description .id{
@@ -530,7 +529,6 @@ div#post-parent .post:hover {
   font-size: 12px;
   display: block;
   text-align: center;
-  letter-spacing: 1px;
 }
 
 #profile-description .show-more {
@@ -543,8 +541,7 @@ div#post-parent .post:hover {
   background: var(--bluetransp);
   cursor: pointer;
   text-align: center;
-  letter-spacing: 1px;
-  padding-bottom: 8px; 
+  padding-bottom: 8px;
 }
 
 #profile-description .show-more:hover {
