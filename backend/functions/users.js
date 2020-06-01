@@ -13,7 +13,11 @@ router.get("/self", (req, res) => firestore.collection("users").doc(httpContext.
 
 // Retrieve notifications
 router.get("/self/notifications", (req, res) => firestore.collection("notifications").doc(httpContext.get("uid")).get()
-    .then(snapshot => res.status(200).json({ status: "success", data: snapshot.data() }))
+    .then(snapshot => ({ status: "success", data: snapshot.data() }))
+    .then(body => {
+        if (body.data !== undefined) return res.status(200).json(body);
+        else return res.status(200).json({ status: "success", data: { comments: [], friend_requests: [] } });
+    })
     .catch(common.internalError(res, "get-notifications")));
 
 // Approve or reject a friend request

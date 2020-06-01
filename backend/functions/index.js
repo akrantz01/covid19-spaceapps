@@ -3,6 +3,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const httpContext = require("express-http-context");
+const common = require("./common");
 
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
@@ -28,21 +29,10 @@ app.use(cors({ origin: "*" }))
             return;
         }
 
-        // Fake authentication for testing
-        if (req.get("Authorization") === "secure-testing-auth") {
-            httpContext.set("uid", "user-id");
-            next();
-            return;
-        } else if (req.get("Authorization") === "other-secure-testing-auth") {
-            httpContext.set("uid", "another-id");
-            next();
-            return;
-        }
-
         // Validate token
         admin.auth().verifyIdToken(req.get("Authorization"))
             .then(decoded => {
-                httpContext.set("uid", decoded.uid);
+                httpContext.set("uid", common.translateUserID(decoded.email));
                 return next();
             })
             .catch(_ => res.status(401).json({ status: "error", reason: "unauthorized" }));
@@ -81,13 +71,7 @@ exports.api = functions.https.onRequest(app);
 // Setup user data on registration
 exports.userSetup = functions.auth.user().onCreate(async (user) => {
     // Generate user id
-    let uid;
-    let parts = user.email.split("@");
-    if (parts[1] !== "gmail.com" && parts[1] !== "yahoo.com" && parts[1] !== "outlook.com") {
-        uid = user.email.replace("@", "-").replace(".", "-")
-    } else {
-        uid = parts[0];
-    }
+    let uid = common.translateUserID(user.email);
 
     // Create user data
     await admin.firestore().collection("users").doc(uid).set({
