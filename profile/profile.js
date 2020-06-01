@@ -18,6 +18,7 @@ $(document).ready(function() {
   displayFeed();
   updateProfile();
   updateCount();
+  loadGraph();
   getPosts(toggled);
   $(".ringBell").click(function() {
     if (notif_container == null) Self.notifications('secure-testing-auth').then(readNotifs);
@@ -293,13 +294,47 @@ function calcTonePositivity(arr) {
 function avePositivity() {
   let postArray;
   var t = 0;
+  var ret = 0;
   Posts.list('secure-testing-auth').then(function(e){
     postArray = e.data;
     for (var i = 0; i < postArray.length; i++){
-      total += calcTonePositivity(postArray[i].tones);
+      if (postArray[i].by === "user-id")  t += calcTonePositivity(postArray[i].tones);
     }
+    var n = postArray.length;
+    ret = ((t/n)*100);
+
+    console.log(ret);
+    return ret;
   });
-  return (total/postArray.length);
+}
+
+function loadGraph() {
+  let postArray;
+  var t = 0;
+  var ave = 0;
+  Posts.list('secure-testing-auth').then(function(e){
+    postArray = e.data;
+    for (var i = 0; i < postArray.length; i++){
+      if (postArray[i].by === "user-id")  t += calcTonePositivity(postArray[i].tones);
+    }
+    var n = postArray.length;
+    ave = ((t/n)*100);
+
+    var ctx = document.getElementById('myChart').getContext('2d');
+    console.log(ave);
+    var myLineChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [26, 27, 28, 29, 30, 31],
+        datasets: [{
+          label: 'Positivity (%) Every Day of May',
+          backgroundColor: 'rgba(233, 188, 164, 0)',
+          borderColor: 'rgb(233, 188, 164)',
+          data: [50, 20, 80, 30, 45, ave]
+        }]
+      }
+    });
+  });
 }
 
 //BACK END//
