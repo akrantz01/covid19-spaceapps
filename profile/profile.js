@@ -51,14 +51,14 @@ function getPosts(toggleOn){
     if(toggleOn){
       $("#feed-name").html("Positivity Feed");
       for(let i=0;i < postArray.length; i++) {
-        if (calcTonePositivity(postArray[i].tones) > 0.5 && postArray[i].by === 'user-id'){
+        if (postArray[i].tones !== undefined && calcTonePositivity(postArray[i].tones) > 0.5 && postArray[i].by === 'user-id'){
           generatePost(postArray[i].by, postArray[i].content, postArray[i].id, postArray[i].tones);
         }
       }
     } else {
       $("#feed-name").html("All Feed");
       for(let i=0;i < postArray.length; i++) {
-        if (postArray[i].by === 'user-id') {
+        if (postArray[i].tones !== undefined && postArray[i].by === 'user-id') {
           generatePost(postArray[i].by, postArray[i].content, postArray[i].id, postArray[i].tones);
         }
       }
@@ -256,8 +256,6 @@ function goHome() {
   window.location.href = "../index.html";
 }
 
-//var latitude = 300;
-//var longitude = 300;
 
 //LOCATION SCRIPTS//
 function getLocation() {
@@ -310,35 +308,24 @@ function calcTonePositivity(arr) {
   return 0.5;
 }
 
-function avePositivity() {
-  let postArray;
-  var t = 0;
-  var ret = 0;
-  Posts.list('secure-testing-auth').then(function(e){
-    postArray = e.data;
-    for (var i = 0; i < postArray.length; i++){
-      if (postArray[i].by === "user-id")  t += calcTonePositivity(postArray[i].tones);
-    }
-    var n = postArray.length;
-    ret = ((t/n)*100);
-
-    console.log(ret);
-    return ret;
-  });
-}
-
 function loadGraph() {
   let postArray;
   var t = 0;
   var ave = 0;
+  var n = 0;
   Posts.list('secure-testing-auth').then(function(e){
     postArray = e.data;
+    console.log(postArray);
     for (var i = 0; i < postArray.length; i++){
-      if (postArray[i].by === "user-id")  t += calcTonePositivity(postArray[i].tones);
+      console.log(postArray[i].tones);
+      if (postArray[i].by === "user-id" && postArray[i].tones !== undefined) {
+        t += calcTonePositivity(postArray[i].tones);
+        n += 1;
+      }  
     }
-    var n = postArray.length;
-    ave = ((t/n)*100);
-
+    if (n>0)  ave = ((t/n)*100);
+    else  ave = 0.5;
+    console.log(n);
     var ctx = document.getElementById('myChart').getContext('2d');
     console.log(ave);
     var myLineChart = new Chart(ctx, {
