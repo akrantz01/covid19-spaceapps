@@ -69,6 +69,7 @@ function toMainFeed(){
   $("#post-parent").show();
   $(".comments").hide();
   $(".switch").show();
+  $("#feed-name").show();
 }
 
 function getPosts(toggleOn){
@@ -169,6 +170,7 @@ function generatePost(user, text, id, arr){
       $("#post-parent").hide();
       $(".comments").show();
       $(".switch").hide();
+      $("#feed-name").hide();
     });
   });
   $("div.comments").hide();
