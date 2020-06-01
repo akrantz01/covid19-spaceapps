@@ -538,7 +538,7 @@ div#post-parent .post:hover {
 
 #profile-description .show-more {
   /*   width: 690px;  */
-  color: white;
+  color: var(--blue);
   font-weight: bold;
   font-size: 12px;
   padding-top: 5px;
@@ -551,6 +551,8 @@ div#post-parent .post:hover {
 
 #profile-description .show-more:hover {
   color: var(--blue);
+  cursor: crosshair; 
+  text-decoration: line-through; 
 }
 
 #profile-description .show-more-height {
