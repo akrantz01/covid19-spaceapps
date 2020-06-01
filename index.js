@@ -10,6 +10,7 @@ $(document).ready(function() {
   updateCount();
   getPosts(toggled);
   getPicture();
+  checkLength();
 
   $(".ringBell").click(function() {
     if (notif_container == null) Self.notifications('secure-testing-auth').then(readNotifs);
@@ -32,9 +33,8 @@ $(document).ready(function() {
     Posts.comment(id, content, 'secure-testing-auth').then(function(){location.reload();});
   });
 
-  $("textarea#post-content").keyup(function(e){
-    if($("textarea#post-content").val().length > 50 && $("textarea#post-content").val().length < 300) document.getElementById("post-button").disabled = false;
-    else disablePost();
+  $("textarea#post-content").keyup(function(){
+    checkLength();
   });
 
   $('#post-button').click(function(){
@@ -47,6 +47,11 @@ $(document).ready(function() {
     });
   });
 });
+
+function checkLength(){
+  if($("textarea#post-content").val().length > 50 && $("textarea#post-content").val().length < 300) document.getElementById("post-button").disabled = false;
+  else disablePost();
+}
 
 function disablePost(){
   document.getElementById("post-button").disabled = true;

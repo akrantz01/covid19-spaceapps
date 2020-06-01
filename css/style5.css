@@ -710,52 +710,61 @@ div.post-details {
 .chat-popup h1
 {
   font-size: 30x;
-  margin-top: 0px; 
+  margin-top: 0px;
 }
 
 .form-container {
-  margin-top: 0px; 
-  padding-top: 0px; 
+  margin-top: 0px;
+  padding-top: 0px;
   max-width: 300px;
   padding: 10px;
   background-color: white;
 }
 
 .form-container textarea {
-  background-color: var(--pink); 
-  color: white; 
+  background-color: var(--offwhite);
+  color: black;
   width: 90%;
   padding: 15px;
-  padding-bottom: 0px; 
+  padding-bottom: 0px;
   margin: 5px 0 22px 0;
-  margin-bottom: 3px; 
+  margin-bottom: 3px;
   border: none;
   resize: none;
   min-height: 200px;
 }
 
 .form-container textarea:focus {
-  background-color: var(--background);
+  background-color: var(--offwhite);
   box-shadow: 0px 0px 20px white;
   outline: none;
-  border: none; 
-  opacity: 1; 
-  color: black; 
+  border: none;
+  opacity: 1;
+  color: black;
 }
 
 .chat-popup .btn {
-  background-color: #90EE90;
+  background-color: #c1cc91;
   color: white;
   padding: 0px 0px;
-  top: 0px; 
-  margin-top: 0px; 
+  top: 0px;
+  margin-top: 0px;
   border: none;
   cursor: pointer;
-  margin-left: 0px; 
+  margin-left: 0px;
   width: 20%;
   margin-bottom: 0px;
   opacity: 0.8;
-  float: right; 
+  float: right;
+}
+
+.chat-popup .btn:disabled {
+  background-color: #b2b5a5;
+  cursor: default;
+}
+
+.chat-popup .btn:disabled:hover {
+  opacity: 0.8;
 }
 
 .chat-popup .cancel {

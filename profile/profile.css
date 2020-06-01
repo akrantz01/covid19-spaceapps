@@ -268,9 +268,8 @@ textarea
 	color: var(--pink);
 	margin-top: -4%;
 	left: 0%;
-	//margin-left: 20%;
 	width: 280px;
-        height: 90px;
+  height: 90px;
 	margin-bottom: 0%;
 	padding: 0px;
 	resize: none;
@@ -278,9 +277,9 @@ textarea
 
 textarea:focus
 {
-    	outline: none !important;
-    	border-color: var(--pink);
-    	box-shadow: 0 0 10px var(--pink);
+  outline: none !important;
+  border-color: var(--pink);
+  box-shadow: 0 0 10px var(--pink);
 }
 
 .btn5
