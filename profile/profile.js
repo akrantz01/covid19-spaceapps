@@ -41,6 +41,7 @@ function toMainFeed(){
   $("#post-parent").show();
   $(".comments").hide();
   $(".switch").show();
+  $("#feed-name").show();
 }
 
 function getPosts(toggleOn){
@@ -128,6 +129,8 @@ function generatePost(user, text, id, arr){
       $(".comments .post p").html(text);
       $(".comments .post").attr('id', id);
       $(".comments .post p").css("color", color);
+      console.log(arr);
+      $(".comments .post-details").html("Mood: " + getDominantMood(arr));
 
       let parent = document.getElementById("comment-parent");
 
@@ -143,9 +146,36 @@ function generatePost(user, text, id, arr){
       $("#post-parent").hide();
       $(".comments").show();
       $(".switch").hide();
+      $("#feed-name").hide();
     });
   });
   $("div.comments").hide();
+}
+
+function getDominantMood(arr){
+  if(arr.length===0) return "None";
+  else if (arr.length===1) return arr[0].tone_name;
+  else if (arr.length===2) return arr[0].tone_name + "/" + arr[1].tone_name;
+  else {
+    let newArr = [];
+    for(let i=0; i < arr.length; i++) newArr.push(arr[i].score);
+    newArr = newArr.sort();
+    let firstMax = newArr[newArr.length-1];
+    firstMax = newArr.indexOf(firstMax);
+    let secondMax = newArr[newArr.length-2];
+    secondMax = newArr.indexOf(secondMax);
+    return arr[firstMax].tone_name + "/" + arr[secondMax].tone_name;
+  }
+  let largest = arr[0].score || null;
+  let n = null;
+  for (let i = 0; i < arr.length; i++) {
+    if(arr[i].score > largest) {
+      largest = arr[i].score;
+      n = i;
+    }
+  }
+  let string = arr[n].tone_name;
+  return string;
 }
 
 function createNewComment(parent, user, text){
@@ -321,7 +351,7 @@ function loadGraph() {
       if (postArray[i].by === "user-id" && postArray[i].tones !== undefined) {
         t += calcTonePositivity(postArray[i].tones);
         n += 1;
-      }  
+      }
     }
     if (n>0)  ave = ((t/n)*100);
     else  ave = 0.5;

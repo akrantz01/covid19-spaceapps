@@ -70,7 +70,7 @@
       </div><br><br>
       <p id="feed-name" style="text-align: center; margin-top: -40px; font-size: 25px; font-weight: bold;">Positivity Feed</p>
       <div class="posts" id="post-parent">
-        <p id="loading" style="font-size: 25px; font-weight: bold; margin-top: -20px;">loading...</p>
+        <p id="loading" style="font-size: 25px; font-weight: normal; margin-top: -20px;">loading...</p>
       </div>
       <div class="comments">
         <div class="posts" style="margin-top: -30px;">
@@ -78,6 +78,7 @@
           <div class="post">
             <div class="post-header"></div>
             <p></p>
+            <div class="post-details"></div>
           </div>
         </div>
         <h2 style="margin-top: 30px;">Comments</h2>
@@ -85,6 +86,7 @@
           <div class='comments' id="comment-parent" style="margin-top: -100px;"></div>
           <input type='hidden' name='uid' value='Anonymous'>
           <input type='hidden' name='date' value='".date(' Y-m-d H:i:s')."'>
+          <div id="yourComment">
           <div class='leftPanel'>
             <a href="#"><img src="assets/picture.png" style="width: 70px;"></a>
           </div>
@@ -95,6 +97,7 @@
             </form>
 						<button class='btn5' id="comment-button" style="margin: -30px -40px;">Comment</button>
           </div>
+        </div>
         </div>
       </div>
     </div>
