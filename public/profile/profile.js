@@ -352,7 +352,7 @@ function loadGraph() {
       }
     }
     if (n>0)  ave = ((t/n)*100);
-    else  ave = 0.5;
+    else  ave = 50;
     var ctx = document.getElementById('myChart').getContext('2d');
     var myLineChart = new Chart(ctx, {
       type: 'line',
