@@ -702,91 +702,66 @@ div.post-details {
   display: none;
   position: fixed;
   bottom: 0;
-  right: 55px;
+  right: 15px;
   border: 3px solid #f1f1f1;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
   z-index: 9;
 }
 
 .chat-popup h1
 {
   font-size: 30x;
-  margin-top: 0px;
+  margin-top: 0px; 
 }
 
 .form-container {
-  margin-top: 0px;
-  padding-top: 0px;
+  margin-top: 0px; 
+  padding-top: 0px; 
   max-width: 300px;
   padding: 10px;
   background-color: white;
 }
 
-
 .form-container textarea {
-  background-color: var(--offwhite);
-  color: black;
+  background-color: var(--pink); 
+  color: white; 
   width: 90%;
   padding: 15px;
-  padding-bottom: 0px;
+  padding-bottom: 0px; 
   margin: 5px 0 22px 0;
-  margin-bottom: 3px;
+  margin-bottom: 3px; 
   border: none;
   resize: none;
   min-height: 200px;
-  transition: 0.3s;
 }
 
 .form-container textarea:focus {
+  background-color: var(--background);
   box-shadow: 0px 0px 20px white;
   outline: none;
-  color: black;
-  padding: 15px;
-  margin-top: 0px;
-  border: 2px solid var(--yellow);
+  border: none; 
+  opacity: 1; 
+  color: black; 
+}
+
+.form-container .btn {
+  background-color: #90EE90;
+  color: white;
+  padding: 0px 0px;
+  top: 0px; 
+  margin-top: 0px; 
+  border: none;
   cursor: pointer;
-  margin-left: 0px;
-  width: 90%;
+  margin-left: 0px; 
+  width: 20%;
   margin-bottom: 0px;
-  font-size: 15px;
+  opacity: 0.8;
+  float: right; 
 }
 
-.btn {
-  background-color: var(--yellow);
-  color: white;
-  width: 95%;
-  height: 40px;
-  opacity: 1;
-  border: 2px solid var(--yellow);
-  transition: 0.3s;
-}
-
-.cancel {
+.form-container .cancel {
   background-color: var(--pink);
-  color: white;
-  border: 2px solid var(--pink);
-
 }
 
-.btn:hover {
-  background-color: white;
-  color: var(--yellow);
-}
-
-.cancel:hover {
-  background-color: white;
-  color: var(--pink);
-}
-
-.btn:disabled {
-  cursor: default;
-  background-color: var(--yellowdis);
-  color: white;
-}
-
-.btn:disabled:hover {
-  cursor: default;
-  background-color: var(--yellowdis);
-  color: white;
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
 }
