@@ -52,14 +52,14 @@ function getPosts(toggleOn){
     if(toggleOn){
       $("#feed-name").html("Positivity Feed");
       for(let i=0;i < postArray.length; i++) {
-        if (postArray[i].tones !== undefined && calcTonePositivity(postArray[i].tones) > 0.5 && postArray[i].by === 'user-id'){
+        if (postArray[i].tones !== undefined && calcTonePositivity(postArray[i].tones) > 0.5 && postArray[i].by === localStorage.getItem("user-id")){
           generatePost(postArray[i].by, postArray[i].content, postArray[i].id, postArray[i].tones);
         }
       }
     } else {
       $("#feed-name").html("All Feed");
       for(let i=0;i < postArray.length; i++) {
-        if (postArray[i].tones !== undefined && postArray[i].by === 'user-id') {
+        if (postArray[i].tones !== undefined && postArray[i].by === localStorage.getItem("user-id")) {
           generatePost(postArray[i].by, postArray[i].content, postArray[i].id, postArray[i].tones);
         }
       }
