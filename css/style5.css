@@ -756,22 +756,32 @@ div.post-details {
   margin-bottom: 0px;
   opacity: 0.8;
   float: right;
+  outline: none;
+  border: none; 
 }
 
 .chat-popup .btn:disabled {
+  outline: none;
+  border: none; 
   background-color: #b2b5a5;
   cursor: default;
 }
 
 .chat-popup .btn:disabled:hover {
+  outline: none;
+  border: none; 
   opacity: 0.8;
 }
 
 .chat-popup .cancel {
+  outline: none;
+  border: none; 
   background-color: var(--pink);
 }
 
 .chat-popup .btn:hover, .open-button:hover {
+  outline: none;
+  border: none; 
   opacity: 1;
 }
 
