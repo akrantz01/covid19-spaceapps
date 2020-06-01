@@ -44,12 +44,12 @@
       <button class="icon_button" style="position: absolute;" onclick="goProfile()"><img src="profile/assets/picture.png"></img></button>
       <button class="word_button" id="post" onclick="openForm()">POST</button>
 	<div class="chat-popup" id="myForm">
-  		<form class="form-container">
-    		<label for="msg"><b>Post a message!</b></label>
-    		<textarea id="post-content" placeholder="Type message.." name="msg" maxlength = "280" minlength="50" required></textarea>
-				</form>
-			<button id="post-button" class="btn">Post</button>
-    	<button class="btn cancel" onclick="closeForm()">Close</button>
+  	<form action="/action_page.php" class="form-container">
+    		<label for="msg"><b>MESSAGE</b></label>
+		<button type="submit" class="btn" onclick=""><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+    		<button type="button" class="btn cancel" onclick="closeForm()"><i class="fa fa-times" aria-hidden="true"></i></button>
+    		<textarea placeholder="Type message.." name="msg" maxlength ="285" required></textarea>
+  	</form>
 </div>
 
 <script>
