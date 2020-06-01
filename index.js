@@ -11,7 +11,7 @@ $(document).ready(function() {
   getPicture();
 
   $(".ringBell").click(function() {
-    if (notif_container == null) Self.notifications('secure-testing-auth').then(readNotifs);
+    if (notif_container == null) Self.notifications(localStorage.getItem("token")).then(readNotifs);
     else hideNotifs();
   });
 
@@ -28,13 +28,13 @@ $(document).ready(function() {
   $('#comment-button').click(function(){
     let id = $(".comments .post").attr('id');
     let content = $("#tweet").val();
-    Posts.comment(id, content, 'secure-testing-auth').then(function(){location.reload();});
+    Posts.comment(id, content, localStorage.getItem("token")).then(function(){location.reload();});
   });
 });
 
 function saveProfile() {
   if(localStorage.getItem('Name')==null){
-    Self.read('secure-testing-auth').then(function(e) {
+    Self.read(localStorage.getItem("token")).then(function(e) {
       $("#name").html("Hi " + e.data.name.toUpperCase() + "!");
       localStorage.setItem('Name', e.data.name);
       localStorage.setItem('Bio', "id: " + e.data.id + "<br>" + e.data.bio);
@@ -48,7 +48,7 @@ function saveProfile() {
 
 function postSomething(){
   let content = $("#post-content").val();
-  Posts.create(content, 'secure-testing-auth').then(function(){location.reload();});
+  Posts.create(content, localStorage.getItem("token")).then(function(){location.reload();});
 }
 
 function getPicture(){
@@ -74,7 +74,7 @@ function toMainFeed(){
 
 function getPosts(toggleOn){
   let postArray;
-  Posts.list('secure-testing-auth').then(function(e){
+  Posts.list(localStorage.getItem("token")).then(function(e){
     document.getElementById("post-parent").querySelectorAll('*').forEach(n=>n.remove());
     postArray = e.data;
     if(toggleOn){
@@ -150,7 +150,7 @@ function generatePost(user, text, id, arr){
   post.style.borderBottomColor = color;
 
   post.addEventListener('click', function(){
-    Posts.read(id, 'secure-testing-auth').then(function(e){
+    Posts.read(id, localStorage.getItem("token")).then(function(e){
       $(".comments .post-header").html(user);
       $(".comments .post p").html(text);
       $(".comments .post").attr('id', id);
@@ -196,7 +196,7 @@ function updateProfile() {
 
 function updateCount() {
   let count = 0;
-  Self.notifications('secure-testing-auth').then(function(e) {
+  Self.notifications(localStorage.getItem("token")).then(function(e) {
     if(e.data.comments.length + e.data.friend_requests.length > 0) $("span.-count").html('!');
     else $("span.-count").hide();
   });
@@ -230,14 +230,14 @@ function createNewFriendRequestNotif(text) {
   let acceptButton = document.createElement("button");
   acceptButton.innerHTML = "Y";
   acceptButton.addEventListener('click', function(){
-    Self.friend_request(text, true, 'secure-testing-auth').then(function() {
+    Self.friend_request(text, true, localStorage.getItem("token")).then(function() {
       hideNotifs();
     });
   });
   let rejectButton = document.createElement("button");
   rejectButton.innerHTML = "N";
   rejectButton.addEventListener('click', function(){
-    Self.friend_request(text, false, 'secure-testing-auth').then(function() {
+    Self.friend_request(text, false, localStorage.getItem("token")).then(function() {
       hideNotifs();
     });
   });
@@ -248,7 +248,7 @@ function createNewFriendRequestNotif(text) {
 }
 
 function respondToRequest(user, bool, obj) {
-  Self.friend_request(user, bool, 'secure-testing-auth').then(function() {
+  Self.friend_request(user, bool, localStorage.getItem("token")).then(function() {
     hideNotifs();
   });
 }

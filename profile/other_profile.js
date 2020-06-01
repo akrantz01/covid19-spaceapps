@@ -19,7 +19,7 @@ function displayFeed() {
     updateCount();
     checkFriend();
     $(".ringBell").click(function() {
-      if (notif_container == null) Self.notifications('secure-testing-auth').then(readNotifs);
+      if (notif_container == null) Self.notifications(localStorage.getItem("token")).then(readNotifs);
       else hideNotifs();
     });
     $('html').click(function(e) {
@@ -37,7 +37,7 @@ function displayFeed() {
 
   function updateCount() {
     let count = 0;
-    Self.notifications('secure-testing-auth').then(function(e) {
+    Self.notifications(localStorage.getItem("token")).then(function(e) {
       if(e.data.comments.length + e.data.friend_requests.length > 0) $("span.-count").html('!');
       else $("span.-count").hide();
     });
@@ -81,7 +81,7 @@ function displayFeed() {
   }
 
   function respondToRequest(user, bool, obj) {
-    Self.friend_request(user, bool, 'secure-testing-auth').then(function() {
+    Self.friend_request(user, bool, localStorage.getItem("token")).then(function() {
       hideNotifs();
     });
   }
@@ -91,7 +91,7 @@ function displayFeed() {
     $('#addfr').hide()
     $('#alreadyfr').hide()
     $('#alreadysent').hide()
-    Self.read('secure-testing-auth').then(function(a) {
+    Self.read(localStorage.getItem("token")).then(function(a) {
         var friends = false;
         for (var i=0; i < a.data.friends.length; i++){
             if (a.data.friends[i] === 'another-id'){
@@ -102,7 +102,7 @@ function displayFeed() {
             $('#alreadyfr').show();
         } else {
             var sent = false;
-            Self.notifications('other-secure-testing-auth').then(function(b) {
+            Self.notifications(localStorage.getItem("token")).then(function(b) {
                 console.log(b.data.friend_requests);
                 for (let i = 0; i < b.data.friend_requests.length; i++) {
                     if (b.data.friend_requests[i] === 'user-id'){
@@ -120,7 +120,7 @@ function displayFeed() {
   }
 
   function sendFrReq() {
-        Users.request_friend('other-secure-testing-auth','secure-testing-auth');
+        Users.request_friend(localStorage.getItem("token"),localStorage.getItem("token"));
         $('#addfr').hide()
         $('#alreadysent').show()
   }
