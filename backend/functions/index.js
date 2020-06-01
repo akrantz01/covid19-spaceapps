@@ -80,15 +80,24 @@ exports.api = functions.https.onRequest(app);
 
 // Setup user data on registration
 exports.userSetup = functions.auth.user().onCreate(async (user) => {
+    // Generate user id
+    let uid;
+    let parts = user.email.split("@");
+    if (parts[1] !== "gmail.com" && parts[1] !== "yahoo.com" && parts[1] !== "outlook.com") {
+        uid = user.email.replace("@", "-").split(".").reverse().slice(1).reverse().join(".")
+    } else {
+        uid = parts[0];
+    }
+
     // Create user data
-    await admin.firestore().collection("users").doc(user.uid).set({
+    await admin.firestore().collection("users").doc(uid).set({
         bio: "",
         friends: [],
         name: user.displayName
     });
 
     // Create user notifications
-    await admin.firestore().collection("notifications").doc(user.uid).set({
+    await admin.firestore().collection("notifications").doc(uid).set({
         friend_requests: [],
         comments: []
     })
