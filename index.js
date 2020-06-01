@@ -5,6 +5,7 @@ function goProfile() {
 var toggled = true;
 
 $(document).ready(function() {
+  disablePost();
   saveProfile(); //calls every time on profile? okay for preview?
   updateCount();
   getPosts(toggled);
@@ -20,9 +21,9 @@ $(document).ready(function() {
   });
 
   $(".show-more").click(function () {
-      if($(".text").hasClass("show-more-height")) $(this).text("(Show Less)");
-      else $(this).text("(Show More)");
-      $(".text").toggleClass("show-more-height");
+    if($(".text").hasClass("show-more-height")) $(this).text("(Show Less)");
+    else $(this).text("(Show More)");
+    $(".text").toggleClass("show-more-height");
   });
 
   $('#comment-button').click(function(){
@@ -30,7 +31,26 @@ $(document).ready(function() {
     let content = $("#tweet").val();
     Posts.comment(id, content, 'secure-testing-auth').then(function(){location.reload();});
   });
+
+  $("textarea#post-content").keyup(function(e){
+    if($("textarea#post-content").val().length > 50 && $("textarea#post-content").val().length < 300) document.getElementById("post-button").disabled = false;
+    else disablePost();
+  });
+
+  $('#post-button').click(function(){
+    let content = $("#post-content").val();
+    Posts.create(content, 'secure-testing-auth').then(function(){
+      $("#post-content").val('');
+      getPosts(toggled);
+      closeForm();
+      disablePost();
+    });
+  });
 });
+
+function disablePost(){
+  document.getElementById("post-button").disabled = true;
+}
 
 function saveProfile() {
   if(localStorage.getItem('Name')==null){
@@ -45,11 +65,6 @@ function saveProfile() {
 }
 
 //ASTROPIX//
-
-function postSomething(){
-  let content = $("#post-content").val();
-  Posts.create(content, 'secure-testing-auth').then(function(){location.reload();});
-}
 
 function getPicture(){
   fetch("https://api.nasa.gov/planetary/apod?api_key=GAbtYQKA3ehOsoGrOrE4mHyFbsT8v4sVnovrBqoj").then(function(e){
@@ -192,9 +207,6 @@ function getDominantMood(arr){
     secondMax = newArr.indexOf(secondMax);
     return arr[firstMax].tone_name + "/" + arr[secondMax].tone_name;
   }
-
-
-
   let largest = arr[0].score || null;
   let n = null;
   for (let i = 0; i < arr.length; i++) {
