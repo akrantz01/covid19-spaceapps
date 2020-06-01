@@ -60,7 +60,7 @@
 
     <hr style="border: 1px solid var(--bluetransp); margin-top: -2px;">
 
-    <div class="feed">
+    <div class="feed" id="FEED">
       <div class="switch">
         <div class="toggle-switch">
           <input type="checkbox" id="chkTest" name="chkTest" onclick="togglePos()">
@@ -69,6 +69,7 @@
           </label>
         </div>
       </div><br><br>
+      <p id="feed-name" style="text-align: center; margin-top: -40px;">Positivity Feed</p>
       <div class="posts" id="post-parent">
         <p id="loading" style="font-size: 20px; margin-top: -20px;">loading...</p>
       </div>
@@ -80,20 +81,20 @@
             <p></p>
           </div>
         </div>
-        <h2>Comments</h2>
+        <h2 style="margin-top: 30px;">Comments</h2>
         <div class='commentBox'>
-          <div class='comments' id="comment-parent"></div>
+          <div class='comments' id="comment-parent" style="margin-top: -100px;"></div>
           <input type='hidden' name='uid' value='Anonymous'>
           <input type='hidden' name='date' value='".date(' Y-m-d H:i:s')."'>
           <div class='leftPanel'>
-            <a href="#"><img src="image/Astronaut.png" class="Astronaut2"></a>
+            <a href="#"><img src="assets/picture.png" style="width: 70px;"></a>
           </div>
           <div class='rightPanel'>
-            <form name=my_form>
-              <textarea onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); id="tweet" name=my_text></textarea><br>
-              <input id="word-count" size=1 value=285 name=text_num readonly>
+            <form name=my_form style="margin-left: 30px;">
+              <textarea onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); id="tweet" name=my_text style="font-family: 'Open Sans';"></textarea><br>
+              <input id="word-count" size=1 value=285 name=text_num style="margin-left: 30px; margin-top: 10px;" readonly>
             </form>
-						<button class='btn5' id="comment-button">Comment</button>
+						<button class='btn5' id="comment-button" style="margin: -30px -40px;">Comment</button>
           </div>
         </div>
       </div>
