@@ -39,7 +39,7 @@ $(document).ready(function() {
 
   $('#post-button').click(function(){
     let content = $("#post-content").val();
-    Posts.create(content, 'secure-testing-auth').then(function(){
+    Posts.create(content, localStorage.getItem("token")).then(function(){
       $("#post-content").val('');
       getPosts(toggled);
       closeForm();

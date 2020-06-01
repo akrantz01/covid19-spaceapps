@@ -263,7 +263,7 @@ function chngimg(latitude, longitude) {
     $("#pol").hide();
     $("#nopol").hide();
   } else{
-    var aqi = air_quality_index(latitude, longitude, 'secure-testing-auth');
+    var aqi = air_quality_index(latitude, longitude, localStorage.getItem("token"));
 
     if (aqi <= 100) {
       $("#tree").css("opacity", 1);
