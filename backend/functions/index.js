@@ -84,7 +84,7 @@ exports.userSetup = functions.auth.user().onCreate(async (user) => {
     let uid;
     let parts = user.email.split("@");
     if (parts[1] !== "gmail.com" && parts[1] !== "yahoo.com" && parts[1] !== "outlook.com") {
-        uid = user.email.replace("@", "-").split(".").reverse().slice(1).reverse().join(".")
+        uid = user.email.replace("@", "-").replace(".", "-")
     } else {
         uid = parts[0];
     }
