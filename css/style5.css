@@ -147,6 +147,7 @@ p {
 .commentBox {
   margin-top: -90px;
   overflow: auto;
+  margin-left: -10px;
   padding-bottom: 60px;
 }
 
@@ -582,7 +583,7 @@ figure.snip0023 #astropix {
 }
 
 figure.snip0023 > div {
-  position: absolute; 
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
