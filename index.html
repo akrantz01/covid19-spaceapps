@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+  <title>CSSI</title>
+  <link rel="stylesheet" href="css/style5.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="index.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Staatliches&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crete+Round&display=swap" rel="stylesheet">
+  <script type="text/javascript">
+    if (localStorage.getItem("token") === null)
+        window.location.pathname = window.location.pathname.split("/").reverse().slice(1).reverse().join("/") + "/login.html";
+  </script>
+  <script type="text/javascript">
+    <!--
+    function check_length(my_form) {
+      maxLen = 285;
+      if (my_form.my_text.value.length >= maxLen) {
+        var msg = "You have reached your maximum limit of characters allowed";
+        alert(msg);
+        my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
+      } else {
+        my_form.text_num.value = maxLen - my_form.my_text.value.length;
+      }
+    }
+    //-->
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="ringBell">
+      <a href="#"><span class="-count">!</span></a>
+    </div>
+    <div id="notif_parent_container"></div>
+    <div class="header">
+      <button class="icon_button" style="position: absolute;" onclick="goProfile()"><img src="profile/assets/picture.png"></img></button>
+      <button class="word_button" id="post" onclick="openForm()">POST</button>
+      <div class="chat-popup" id="myForm">
+			<button id="post-button" type="submit" class="btn" onclick=""><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+			<button type="button" class="btn cancel" onclick="closeForm()"><i class="fa fa-times" aria-hidden="true"></i></button>
+  		<form action="/action_page.php" class="form-container" id="myForm">
+    			<label for="msg"><b>MESSAGE</b></label>
+    			<textarea id="post-content" placeholder="Type message.." name="msg" maxlength ="285" required></textarea>
+		</form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+    </div>
+
+    <!--
+    <button class="icon_button"><img src="profile/assets/picture.png"></img></button>
+    <button class='word_button' name='submit' type='submit' style="margin: -50px 380px;">POST</button>
+    <div class="ringBell">
+      <a href="#"><span class="-count">3</span></a>
+    </div>-->
+
+    <br><br>
+
+    <div class="main_header">
+      <h1 id="name">Hi ANONYMOUS!</h1>
+      <img src="profile/assets/border.png" style="width: 120px; margin-top: -10px;"></img>
+			<p> How are you doing today? </p> <br><br>
+    <figure class="snip0023">
+      <img id="astropix" src=""></img>
+	<div>
+		<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+		<div class="curl"></div>
+		<a href="https://apod.nasa.gov/apod/astropix.html"></a>
+	</div>
+    </figure>
+      <div id="profile-description">
+				<div class="text show-more-height">
+          <p id="astropix-description">Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
+				</div>
+				<div class="show-more">(Show More)</div>
+				<p class="id">(Astronomy Picture of the Day. Source: <a href="https://apod.nasa.gov/apod/astropix.html" id="source"></a>)</p>
+      </div>
+			<div class="switch">
+				<div class="toggle-switch">
+					<input type="checkbox" id="chkTest" name="chkTest" onclick="togglePos()">
+					<label for="chkTest">
+						<span class="toggle-track"></span>
+					</label>
+				</div>
+			</div>
+    </div>
+
+    <div class="feed">
+			<br><br>
+			<p id="feed-name" style="text-align: center; margin-top: -40px; font-size: 25px; font-weight: bold;">Positivity Feed</p>
+      <div class="posts" id="post-parent">
+        <p id="loading" style="font-size: 25px; margin-top: -100px; padding: 40px; font-weight: normal;">loading...</p>
+      </div>
+      <div class="comments">
+        <div class="posts">
+          <button id="back" class="icon_button" onclick="toMainFeed()"><i class="fa fa-caret-left" aria-hidden="true"></i></button>
+          <div class="post" style="margin-top: -140px;">
+            <div class="post-header"></div>
+            <p></p>
+						<div class="post-details"></div>
+          </div>
+        </div>
+        <h2>Comments</h2>
+        <div class='commentBox'>
+          <div class='comments' id="comment-parent"></div>
+          <input type='hidden' name='uid' value='Anonymous'>
+          <input type='hidden' name='date' value='".date(' Y-m-d H:i:s')."'>
+          <div class='leftPanel'>
+            <a href="#"><img src="image/Astronaut.png" class="Astronaut2"></a>
+          </div>
+          <div class='rightPanel'>
+            <form name=my_form>
+              <textarea onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); id="post-content" name=my_text></textarea><br>
+              <input id="word-count" size=1 value=285 name=text_num readonly>
+            </form>
+						<button class='btn5'>Comment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>

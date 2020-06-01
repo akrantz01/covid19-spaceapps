@@ -1,0 +1,160 @@
+<html lng="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+<head>
+  <title>Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link href="profile.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="profile.js"></script>
+  <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+  <script type="text/javascript">
+    if (localStorage.getItem("token") === null)
+      window.location.pathname = window.location.pathname.split("/").reverse().slice(2).reverse().join("/") + "/login.html";
+  </script>
+  <script language=JavaScript>
+  	<!--
+	function check_length(my_form)
+	{
+		maxLen = 285;
+		if (my_form.my_text.value.length >= maxLen)
+		{
+			var msg = "You have reached your maximum limit of characters allowed";
+			alert(msg);
+			my_form.my_text.value = my_form.my_text.value.substring(0, maxLen);
+ 		}
+		else{
+			my_form.text_num.value = maxLen - my_form.my_text.value.length;
+		}
+	}
+	//-->
+  </script>
+</head>
+
+<body>
+  <div class="container">
+     <div class="ringBell">
+  		   <a href="#"><span class="-count">!</span></a>
+	   </div>
+     <div id="notif_parent_container"></div>
+    <div class="header">
+      <button class="icon_button" id="home" onclick="goHome()" style="margin-left: 20px;"><i class="fa fa-home" aria-hidden="true"></i></button>
+      <button class="icon_button" id="logout" onclick="logout()" style="margin-left: 20px;"><i class="fas fa-sign-out-alt" aria-hidden="true"></i></button>
+    </div>
+    <div class="profile_header">
+      <img src="assets/picture.png"></img>
+      <h1 id="name" style="margin-bottom: 0">NAME</h1>
+      <p id="user-id" style="margin-top: 0">USER-ID</p>
+      <p id="bio" style="margin-top: -20px;">Lorem ipsum.</p>
+      <br><br><br>
+      <img src="assets/border.png" style="width: 120px; margin-top: -10px;"></img>
+      <br>
+      <div class="profile_header_location">
+        <button class="icon_button" id="location" onclick="getLocation()"><i class="fa fa-location-arrow" aria-hidden="true"></i>
+          <p>click to input location</p>
+        </button>
+      </div>
+    </div>
+
+    <div class="profile_pages_buttons">
+      <button id="feed_button" class="icon_button" onclick="displayFeed()"><img src="assets/profile_pen.png"></img></button>
+      <button id="wellness_button" class="icon_button" onclick="displayWellness()" style="margin-left: -30px;"><img src="assets/profile_sun.png"></img></button>
+    </div>
+
+    <hr style="border: 1px solid var(--bluetransp); margin-top: -2px;">
+
+    <div class="feed" id="FEED">
+      <div class="switch">
+        <div class="toggle-switch">
+          <input type="checkbox" id="chkTest" name="chkTest" onclick="togglePos()">
+          <label for="chkTest">
+            <span class="toggle-track"></span>
+          </label>
+        </div>
+      </div><br><br>
+      <p id="feed-name" style="text-align: center; margin-top: -40px; font-size: 25px; font-weight: bold;">Positivity Feed</p>
+      <div class="posts" id="post-parent">
+        <p id="loading" style="font-size: 25px; font-weight: normal; margin-top: -20px;">loading...</p>
+      </div>
+      <div class="comments">
+        <div class="posts" style="margin-top: -30px;">
+          <button id="back" class="icon_button" onclick="toMainFeed()"><i class="fa fa-caret-left" aria-hidden="true"></i></button>
+          <div class="post">
+            <div class="post-header"></div>
+            <p></p>
+            <div class="post-details"></div>
+          </div>
+        </div>
+        <h2 style="margin-top: 30px;">Comments</h2>
+        <div class='commentBox'>
+          <div class='comments' id="comment-parent" style="margin-top: -100px;"></div>
+          <input type='hidden' name='uid' value='Anonymous'>
+          <input type='hidden' name='date' value='".date(' Y-m-d H:i:s')."'>
+          <div id="yourComment">
+          <div class='leftPanel'>
+            <a href="#"><img src="assets/picture.png" style="width: 70px;"></a>
+          </div>
+          <div class='rightPanel'>
+            <form name=my_form style="margin-left: 30px;">
+              <textarea onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); id="tweet" name=my_text style="font-family: 'Open Sans';"></textarea><br>
+              <input id="word-count" size=1 value=285 name=text_num style="margin-left: 30px; margin-top: 10px;" readonly>
+            </form>
+						<button class='btn5' id="comment-button" style="margin: -30px -40px;">Comment</button>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="WELLNESS" class="profile_section">
+      <div class="section_header"><img src="assets/header_mood.png"></img></div>
+      <canvas id="myChart" width="400" height="400"></canvas>
+
+      <br>
+      <hr style="border: 1px solid var(--bluetransp); width: 124%; margin-left: -60px;"><br>
+      <div class="section_header"><img src="assets/header_health.png"></img></div>
+      <br><br><br><br><br><br>
+      <div class="cups">
+        <script>
+          var onImg = "assets/health_cup_full.png";
+          var offImg = "assets/health_cup_empty.png";
+        </script>
+        <input class="cup" type="image" src="assets/health_cup_empty.png" onclick="this.src = (this.src.endsWith(offImg)? onImg : offImg);" />
+        <input class="cup" type="image" src="assets/health_cup_empty.png" onclick="this.src = (this.src.endsWith(offImg)? onImg : offImg);" />
+        <input class="cup" type="image" src="assets/health_cup_empty.png" onclick="this.src = (this.src.endsWith(offImg)? onImg : offImg);" />
+        <input class="cup" type="image" src="assets/health_cup_empty.png" onclick="this.src = (this.src.endsWith(offImg)? onImg : offImg);" />
+        <input class="cup" type="image" src="assets/health_cup_empty.png" onclick="this.src = (this.src.endsWith(offImg)? onImg : offImg);" />
+        <input class="cup" type="image" src="assets/health_cup_empty.png" onclick="this.src = (this.src.endsWith(offImg)? onImg : offImg);" />
+        <input class="cup" type="image" src="assets/health_cup_empty.png" onclick="this.src = (this.src.endsWith(offImg)? onImg : offImg);" />
+        <input class="cup" type="image" src="assets/health_cup_empty.png" onclick="this.src = (this.src.endsWith(offImg)? onImg : offImg);" />
+      </div>
+      <p>How many <b>cups of water</b> have you drank today?</p>
+      <br><br><br>
+      <div class="pollution">
+        <img id="tree" alt="" src="assets/health_tree.png" onload="chngimg()" />
+        <img id="house" alt="" src="assets/health_home.png" onload="chngimg()" />
+      </div> <br>
+      <div class="poltext" style="width: 200px; text-align: center; margin-left: 160px;">
+        <div id="nopol">
+          The <b>air pollution level is low!</b> Go outside, get some fresh air, and do some exercises!
+        </div>
+        <div id="pol">
+          The <b>air pollution level is high and unhealthy!</b> Stay inside, but don't forget to get some exercise!
+        </div>
+        <div id="nodat">
+          No location data available, please allow location data for a pollution sensor! Meanwhile, exercise if you can!
+        </div>
+      </div>
+      <br><br><br><br>
+      <hr style="border: 1px solid var(--bluetransp); width: 124%; margin-left: -60px;"><br>
+      <div class="section_header"><img src="assets/header_news.png"></img></div>
+      <a class="twitter-timeline" data-lang="en" data-width="600" data-height="400" data-theme="white" href="https://twitter.com/goodnewsnetwork?ref_src=twsrc%5Etfw">Tweets by goodnewsnetwork</a>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+
+  </div>
+</body>
+
+</html>

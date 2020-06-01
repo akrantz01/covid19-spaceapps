@@ -1,0 +1,39 @@
+<html lang="en">
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="css/login.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-auth.js"></script>
+
+        <script type="text/javascript">
+            if (localStorage.getItem("token") !== null)
+                window.location.pathname = window.location.pathname.split("/").reverse().slice(1).reverse().join("/") + "/index.html";
+        </script>
+        <script>
+            // Your web app's Firebase configuration
+            let firebaseConfig = {
+                apiKey: "AIzaSyCci_NUTq-oRZqCH98_e__FpYfdu-7FoDU",
+                authDomain: "covid19-spaceapps.firebaseapp.com",
+                databaseURL: "https://covid19-spaceapps.firebaseio.com",
+                projectId: "covid19-spaceapps",
+                storageBucket: "covid19-spaceapps.appspot.com",
+                messagingSenderId: "962984131828",
+                appId: "1:962984131828:web:04941a3f16619ce16b72a1"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="imgcontainer">
+                <img src="profile/assets/title.png" style="width: 500px;">
+            </div>
+            <div style="text-align: center">
+                <button type="button" id="login">Login with Google</button>
+            </div>
+        </div>
+    <script src="login.js"></script>
+    </body>
+</html>

@@ -1,0 +1,207 @@
+:root {
+  --background: rgb(232, 207, 193);
+  --yellow: rgb(233, 188, 164);
+  --pink: rgb(230, 153, 149);
+  --darkpink: rgb(204, 150, 152);
+  --purple: rgb(166, 143, 155);
+  --blue: rgb(135, 138, 149);
+  --bluetransp: rgba(135, 138, 149, 0.3);
+}
+
+::-webkit-scrollbar-track
+{
+	border: none;
+	background-color: var(--background);
+}
+
+::-webkit-scrollbar
+{
+	width: 15px;
+	background-color: white;
+}
+
+::-webkit-scrollbar-thumb
+{
+	background-color: white;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover
+{
+  	background-color: mistyrose;
+}
+
+* 
+{
+	box-sizing: border-box;
+}
+
+body
+{
+	background-color: var(--background) !important;
+	font-family: 'Open Sans' !important;
+}
+
+.container .form-group .form-control::placeholder 
+{
+    	color: pink;
+}
+
+/* Modal Content/Box */
+.container 
+{
+	//font-weight: bold; 
+  	//font-size: 15px;
+	//line-height:1.5;
+  	//background-color: white;
+  	//margin: 3% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  	//border: 1px solid white !important;
+	//padding-top: 3%; 
+  	//max-width: 40%; /* Could be more or less, depending on screen size */
+	position: relative;
+  	display: block;
+  	max-width: 40em;
+  	margin: 0 auto;
+  	margin-top: 50px;
+  	background-color: #ffffff;
+  	border-radius: .9em;
+  	box-shadow: 10px 10px var(--blue);
+  	height: auto;
+  	min-height: 100% !important;
+  	-webkit-animation-name: animatetop;
+  	-webkit-animation-duration: 0.4s;
+  	animation-name: animatetop;
+  	animation-duration: 3s;
+	//padding-bottom: 3%; 
+        //box-shadow: 0 0 10px white;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop 
+{
+  	from {top:-300px; opacity:0} 
+  	to {top:0; opacity:1}
+}
+
+@keyframes animatetop 
+{
+  	from {top:-300px; opacity:0}
+  	to {top:0; opacity:1}
+}
+
+.modal-header 
+{
+  	margin-top: -10%; 
+  	padding: 2px 20px;
+  	margin-right: 0px; 
+  	background-color: pink;
+  	color: white;
+  	margin-bottom: 20px; 
+	border-radius: 1%; 
+}
+
+.modal-header2
+{
+  	margin-top: 0%; 
+  	padding 0px; 
+  	margin-right: 0px; 
+  	background-color: white;
+  	color: pink;
+  	margin-bottom: 20px; 
+	border-radius: 1%; 
+	border-bottom-style: solid;
+	border-color: pink; 
+}
+
+#submit
+{
+	background-color: pink;
+	border: none; 
+	color: white; 
+	font-size: 16px; 
+ 	font-weight: bold; 
+	outline: none; 
+}
+
+#submit:hover
+{
+    	box-shadow: 0 0 10px pink;
+}
+
+#comment_content
+{
+	border-color: pink;
+	resize: none; 
+	color: pink; 
+}
+
+#comment_content:focus 
+{ 
+    	outline: none !important;
+    	border-color: pink;
+    	box-shadow: 0 0 10px pink;
+}
+
+#comment_name
+{
+	border-color: pink;
+	color: pink; 
+}
+
+#comment_name:focus
+{
+    	outline: none !important;
+    	border-color: pink;
+    	box-shadow: 0 0 10px pink;
+}
+
+.toggle-switch input[type=checkbox]
+{
+	display:none
+}
+
+.toggle-switch label
+{
+	cursor: pointer;
+}
+
+.toggle-switch label .toggle-track
+{
+	float: left;
+  	display:block;
+	height:30px;
+	width:60px;
+	//background:#eee;
+	background-color: pink;
+	border-radius: 20px;
+  	position:relative;
+  	margin-bottom: 0px;
+	border:1px solid pink;
+	margin-right: 8%;
+	margin-top: 10%;
+	margin-bottom: 5%;
+}
+
+.toggle-switch .toggle-track:before
+{
+  	content:'';
+  	display:inline-block;
+	height:30px;
+	width:30px;
+	//background:olivedrab;
+	background-image: url("../image/SmileyFace2.png");
+        background-size: cover;
+  	border-radius:20px;
+  	position:absolute;
+  	top:0;
+  	right:0;
+  	transition:right .2s ease-in;
+}
+
+.toggle-switch input[type="checkbox"]:checked + label .toggle-track:before
+{
+  	//background: var(--pink);
+	background-image: url("../image/FrowningFace2.png");
+        background-size: cover;
+  	right: 30px;
+}
