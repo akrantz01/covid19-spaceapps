@@ -46,9 +46,9 @@
 	<div class="chat-popup" id="myForm">
   	<form action="/action_page.php" class="form-container">
     		<label for="msg"><b>MESSAGE</b></label>
-		<button type="submit" class="btn" onclick=""><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+		<button type="submit" class="btn" id="post-button"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
     		<button type="button" class="btn cancel" onclick="closeForm()"><i class="fa fa-times" aria-hidden="true"></i></button>
-    		<textarea placeholder="Type message.." name="msg" maxlength ="285" required></textarea>
+    		<textarea id="post-content" placeholder="Type message.." name="msg" maxlength ="285" required></textarea>
   	</form>
 </div>
 
@@ -126,10 +126,10 @@ function closeForm() {
           </div>
           <div class='rightPanel'>
             <form name=my_form>
-              <textarea onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); id="tweet" name=my_text></textarea><br>
+              <textarea onKeyPress=check_length(this.form); onKeyDown=check_length(this.form); id="post-content" name=my_text></textarea><br>
               <input id="word-count" size=1 value=285 name=text_num readonly>
             </form>
-						<button class='btn5' id="comment-button">Comment</button>
+						<button class='btn5'>Comment</button>
           </div>
         </div>
       </div>
