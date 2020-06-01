@@ -8,7 +8,16 @@ $(document).ready(() => {
             .then(res => {
                 localStorage.setItem("token", res.credential.idToken);
                 localStorage.setItem("name", res.user.displayName);
-                localStorage.setItem("user-id", res.user.email.replace("@", "-").split(".").reverse().slice(1).reverse().join("."));
+
+                // Generate user id
+                let uid;
+                let parts = res.user.email.split("@");
+                if (parts[1] !== "gmail.com" && parts[1] !== "yahoo.com" && parts[1] !== "outlook.com") {
+                    uid = res.user.email.replace("@", "-").replace(".", "-")
+                } else {
+                    uid = parts[0];
+                }
+                localStorage.setItem("user-id", uid);
             })
             .then(() => window.location.pathname = window.location.pathname.split("/").reverse().slice(1).reverse().join("/") + "/index.html")
             .catch(err => console.log(err));
