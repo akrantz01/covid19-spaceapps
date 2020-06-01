@@ -77,6 +77,7 @@ function togglePos(){
 let commentArray;
 
 function calcTonePositivity(arr) {
+  if (arr === undefined)  return 0.5;
   var total = 0;
   var num = 0;
   for (var i=0; i < arr.length; i++){

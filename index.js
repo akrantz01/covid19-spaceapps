@@ -80,7 +80,7 @@ function getPosts(toggleOn){
     if(toggleOn){
       $("#feed-name").html("Positivity Feed");
       for(let i=0;i < postArray.length; i++) {
-        if (calcTonePositivity(postArray[i].tones) > 0.5){
+        if (postArray[i].tones !== undefined && calcTonePositivity(postArray[i].tones) > 0.5){
           generatePost(postArray[i].by, postArray[i].content, postArray[i].id, postArray[i].tones);
         }
       }
@@ -104,6 +104,7 @@ function togglePos(){
 let commentArray;
 
 function calcTonePositivity(arr) {
+  if (arr === undefined)  return 0.5;
   var total = 0;
   var num = 0;
   for (var i=0; i < arr.length; i++){
