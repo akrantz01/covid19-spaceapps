@@ -10,6 +10,10 @@
   <link href="profile.css" rel="stylesheet" type="text/css">
   <script type="text/javascript" src="profile.js"></script>
   <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+  <script type="text/javascript">
+    if (localStorage.getItem("token") === null)
+      window.location.pathname = window.location.pathname.split("/").reverse().slice(2).reverse().join("/") + "/login.html";
+  </script>
   <script language=JavaScript>
   	<!--
 	function check_length(my_form)
@@ -41,8 +45,9 @@
     </div>
     <div class="profile_header">
       <img src="assets/picture.png"></img>
-      <h1 id="name">NAME</h1>
-      <p id="bio" style="margin-top: -20px;">Lorem ipsum.</h1>
+      <h1 id="name" style="margin-bottom: 0">NAME</h1>
+      <p id="user-id" style="margin-top: 0">USER-ID</p>
+      <p id="bio" style="margin-top: -20px;">Lorem ipsum.</p>
       <br><br><br>
       <img src="assets/border.png" style="width: 120px; margin-top: -10px;"></img>
       <br>

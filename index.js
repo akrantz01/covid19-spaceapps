@@ -33,14 +33,14 @@ $(document).ready(function() {
 });
 
 function saveProfile() {
-  if(localStorage.getItem('Name')==null){
+  if(localStorage.getItem('name')==null){
     Self.read(localStorage.getItem("token")).then(function(e) {
       $("#name").html("Hi " + e.data.name.toUpperCase() + "!");
-      localStorage.setItem('Name', e.data.name);
-      localStorage.setItem('Bio', "id: " + e.data.id + "<br>" + e.data.bio);
+      localStorage.setItem('name', e.data.name);
+      localStorage.setItem('bio', "id: " + e.data.id + "<br>" + e.data.bio);
     });
   } else {
-    $("#name").html("Hi " + localStorage.getItem('Name').toUpperCase() + "!");
+    $("#name").html("Hi " + localStorage.getItem('name').toUpperCase() + "!");
   }
 }
 
@@ -190,8 +190,8 @@ function createNewComment(parent, user, text){
 let notif_container = null;
 
 function updateProfile() {
-  $("#name").html(localStorage.getItem('Name'));
-  $("#bio").html(localStorage.getItem('Bio'));
+  $("#name").html(localStorage.getItem('name'));
+  $("#bio").html(localStorage.getItem('bio'));
 }
 
 function updateCount() {

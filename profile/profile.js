@@ -162,8 +162,9 @@ function createNewComment(parent, user, text){
 let notif_container = null;
 
 function updateProfile() {
-  $("#name").html(localStorage.getItem('Name'));
-  $("#bio").html(localStorage.getItem('Bio'));
+  $("#name").html(localStorage.getItem('name'));
+  $("#user-id").html(localStorage.getItem('user-id'));
+  $("#bio").html(localStorage.getItem('bio'));
 }
 
 function updateCount() {

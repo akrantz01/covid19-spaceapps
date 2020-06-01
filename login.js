@@ -1,36 +1,16 @@
 $(document).ready(() => {
-    $("#login-create").on("submit", function(event) {
-        event.preventDefault();
+    $("#login").on("click", function(event) {
+        let provider = new firebase.auth.GoogleAuthProvider();
+        provider.addScope("profile");
+        provider.addScope("email");
 
-        switch (event.originalEvent.submitter.id) {
-            case "login":
-                login();
-                break;
-
-            case "create":
-                create();
-                break;
-        }
+        firebase.auth().signInWithPopup(provider)
+            .then(res => {
+                localStorage.setItem("token", res.credential.idToken);
+                localStorage.setItem("name", res.user.displayName);
+                localStorage.setItem("user-id", res.user.email.replace("@", "-").split(".").reverse().slice(1).reverse().join("."));
+            })
+            .then(() => window.location.pathname = window.location.pathname.split("/").reverse().slice(1).reverse().join("/") + "/index.html")
+            .catch(err => console.log(err));
     });
 });
-
-function login() {
-    const email = $("#email").val();
-    const password = $("#psw").val();
-
-    firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(() => firebase.auth().currentUser.getIdToken(true))
-        .then(token => localStorage.setItem("token", token))
-        .then(() => window.location.pathname = window.location.pathname.split("/").reverse().slice(1).reverse().join("/") + "/index.html")
-        .catch(err => console.log(err));
-}
-
-function create() {
-    const email = $("#email").val();
-    const password = $("#psw").val();
-    console.log(`Email: ${email}\tPassword: ${password}`);
-
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(() => login())
-        .catch(err => console.log(err));
-}
